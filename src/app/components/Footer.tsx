@@ -1,7 +1,9 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import logo from 'figma:asset/ef1b7f9a59270025d749a9fe982bb3cf3819bbe4.png';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -14,7 +16,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <img src={logo} alt="PetraConstrucciones" className="h-16 w-auto mb-4" />
+            <Image src="/logo.png" alt="PetraConstrucciones" width={160} height={64} className="h-16 w-auto mb-4" />
             <p className="text-gray-300 text-sm">
               Construyendo el futuro con excelencia, innovación y compromiso. Tu proyecto, nuestra pasión.
             </p>
@@ -29,11 +31,11 @@ export function Footer() {
           >
             <h3 className="text-[var(--mavic-gold)] mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Home</Link></li>
-              <li><Link to="/quienes-somos" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Quiénes Somos</Link></li>
-              <li><Link to="/galeria" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Galería</Link></li>
-              <li><Link to="/portfolio" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Portfolio</Link></li>
-              <li><Link to="/contacto" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Contacto</Link></li>
+              <li><Link href="/" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Home</Link></li>
+              <li><Link href="/quienes-somos" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Quiénes Somos</Link></li>
+              <li><Link href="/galeria" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Galería</Link></li>
+              <li><Link href="/portfolio" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Portfolio</Link></li>
+              <li><Link href="/contacto" className="text-gray-300 hover:text-[var(--mavic-gold)] transition-colors">Contacto</Link></li>
             </ul>
           </motion.div>
 

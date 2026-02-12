@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export function Hero() {
   return (
@@ -48,14 +50,14 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Link
-              to="/portfolio"
+              href="/portfolio"
               className="inline-flex items-center justify-center px-8 py-4 bg-[var(--mavic-gold)] text-white rounded-lg hover:bg-[var(--mavic-gold-light)] transition-all duration-300 group"
             >
               Ver Proyectos
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Link>
             <Link
-              to="/contacto"
+              href="/contacto"
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg hover:bg-white hover:text-[var(--mavic-navy)] transition-all duration-300"
             >
               Contactar

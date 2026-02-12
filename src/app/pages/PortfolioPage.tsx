@@ -1,4 +1,7 @@
+'use client';
+
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Building2, Home, Factory, Calendar, MapPin, CheckCircle } from 'lucide-react';
 
 const projects = [
@@ -178,12 +181,12 @@ export function PortfolioPage() {
             <p className="text-xl text-gray-300 mb-8">
               Contáctanos y hagamos realidad tu visión
             </p>
-            <a
+            <Link
               href="/contacto"
               className="inline-block px-8 py-4 bg-[var(--mavic-gold)] text-white rounded-lg hover:bg-[var(--mavic-gold-light)] transition-colors"
             >
               Solicitar Presupuesto
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

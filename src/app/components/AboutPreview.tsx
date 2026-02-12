@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export function AboutPreview() {
   return (
@@ -42,7 +44,7 @@ export function AboutPreview() {
               en cada detalle.
             </p>
             <Link
-              to="/quienes-somos"
+              href="/quienes-somos"
               className="inline-flex items-center px-6 py-3 bg-[var(--mavic-navy)] text-white rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors group"
             >
               Ver Más

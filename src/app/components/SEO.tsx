@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 
 interface SEOProps {
   title?: string;
@@ -42,10 +44,10 @@ const pageSEO: Record<string, SEOProps> = {
 };
 
 export function SEO() {
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const seo = pageSEO[location.pathname] || defaultSEO;
+    const seo = pageSEO[pathname] || defaultSEO;
     
     // Update title
     document.title = seo.title || defaultSEO.title;
@@ -93,7 +95,7 @@ export function SEO() {
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', window.location.href);
-  }, [location]);
+  }, [pathname]);
 
   return null;
 }

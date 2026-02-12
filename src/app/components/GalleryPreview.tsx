@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const galleryImages = [
   {
@@ -69,7 +71,7 @@ export function GalleryPreview() {
           className="text-center"
         >
           <Link
-            to="/galeria"
+            href="/galeria"
             className="inline-flex items-center px-6 py-3 bg-[var(--mavic-gold)] text-white rounded-lg hover:bg-[var(--mavic-gold-light)] transition-colors group"
           >
             Ver Más

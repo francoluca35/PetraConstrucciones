@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight, Building2, Home, Factory } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const portfolioItems = [
   {
@@ -86,7 +88,7 @@ export function PortfolioPreview() {
           className="text-center"
         >
           <Link
-            to="/portfolio"
+            href="/portfolio"
             className="inline-flex items-center px-6 py-3 bg-[var(--mavic-navy)] text-white rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors group"
           >
             Ver Más

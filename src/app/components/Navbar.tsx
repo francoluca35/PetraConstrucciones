@@ -1,13 +1,18 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import logo from 'figma:asset/ef1b7f9a59270025d749a9fe982bb3cf3819bbe4.png';
+import Image from 'next/image';
+
+const logo = '/logo.png';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +24,7 @@ export function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -40,13 +45,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src={logo}
-              alt="PetraConstrucciones"
-              className="h-12 w-auto"
-            />
+          <Link href="/" className="flex items-center">
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Image src={logo} alt="PetraConstrucciones" width={120} height={48} className="h-12 w-auto" />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -54,13 +56,13 @@ export function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
+                href={link.path}
                 className="relative group"
               >
                 <span className="text-white hover:text-[var(--mavic-gold)] transition-colors duration-300">
                   {link.name}
                 </span>
-                {location.pathname === link.path && (
+                {pathname === link.path && (
                   <motion.div
                     layoutId="navbar-indicator"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--mavic-gold)]"
@@ -93,9 +95,9 @@ export function Navbar() {
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   className={`block px-4 py-3 rounded-lg transition-colors ${
-                    location.pathname === link.path
+                    pathname === link.path
                       ? 'bg-[var(--mavic-gold)] text-white'
                       : 'text-white hover:bg-[var(--mavic-gold)]/20'
                   }`}

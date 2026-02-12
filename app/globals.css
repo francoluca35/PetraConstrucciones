@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@source '../src/**/*.{js,ts,jsx,tsx}';
+@source './**/*.{js,ts,jsx,tsx}';
+@import 'tw-animate-css';
+
+@import '../src/styles/fonts.css';
+@import '../src/styles/theme.css';
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mavic-gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mavic-gold-light);
+}

@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export function ContactPreview() {
   return (
@@ -63,7 +65,7 @@ export function ContactPreview() {
             </div>
 
             <Link
-              to="/contacto"
+              href="/contacto"
               className="inline-flex items-center px-6 py-3 bg-[var(--mavic-gold)] text-white rounded-lg hover:bg-[var(--mavic-gold-light)] transition-colors group"
             >
               Ver Más
