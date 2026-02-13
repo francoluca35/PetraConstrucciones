@@ -38,9 +38,9 @@ export function PortfolioPage() {
         </motion.h2>
       </section>
 
-      {/* Grilla 2 columnas: izquierda más arriba que derecha (estilo escalonado) */}
+      {/* Grilla: 1 col hasta lg, después 2 columnas escalonadas; carteles debajo hasta lg para que no se corten */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 overflow-visible">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {projects.map((project, index) => (
             <motion.article
               key={project.slug}
@@ -48,9 +48,9 @@ export function PortfolioPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className={`group ${index % 2 === 1 ? 'md:mt-16' : ''}`}
+              className={`group ${index % 2 === 1 ? 'lg:mt-16' : ''}`}
             >
-              <Link href={`/portfolio/${project.slug}`} className="block pt-4 pb-6 md:pt-4 md:pb-6">
+              <Link href={`/portfolio/${project.slug}`} className="block pt-4 pb-6">
                 <div className="relative aspect-[4/3] overflow-visible cursor-pointer">
                   <div className="absolute inset-0 overflow-hidden rounded-sm">
                     <Image
@@ -58,23 +58,23 @@ export function PortfolioPage() {
                       alt={project.label}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
-                  {/* Desktop: caja mitad en imagen, mitad afuera */}
-                  <div className="absolute bottom-4 left-0 -translate-x-1/2 z-10 w-max hidden md:block">
+                  {/* Solo desktop grande: caja mitad en imagen, mitad afuera */}
+                  <div className="absolute bottom-4 left-0 -translate-x-1/2 z-10 w-max hidden lg:block">
                     <div className="px-5 py-3 bg-white text-center shadow-sm">
                       <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
                         {project.category || 'PROYECTO'}
                       </p>
-                      <p className="text-lg md:text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight">
+                      <p className="text-lg xl:text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight">
                         {project.label}
                       </p>
                     </div>
                   </div>
                 </div>
-                {/* Mobile: texto debajo de la imagen, limpio */}
-                <div className="mt-4 md:hidden">
+                {/* Tablets y móvil (< lg): texto debajo de la imagen, siempre visible */}
+                <div className="mt-4 lg:hidden">
                   <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
                     {project.category || 'PROYECTO'}
                   </p>

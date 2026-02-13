@@ -119,7 +119,7 @@ export function Footer() {
       href="https://www.deamondd.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:underline text-[var(--mavic-gold)]"
+      className="hover:underline text-[var(--petra-gold)]"
     >
    {" "}   DeamonDD
     </a>
