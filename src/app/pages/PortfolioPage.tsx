@@ -40,7 +40,7 @@ export function PortfolioPage() {
 
       {/* Grilla 2 columnas: izquierda más arriba que derecha (estilo escalonado) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 overflow-visible">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-10">
           {projects.map((project, index) => (
             <motion.article
               key={project.slug}
@@ -50,7 +50,7 @@ export function PortfolioPage() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className={`group ${index % 2 === 1 ? 'md:mt-16' : ''}`}
             >
-              <Link href={`/portfolio/${project.slug}`} className="block pt-4 pb-6">
+              <Link href={`/portfolio/${project.slug}`} className="block pt-4 pb-6 md:pt-4 md:pb-6">
                 <div className="relative aspect-[4/3] overflow-visible cursor-pointer">
                   <div className="absolute inset-0 overflow-hidden rounded-sm">
                     <Image
@@ -60,11 +60,11 @@ export function PortfolioPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    </div>
-                  {/* Nombre: mitad en imagen, mitad afuera (izquierda) */}
-                  <div className="absolute bottom-4 left-0 -translate-x-1/2 z-10 w-max">
+                  </div>
+                  {/* Desktop: caja mitad en imagen, mitad afuera */}
+                  <div className="absolute bottom-4 left-0 -translate-x-1/2 z-10 w-max hidden md:block">
                     <div className="px-5 py-3 bg-white text-center shadow-sm">
-                      <p className="text-xs uppercase tracking-wider text-[#283777] font-medium">
+                      <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
                         {project.category || 'PROYECTO'}
                       </p>
                       <p className="text-lg md:text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight">
@@ -72,6 +72,15 @@ export function PortfolioPage() {
                       </p>
                     </div>
                   </div>
+                </div>
+                {/* Mobile: texto debajo de la imagen, limpio */}
+                <div className="mt-4 md:hidden">
+                  <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
+                    {project.category || 'PROYECTO'}
+                  </p>
+                  <p className="text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight mt-0.5">
+                    {project.label}
+                  </p>
                 </div>
               </Link>
             </motion.article>
