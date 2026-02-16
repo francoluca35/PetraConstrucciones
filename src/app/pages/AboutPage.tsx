@@ -35,8 +35,8 @@ const stats = [
 
 export function AboutPage() {
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
+    <div>
+      {/* Hero Section - se extiende hasta arriba para navbar transparente */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -49,7 +49,7 @@ export function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 text-center text-white px-4"
+          className="relative z-10 text-center text-white px-4 pt-16"
         >
           <h1 className="text-5xl md:text-6xl mb-4">
             Quiénes <span className="text-[var(--mavic-gold)]">Somos</span>

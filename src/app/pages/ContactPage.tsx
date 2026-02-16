@@ -29,9 +29,9 @@ export function ContactPage() {
   };
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+    <div>
+      {/* Hero Section - se extiende hasta arriba para navbar transparente */}
+      <section className="relative h-[50vh] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -43,7 +43,7 @@ export function ContactPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 text-center text-white px-4"
+          className="relative z-10 text-center text-white px-4 pt-16"
         >
           <h1 className="text-5xl md:text-6xl mb-4">
             <span className="text-[var(--mavic-gold)]">Contacto</span>

@@ -4,6 +4,7 @@ import { Navbar } from '@/src/app/components/Navbar';
 import { Footer } from '@/src/app/components/Footer';
 import { BackToTop } from '@/src/app/components/BackToTop';
 import { ScrollToTop } from '@/src/app/components/ScrollToTop';
+import { WhatsAppFloating } from '@/src/app/components/WhatsAppFloating';
 
 export const metadata: Metadata = {
   title: 'Petra Construcciones - Excelencia en Construcción',
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <ScrollToTop />
+        <WhatsAppFloating />
       </body>
     </html>
   );
