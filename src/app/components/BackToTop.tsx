@@ -8,19 +8,15 @@ export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    const footer = document.getElementById('page-footer');
+    if (!footer) return;
 
-    window.addEventListener('scroll', toggleVisibility);
-
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1, rootMargin: '0px' }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToTop = () => {
@@ -38,7 +34,7 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-[var(--mavic-gold)] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[var(--mavic-gold-light)] transition-colors cursor-pointer"
+          className="fixed bottom-0 left-8 z-50 w-12 h-12 bg-[var(--mavic-gold)] text-white rounded-none flex items-center justify-center shadow-lg hover:bg-[var(--mavic-gold-light)] transition-colors cursor-pointer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >

@@ -8,7 +8,7 @@ import { projects } from '@/src/data/projects';
 export function PortfolioPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero: imagen con degradado suave a blanco */}
+      {/* Hero: imagen con degradado - se extiende hasta arriba para navbar transparente */}
       <section className="relative h-[55vh] min-h-[320px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
