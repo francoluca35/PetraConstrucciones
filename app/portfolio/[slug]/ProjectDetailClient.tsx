@@ -5,7 +5,14 @@ import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, MapPin, Calendar, CheckCircle, LayoutGrid, X } from 'lucide-react';
+import { useLanguage } from '@/src/context/LanguageContext';
 import type { Project } from '@/src/data/projects';
+
+const categoryToKey: Record<string, string> = {
+  Residencial: 'portfolio.category.residential',
+  Oficinas: 'portfolio.category.offices',
+  Diseño: 'portfolio.category.design',
+};
 
 interface ProjectDetailClientProps {
   project: Project;
@@ -14,9 +21,14 @@ interface ProjectDetailClientProps {
 }
 
 export function ProjectDetailClient({ project, prevProject, nextProject }: ProjectDetailClientProps) {
+  const { t } = useLanguage();
+  const slug = project.slug;
   const images = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const description = t(`project.${slug}.description`);
+  const featureKeys = [1, 2, 3, 4].map((i) => `project.${slug}.f${i}` as const);
+  const categoryLabel = project.category ? t(categoryToKey[project.category] ?? 'portfolioPage.categoryProject') : null;
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -79,9 +91,9 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {project.category && (
+            {categoryLabel && (
               <span className="inline-block px-3 py-1 bg-[var(--petra-gold)] text-white text-sm font-medium rounded-full mb-3">
-                {project.category}
+                {categoryLabel}
               </span>
             )}
             <h1
@@ -106,7 +118,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
               type="button"
               onClick={() => openLightbox(currentIndex)}
               className="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-inset"
-              aria-label="Ver imagen completa"
+              aria-label={t('projectDetail.ariaViewFullImage')}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -134,7 +146,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                   type="button"
                   onClick={(e) => { e.stopPropagation(); goToSlide(currentIndex - 1); }}
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
-                  aria-label="Imagen anterior"
+                  aria-label={t('projectDetail.ariaPrevImage')}
                 >
                   <ArrowLeft size={20} className="text-[var(--petra-navy)]" />
                 </button>
@@ -142,7 +154,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                   type="button"
                   onClick={(e) => { e.stopPropagation(); goToSlide(currentIndex + 1); }}
                   className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
-                  aria-label="Siguiente imagen"
+                  aria-label={t('projectDetail.ariaNextImage')}
                 >
                   <ArrowRight size={20} className="text-[var(--petra-navy)]" />
                 </button>
@@ -153,7 +165,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                       type="button"
                       onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
                       className={`w-2 h-2 rounded-full transition-colors ${i === currentIndex ? 'bg-[var(--petra-gold)]' : 'bg-white/70 hover:bg-white'}`}
-                      aria-label={`Ir a imagen ${i + 1}`}
+                      aria-label={`${t('projectDetail.ariaGoToImage')} ${i + 1}`}
                     />
                   ))}
                 </div>
@@ -177,13 +189,13 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
               type="button"
               onClick={closeLightbox}
               className="absolute inset-0 bg-black/95 cursor-default"
-              aria-label="Cerrar (clic afuera)"
+              aria-label={t('projectDetail.ariaCloseClickOutside')}
             />
             <button
               type="button"
               onClick={closeLightbox}
               className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-white hover:text-[var(--petra-gold)] transition-colors cursor-pointer"
-              aria-label="Cerrar"
+              aria-label={t('projectDetail.ariaClose')}
             >
               <X size={28} />
             </button>
@@ -241,7 +253,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
           className="space-y-8"
         >
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            {project.description}
+            {description}
           </p>
 
           {(project.location || project.year) && (
@@ -264,21 +276,25 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
           {project.features && project.features.length > 0 && (
             <div>
               <h2 className="text-xl font-semibold text-[var(--petra-navy)] mb-4">
-                Características principales
+                {t('projectDetail.featuresTitle')}
               </h2>
               <ul className="grid sm:grid-cols-2 gap-3">
-                {project.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-2 text-gray-700"
-                  >
-                    <CheckCircle
-                      className="text-[var(--petra-gold)] flex-shrink-0"
-                      size={20}
-                    />
-                    <span>{feature}</span>
-                  </li>
-                ))}
+                {featureKeys.map((key, i) => {
+                  const text = t(key);
+                  if (!text || text === key) return null;
+                  return (
+                    <li
+                      key={i}
+                      className="flex items-center gap-2 text-gray-700"
+                    >
+                      <CheckCircle
+                        className="text-[var(--petra-gold)] flex-shrink-0"
+                        size={20}
+                      />
+                      <span>{text}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

@@ -4,29 +4,19 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const galleryImages = [
-  {
-    url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    title: 'Construcción Moderna',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    title: 'Casa en suburbios',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    title: 'Casas Modernas',
-  },
-  {
-    url: '/Assets/plano.jpg',
-    title: 'Diseño Arquitectónico',
-  },
+  { url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img1' },
+  { url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img2' },
+  { url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img3' },
+  { url: '/Assets/plano.jpg', titleKey: 'gallery.img4' },
 ];
 
 const AUTOPLAY_MS = 5000;
 
 export function GalleryPreview() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const startTimeRef = useRef<number>(Date.now());
@@ -65,22 +55,22 @@ export function GalleryPreview() {
         >
           <img
             src={galleryImages[currentIndex].url}
-            alt={galleryImages[currentIndex].title}
+            alt={t(galleryImages[currentIndex].titleKey)}
             className="w-full h-full object-cover"
           />
           {/* Sin bloque oscuro: texto directo sobre la imagen, esquina inferior derecha */}
           <div className="absolute bottom-0 right-0 text-right p-6 md:p-10 pb-24 md:pb-28">
             <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
-              {galleryImages[currentIndex].title}
+              {t(galleryImages[currentIndex].titleKey)}
             </p>
             <p className="text-white/90 text-sm md:text-base mb-4 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
-              Petra Construcciones · Galería
+              {t('gallery.brand')}
             </p>
             <Link
               href="/galeria"
               className="inline-flex items-center gap-1.5 text-white text-sm font-medium border-b border-white/80 pb-0.5 hover:border-[var(--petra-gold)] hover:text-[var(--petra-gold)] transition-colors group"
             >
-              Ver más
+              {t('gallery.seeMore')}
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>

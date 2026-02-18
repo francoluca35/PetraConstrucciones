@@ -4,13 +4,14 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer id="page-footer" className="bg-[var(--petra-navy)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  justify-center items-center">
-          {/* Logo y descripción */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +19,7 @@ export function Footer() {
           >
             <Image src="/Assets/logo-pagina.png" alt="PetraConstrucciones" width={160} height={64} className="h-16 w-auto mb-4" />
             <p className="text-gray-300 text-sm">
-              Construyendo el futuro con excelencia, innovación y compromiso. Tu proyecto, nuestra pasión.
+              {t('footer.tagline')}
             </p>
           </motion.div>
 
@@ -46,7 +47,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-[var(--petra-gold)] mb-4">Contacto</h3>
+            <h3 className="text-[var(--petra-gold)] mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-3">
               <li className="flex items-center text-gray-300">
                 <Phone size={18} className="mr-2 text-[var(--petra-gold)]" />
@@ -70,7 +71,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-[var(--petra-gold)] mb-4">Síguenos</h3>
+            <h3 className="text-[var(--petra-gold)] mb-4">{t('footer.follow')}</h3>
             <div className="flex space-x-4">
               <a
                 href="#"
@@ -93,7 +94,7 @@ export function Footer() {
             </div>
             <div className="mt-6">
               <p className="text-sm text-gray-400">
-                Horario: Lun-Vie 9:00 - 18:00
+                {t('footer.hours')}
               </p>
             </div>
           </motion.div>
@@ -107,22 +108,10 @@ export function Footer() {
           className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400"
         >
 <p className="text-sm text-gray-500">
-  © {new Date().getFullYear()}  {" "}
-  <span className="font-semibold text-[#E5C337]">
-     Petra Construcciones
-  </span>
-  . Todos los derechos reservados. 
+  © {new Date().getFullYear()} <span className="font-semibold text-[#E5C337]">Petra Construcciones</span>. {t('footer.rights')}
   <br className="sm:hidden" />
-  <span className="opacity-80">
- {" "}   Website by 
-    <a 
-      href="https://www.deamondd.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:underline text-[var(--petra-gold)]"
-    >
-   {" "}   DeamonDD
-    </a>
+  <span className="opacity-80"> {t('footer.by')}{' '}
+    <a href="https://www.deamondd.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-[var(--petra-gold)]">DeamonDD</a>
   </span>
 </p>
 
