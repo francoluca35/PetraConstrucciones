@@ -37,7 +37,7 @@ export const projects: Project[] = [
       '/Assets/Proyecto-1/living-1.jpg',
       '/Assets/Proyecto-1/Baño-1.jpg',
       '/Assets/Proyecto-1/exterior-terraza.jpg',
-      '/Assets/Proyecto-1/patio-trasero.jpeg',
+      '/Assets/Proyecto-1/patio-trasero.png',
     ],
     category: 'Residencial',
     description: 'Casa moderna con líneas arquitectónicas definidas. Excelente integración entre interior y exterior.',
