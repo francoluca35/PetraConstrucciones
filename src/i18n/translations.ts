@@ -11,6 +11,8 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     // Hero
     'hero.subtitle': 'construyendo tus sueños',
+    'hero.typewriter1': 'CONSTRUCCIONES CIVILES Y COMERCIALES',
+    'hero.typewriter2': 'CONSTRUCCIÓN DE PISCINAS',
     'hero.contactBtn': 'Contactanos',
     'hero.stats.works': 'OBRAS REALIZADAS',
     'hero.stats.sqm': 'M² CONSTRUIDOS',
@@ -262,6 +264,8 @@ export const translations: Record<Locale, Record<string, string>> = {
     'nav.closeMenu': 'Close menu',
 
     'hero.subtitle': 'building your dreams',
+    'hero.typewriter1': 'CIVIL AND COMMERCIAL CONSTRUCTION',
+    'hero.typewriter2': 'POOL CONSTRUCTION',
     'hero.contactBtn': 'Contact us',
     'hero.stats.works': 'PROJECTS COMPLETED',
     'hero.stats.sqm': 'M² BUILT',
@@ -498,9 +502,14 @@ export const translations: Record<Locale, Record<string, string>> = {
   },
 };
 
-// Hero typewriter: full text per locale (PETRA\nCONSTRUCCIONES\nsubtitle)
-export function getHeroTypewriterText(locale: Locale): string {
-  const sub = locale === 'es' ? 'construyendo tus sueños' : 'building your dreams';
-  const line2 = locale === 'es' ? 'CONSTRUCCIONES' : 'CONSTRUCTIONS';
-  return `PETRA\n${line2}\n${sub}`;
+// Hero: título fijo (se escribe una vez). Siempre "Petra Construcciones", no se traduce.
+export function getHeroPrefix(_locale: Locale): string {
+  return 'PETRA\nCONSTRUCCIONES';
+}
+
+export function getHeroRotatingSubtitles(locale: Locale): string[] {
+  return [
+    translations[locale]['hero.typewriter1'],
+    translations[locale]['hero.typewriter2'],
+  ];
 }

@@ -5,100 +5,124 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
-import { getHeroTypewriterText } from '@/src/i18n/translations';
+import { getHeroPrefix, getHeroRotatingSubtitles } from '@/src/i18n/translations';
 
-function TypewriterLoop({
-  fullText,
+const titleClass = 'block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl';
+const subtitleClass = 'block text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl';
+
+function HeroTypewriter({
+  prefix,
+  rotatingSubtitles,
   delay = 0,
   typeSpeed = 75,
   eraseSpeed = 45,
+  holdAfterPrefix = 600,
   holdAfterType = 2200,
   holdAfterErase = 600,
 }: {
-  fullText: string;
+  prefix: string;
+  rotatingSubtitles: string[];
   delay?: number;
   typeSpeed?: number;
   eraseSpeed?: number;
+  holdAfterPrefix?: number;
   holdAfterType?: number;
   holdAfterErase?: number;
 }) {
-  const [visibleLength, setVisibleLength] = useState(0);
-  const [phase, setPhase] = useState<'idle' | 'typing' | 'hold' | 'erasing' | 'holdErased'>('idle');
   const [started, setStarted] = useState(false);
+  const [phase, setPhase] = useState<'prefix' | 'prefixDone' | 'rotating'>('prefix');
+  const [prefixLen, setPrefixLen] = useState(0);
+  const [rotIndex, setRotIndex] = useState(0);
+  const [rotLen, setRotLen] = useState(0);
+  const [rotPhase, setRotPhase] = useState<'typing' | 'hold' | 'erasing' | 'holdErased'>('typing');
+  const currentSub = rotatingSubtitles[rotIndex] ?? rotatingSubtitles[0];
 
   useEffect(() => {
     const t = setTimeout(() => setStarted(true), delay);
     return () => clearTimeout(t);
   }, [delay]);
 
+  // Fase 1: escribir el prefijo (PETRA + CONSTRUCCIONES) una sola vez
   useEffect(() => {
-    if (!started) return;
-
-    if (phase === 'idle') {
-      setPhase('typing');
+    if (!started || phase !== 'prefix') return;
+    if (prefixLen >= prefix.length) {
+      setPhase('prefixDone');
       return;
     }
+    const t = setTimeout(() => setPrefixLen((n) => n + 1), typeSpeed);
+    return () => clearTimeout(t);
+  }, [started, phase, prefixLen, prefix.length, typeSpeed]);
 
-    if (phase === 'typing') {
-      if (visibleLength >= fullText.length) {
-        setPhase('hold');
+  // Tras terminar el prefijo, esperar un poco y pasar a rotar subtítulos
+  useEffect(() => {
+    if (phase !== 'prefixDone') return;
+    const t = setTimeout(() => setPhase('rotating'), holdAfterPrefix);
+    return () => clearTimeout(t);
+  }, [phase, holdAfterPrefix]);
+
+  // Fase 2: loop infinito solo con los dos subtítulos
+  useEffect(() => {
+    if (phase !== 'rotating' || rotatingSubtitles.length === 0) return;
+
+    if (rotPhase === 'typing') {
+      if (rotLen >= currentSub.length) {
+        setRotPhase('hold');
         return;
       }
-      const t = setTimeout(() => setVisibleLength((n) => n + 1), typeSpeed);
+      const t = setTimeout(() => setRotLen((n) => n + 1), typeSpeed);
       return () => clearTimeout(t);
     }
 
-    if (phase === 'hold') {
-      const t = setTimeout(() => {
-        setPhase('erasing');
-      }, holdAfterType);
+    if (rotPhase === 'hold') {
+      const t = setTimeout(() => setRotPhase('erasing'), holdAfterType);
       return () => clearTimeout(t);
     }
 
-    if (phase === 'erasing') {
-      if (visibleLength <= 0) {
-        setPhase('holdErased');
+    if (rotPhase === 'erasing') {
+      if (rotLen <= 0) {
+        setRotPhase('holdErased');
         return;
       }
-      const t = setTimeout(() => setVisibleLength((n) => n - 1), eraseSpeed);
+      const t = setTimeout(() => setRotLen((n) => n - 1), eraseSpeed);
       return () => clearTimeout(t);
     }
 
-    if (phase === 'holdErased') {
+    if (rotPhase === 'holdErased') {
       const t = setTimeout(() => {
-        setPhase('typing');
+        setRotIndex((i) => (i + 1) % rotatingSubtitles.length);
+        setRotPhase('typing');
       }, holdAfterErase);
       return () => clearTimeout(t);
     }
-  }, [started, phase, visibleLength, fullText.length, typeSpeed, eraseSpeed, holdAfterType, holdAfterErase]);
+  }, [phase, rotPhase, rotLen, currentSub.length, rotatingSubtitles.length, typeSpeed, eraseSpeed, holdAfterType, holdAfterErase]);
 
-  const visible = fullText.slice(0, visibleLength);
-  const lines = visible.split('\n');
-  const titleClass = 'block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl';
-  const subtitleClass = 'block text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl';
-  const showCursor = visibleLength < fullText.length;
+  const prefixVisible = prefix.slice(0, prefixLen);
+  const prefixLines = prefixVisible.split('\n');
+  const showPrefixCursor = phase === 'prefix' && prefixLen < prefix.length;
+  const subVisible = currentSub.slice(0, rotLen);
+  const showSubCursor = phase === 'rotating' && rotPhase === 'typing' && rotLen < currentSub.length;
 
   return (
     <>
       <h1 className="mb-0 text-left font-bold uppercase leading-[1.1] text-white">
-        {lines[0] !== undefined && (
+        {prefixLines[0] !== undefined && (
           <span className={titleClass}>
-            {lines[0]}
-            {lines.length === 1 && showCursor && <span className="animate-pulse">|</span>}
+            {prefixLines[0]}
+            {prefixLines.length === 1 && showPrefixCursor && <span className="animate-pulse">|</span>}
           </span>
         )}
-        {lines[1] !== undefined && (
+        {prefixLines[1] !== undefined && (
           <span className={titleClass}>
-            {lines[1]}
-            {lines.length === 2 && showCursor && <span className="animate-pulse">|</span>}
+            {prefixLines[1]}
+            {prefixLines.length === 2 && showPrefixCursor && <span className="animate-pulse">|</span>}
           </span>
         )}
       </h1>
-      {lines[2] !== undefined && (
+      {(phase === 'rotating' || rotLen > 0) && (
         <p className="mb-3 mt-1 text-left text-white/90">
           <span className={subtitleClass}>
-            {lines[2]}
-            {showCursor && <span className="animate-pulse">|</span>}
+            {subVisible}
+            {showSubCursor && <span className="animate-pulse">|</span>}
           </span>
         </p>
       )}
@@ -135,13 +159,13 @@ function CountUp({ target, format, duration = 2 }: { target: number; format?: (n
 }
 
 const BG_IMAGES_MOBILE: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/home-m1.jpg', objectPosClass: 'object-center' },
-  { src: '/Assets/home-m.jpg', objectPosClass: 'object-center' },
+  { src: '/Assets/home-mobile.png', objectPosClass: 'object-center' },
+  { src: '/Assets/home-m.png', objectPosClass: 'object-center' },
   { src: '/Assets/home-m3.jpg', objectPosClass: 'object-center' },
 ];
 
 const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/home.jpg', objectPosClass: 'object-[center_40%] md:object-center' },
+  { src: '/Assets/home.png', objectPosClass: 'object-[center_40%] md:object-center' },
   { src: '/Assets/home-2.jpeg', objectPosClass: 'object-[center_40%] md:object-[70%_center]' },
   { src: '/Assets/home-3.png', objectPosClass: 'object-[center_40%] md:object-center' },
 ];
@@ -222,7 +246,16 @@ export function Hero() {
           transition={{ duration: 0.7 }}
           className="mb-4"
         >
-          <TypewriterLoop fullText={getHeroTypewriterText(locale)} delay={500} typeSpeed={75} eraseSpeed={45} holdAfterType={2200} holdAfterErase={600} />
+          <HeroTypewriter
+            prefix={getHeroPrefix(locale)}
+            rotatingSubtitles={getHeroRotatingSubtitles(locale)}
+            delay={500}
+            typeSpeed={75}
+            eraseSpeed={45}
+            holdAfterPrefix={600}
+            holdAfterType={2200}
+            holdAfterErase={600}
+          />
         </motion.div>
 
         {/* Botón Contactanos + Estadísticas al lado - alineados a la misma altura */}
@@ -238,7 +271,7 @@ export function Hero() {
           >
             {t('hero.contactBtn')}
           </Link>
-          <div className="flex flex-wrap items-end gap-10 md:gap-14 lg:gap-20">
+          {/* <div className="flex flex-wrap items-end gap-10 md:gap-14 lg:gap-20">
             {STATS.map((stat, i) => (
               <div key={i} className="flex flex-col items-start">
                 <span className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -249,7 +282,7 @@ export function Hero() {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

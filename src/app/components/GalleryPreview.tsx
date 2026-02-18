@@ -7,10 +7,11 @@ import Link from 'next/link';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img1' },
-  { url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img2' },
-  { url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', titleKey: 'gallery.img3' },
   { url: '/Assets/plano.jpg', titleKey: 'gallery.img4' },
+  { url: '/Assets/Proyecto-1/frente-1.png', titleKey: 'gallery.img1' },
+  { url: '/Assets/home.png', titleKey: 'gallery.img2' },
+  { url: '/Assets/Proyecto-4/2.png', titleKey: 'gallery.img3' },
+  { url: '/Assets/oficinas.png', titleKey: 'gallery.img4' },
 ];
 
 const AUTOPLAY_MS = 5000;
