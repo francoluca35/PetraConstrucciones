@@ -65,7 +65,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
         {/* <div className="absolute top-4 left-4 z-10">
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm text-[var(--mavic-navy)] font-medium rounded-lg hover:bg-white transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm text-[var(--petra-navy)] font-medium rounded-lg hover:bg-white transition-colors"
           >
             <ArrowLeft size={20} />
             Volver al portfolio
@@ -80,12 +80,12 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {project.category && (
-              <span className="inline-block px-3 py-1 bg-[var(--mavic-gold)] text-white text-sm font-medium rounded-full mb-3">
+              <span className="inline-block px-3 py-1 bg-[var(--petra-gold)] text-white text-sm font-medium rounded-full mb-3">
                 {project.category}
               </span>
             )}
             <h1
-              className="text-4xl md:text-5xl font-bold text-[var(--mavic-navy)]"
+              className="text-4xl md:text-5xl font-bold text-[var(--petra-navy)]"
               style={{ fontFamily: "'Good Times', sans-serif" }}
             >
               {project.label}
@@ -105,7 +105,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             <button
               type="button"
               onClick={() => openLightbox(currentIndex)}
-              className="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] focus:ring-inset"
+              className="absolute inset-0 w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-inset"
               aria-label="Ver imagen completa"
             >
               <AnimatePresence mode="wait">
@@ -136,7 +136,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
                   aria-label="Imagen anterior"
                 >
-                  <ArrowLeft size={20} className="text-[var(--mavic-navy)]" />
+                  <ArrowLeft size={20} className="text-[var(--petra-navy)]" />
                 </button>
                 <button
                   type="button"
@@ -144,7 +144,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                   className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-colors"
                   aria-label="Siguiente imagen"
                 >
-                  <ArrowRight size={20} className="text-[var(--mavic-navy)]" />
+                  <ArrowRight size={20} className="text-[var(--petra-navy)]" />
                 </button>
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {images.map((_, i) => (
@@ -152,7 +152,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                       key={i}
                       type="button"
                       onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
-                      className={`w-2 h-2 rounded-full transition-colors ${i === currentIndex ? 'bg-[var(--mavic-gold)]' : 'bg-white/70 hover:bg-white'}`}
+                      className={`w-2 h-2 rounded-full transition-colors ${i === currentIndex ? 'bg-[var(--petra-gold)]' : 'bg-white/70 hover:bg-white'}`}
                       aria-label={`Ir a imagen ${i + 1}`}
                     />
                   ))}
@@ -182,7 +182,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             <button
               type="button"
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-white hover:text-[var(--mavic-gold)] transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-white hover:text-[var(--petra-gold)] transition-colors cursor-pointer"
               aria-label="Cerrar"
             >
               <X size={28} />
@@ -248,13 +248,13 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             <div className="flex flex-wrap gap-6 text-gray-600">
               {project.location && (
                 <div className="flex items-center gap-2">
-                  <MapPin className="text-[var(--mavic-gold)]" size={22} />
+                  <MapPin className="text-[var(--petra-gold)]" size={22} />
                   <span>{project.location}</span>
                 </div>
               )}
               {project.year && (
                 <div className="flex items-center gap-2">
-                  <Calendar className="text-[var(--mavic-gold)]" size={22} />
+                  <Calendar className="text-[var(--petra-gold)]" size={22} />
                   <span>{project.year}</span>
                 </div>
               )}
@@ -263,7 +263,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
 
           {project.features && project.features.length > 0 && (
             <div>
-              <h2 className="text-xl font-semibold text-[var(--mavic-navy)] mb-4">
+              <h2 className="text-xl font-semibold text-[var(--petra-navy)] mb-4">
                 Características principales
               </h2>
               <ul className="grid sm:grid-cols-2 gap-3">
@@ -273,7 +273,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
                     className="flex items-center gap-2 text-gray-700"
                   >
                     <CheckCircle
-                      className="text-[var(--mavic-gold)] flex-shrink-0"
+                      className="text-[var(--petra-gold)] flex-shrink-0"
                       size={20}
                     />
                     <span>{feature}</span>
@@ -286,7 +286,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
           <div className="pt-8">
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--mavic-navy)] text-white font-medium rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--petra-navy)] text-white font-medium rounded-lg hover:bg-[var(--petra-navy-dark)] transition-colors"
             >
               Solicitar presupuesto para un proyecto similar
               <ArrowLeft className="rotate-180" size={18} />
@@ -302,7 +302,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             {prevProject ? (
               <Link
                 href={`/portfolio/${prevProject.slug}`}
-                className="flex items-center gap-2 hover:text-[var(--mavic-navy)] transition-colors group"
+                className="flex items-center gap-2 hover:text-[var(--petra-navy)] transition-colors group"
               >
                 <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                 <span className="font-medium">Proyectos</span>
@@ -310,7 +310,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             ) : (
               <Link
                 href="/portfolio"
-                className="flex items-center gap-2 text-gray-400 hover:text-[var(--mavic-navy)] transition-colors group"
+                className="flex items-center gap-2 text-gray-400 hover:text-[var(--petra-navy)] transition-colors group"
               >
                 <ArrowLeft size={20} />
                 <span className="font-medium">Proyectos</span>
@@ -319,7 +319,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
 
             <Link
               href="/portfolio"
-              className="flex items-center justify-center w-12 h-12 text-gray-600 hover:text-[var(--mavic-navy)] hover:bg-gray-100 rounded-lg transition-colors"
+              className="flex items-center justify-center w-12 h-12 text-gray-600 hover:text-[var(--petra-navy)] hover:bg-gray-100 rounded-lg transition-colors"
               title="Ver todos los proyectos"
               aria-label="Ver todos los proyectos"
             >
@@ -329,7 +329,7 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
             {nextProject ? (
               <Link
                 href={`/portfolio/${nextProject.slug}`}
-                className="flex items-center gap-2 hover:text-[var(--mavic-navy)] transition-colors group"
+                className="flex items-center gap-2 hover:text-[var(--petra-navy)] transition-colors group"
               >
                 <span className="font-medium">Siguiente</span>
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

@@ -40,11 +40,11 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #C9A961;
   
-  /* PetraConstrucciones - Custom Colors */
-  --mavic-navy: #171717;
-  --mavic-gold: #C9A961;
-  --mavic-navy-dark: #1a252f;
-  --mavic-gold-light: #d4b876;
+  /* Petra Construcciones - Custom Colors */
+  --petra-navy: #171717;
+  --petra-gold: #C9A961;
+  --petra-navy-dark: #1a252f;
+  --petra-gold-light: #d4b876;
 }
 
 .dark {
@@ -125,10 +125,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
   
   /* PetraConstrucciones Custom Color Classes */
-  --color-mavic-navy: var(--mavic-navy);
-  --color-mavic-gold: var(--mavic-gold);
-  --color-mavic-navy-dark: var(--mavic-navy-dark);
-  --color-mavic-gold-light: var(--mavic-gold-light);
+  --color-petra-navy: var(--petra-navy);
+  --color-petra-gold: var(--petra-gold);
+  --color-petra-navy-dark: var(--petra-navy-dark);
+  --color-petra-gold-light: var(--petra-gold-light);
 }
 
 @layer base {

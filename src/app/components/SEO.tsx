@@ -12,7 +12,7 @@ interface SEOProps {
 const defaultSEO = {
   title: 'PetraConstrucciones - Excelencia en Construcción',
   description: 'PetraConstrucciones - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación.',
-  keywords: 'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, PetraConstrucciones, construcción Madrid, constructora',
+  keywords: 'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, PetraConstrucciones, construcción Mérida, Yucatán, México, constructora',
 };
 
 const pageSEO: Record<string, SEOProps> = {
@@ -38,7 +38,7 @@ const pageSEO: Record<string, SEOProps> = {
   },
   '/contacto': {
     title: 'Contacto - PetraConstrucciones',
-    description: 'Contáctanos para tu próximo proyecto. Consultoría gratuita. Teléfono, email y oficinas en Madrid.',
+    description: 'Contáctanos para tu próximo proyecto. Consultoría gratuita. Teléfono, email y oficinas en Mérida, Yucatán, México.',
     keywords: 'contacto construcción, presupuesto construcción, consultoría obras, contactar PetraConstrucciones',
   },
 };

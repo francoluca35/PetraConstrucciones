@@ -10,11 +10,11 @@ export default function HomePage() {
     <>
       {/* Sección principal: solo portfolio visible. Descomentar en feature branches cuando estén listas. */}
        <Hero /> 
-      {/* <AboutPreview /> */}
-      {/* <GalleryPreview /> */}
-      <PortfolioPage />
-      {/* <PortfolioPreview /> */}
-      {/* <ContactPreview /> */}
+      <AboutPreview /> 
+      <GalleryPreview /> 
+
+     <PortfolioPreview />
+     <ContactPreview />
     </>
   );
 }

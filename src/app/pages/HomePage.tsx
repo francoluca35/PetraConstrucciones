@@ -8,10 +8,11 @@ export function HomePage() {
   return (
     <>
       <Hero />
-    {/*   <AboutPreview />
-      <GalleryPreview /> */}
-      <PortfolioPreview />
-      {/* <ContactPreview /> */}
+      <AboutPreview />
+      <GalleryPreview />
+     
+     <PortfolioPreview />
+     <ContactPreview />
     </>
   );
 }

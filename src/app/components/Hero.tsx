@@ -5,6 +5,107 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+const HERO_FULL_TEXT = 'PETRA\nCONSTRUCCIONES\nconstruyendo tus sueños';
+
+function TypewriterLoop({
+  fullText = HERO_FULL_TEXT,
+  delay = 0,
+  typeSpeed = 75,
+  eraseSpeed = 45,
+  holdAfterType = 2200,
+  holdAfterErase = 600,
+}: {
+  fullText?: string;
+  delay?: number;
+  typeSpeed?: number;
+  eraseSpeed?: number;
+  holdAfterType?: number;
+  holdAfterErase?: number;
+}) {
+  const [visibleLength, setVisibleLength] = useState(0);
+  const [phase, setPhase] = useState<'idle' | 'typing' | 'hold' | 'erasing' | 'holdErased'>('idle');
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setStarted(true), delay);
+    return () => clearTimeout(t);
+  }, [delay]);
+
+  useEffect(() => {
+    if (!started) return;
+
+    if (phase === 'idle') {
+      setPhase('typing');
+      return;
+    }
+
+    if (phase === 'typing') {
+      if (visibleLength >= fullText.length) {
+        setPhase('hold');
+        return;
+      }
+      const t = setTimeout(() => setVisibleLength((n) => n + 1), typeSpeed);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === 'hold') {
+      const t = setTimeout(() => {
+        setPhase('erasing');
+      }, holdAfterType);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === 'erasing') {
+      if (visibleLength <= 0) {
+        setPhase('holdErased');
+        return;
+      }
+      const t = setTimeout(() => setVisibleLength((n) => n - 1), eraseSpeed);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === 'holdErased') {
+      const t = setTimeout(() => {
+        setPhase('typing');
+      }, holdAfterErase);
+      return () => clearTimeout(t);
+    }
+  }, [started, phase, visibleLength, fullText.length, typeSpeed, eraseSpeed, holdAfterType, holdAfterErase]);
+
+  const visible = fullText.slice(0, visibleLength);
+  const lines = visible.split('\n');
+  const titleClass = 'block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl';
+  const subtitleClass = 'block text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl';
+  const showCursor = visibleLength < fullText.length;
+
+  return (
+    <>
+      <h1 className="mb-0 text-left font-bold uppercase leading-[1.1] text-white">
+        {lines[0] !== undefined && (
+          <span className={titleClass}>
+            {lines[0]}
+            {lines.length === 1 && showCursor && <span className="animate-pulse">|</span>}
+          </span>
+        )}
+        {lines[1] !== undefined && (
+          <span className={titleClass}>
+            {lines[1]}
+            {lines.length === 2 && showCursor && <span className="animate-pulse">|</span>}
+          </span>
+        )}
+      </h1>
+      {lines[2] !== undefined && (
+        <p className="mb-3 mt-1 text-left text-white/90">
+          <span className={subtitleClass}>
+            {lines[2]}
+            {showCursor && <span className="animate-pulse">|</span>}
+          </span>
+        </p>
+      )}
+    </>
+  );
+}
+
 const STATS = [
   { value: 300, label: 'OBRAS REALIZADAS' },
   { value: 600000, label: 'M² CONSTRUIDOS', format: (n: number) => n.toLocaleString('es-AR') },
@@ -40,8 +141,8 @@ const BG_IMAGES_MOBILE: { src: string; objectPosClass?: string }[] = [
 ];
 
 const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/home-1.png', objectPosClass: 'object-[center_40%] md:object-center' },
-  { src: '/Assets/home-2.jpg', objectPosClass: 'object-[center_40%] md:object-[70%_center]' },
+  { src: '/Assets/home.jpg', objectPosClass: 'object-[center_40%] md:object-center' },
+  { src: '/Assets/home-2.jpeg', objectPosClass: 'object-[center_40%] md:object-[70%_center]' },
   { src: '/Assets/home-3.png', objectPosClass: 'object-[center_40%] md:object-center' },
 ];
 
@@ -113,20 +214,15 @@ export function Hero() {
 
       {/* Contenido */}
       <div className="relative z-10 flex flex-1 flex-col justify-end px-6 pb-22 pt-20 md:px-12 md:pb-56 md:pt-24 lg:px-16 lg:pb-56 lg:pt-24">
-        {/* Título principal - 2 líneas como en la imagen */}
-        <motion.h1
+        {/* Título principal - efecto máquina de escribir en bucle infinito */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mb-8 text-left font-bold uppercase leading-[1.1] text-white"
+          className="mb-4"
         >
-          <span className="block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            PETRA
-          </span>
-          <span className="block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            CONSTRUCCIONES
-          </span>
-        </motion.h1>
+          <TypewriterLoop delay={500} typeSpeed={75} eraseSpeed={45} holdAfterType={2200} holdAfterErase={600} />
+        </motion.div>
 
         {/* Botón Contactanos + Estadísticas al lado - alineados a la misma altura */}
         <motion.div
