@@ -3,8 +3,10 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 export function ContactPreview() {
+  const { t } = useLanguage();
   return (
     <section className="relative py-20 bg-[var(--petra-navy)] overflow-hidden">
       {/* Líneas abstractas de fondo */}
@@ -33,11 +35,10 @@ export function ContactPreview() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl text-white mb-6">
-              Hablemos de tu <span className="text-[var(--petra-gold)]">Proyecto</span>
+              {t('contact.heading')} <span className="text-[var(--petra-gold)]">{t('contact.title')}</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8">
-              ¿Tienes un proyecto en mente? Nuestro equipo está listo para ayudarte a hacerlo realidad. 
-              Contáctanos y recibe una consultoría gratuita.
+              {t('contact.lead')}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -91,7 +92,7 @@ export function ContactPreview() {
                 aria-hidden
               />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-[#171717]">
-                Ver más
+                {t('contact.seeMore')}
               </span>
               <ArrowRight size={18} strokeWidth={2.5} className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#171717]" />
             </Link>

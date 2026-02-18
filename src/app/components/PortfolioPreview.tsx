@@ -3,35 +3,18 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const portfolioItems = [
-  {
-    slug: 'lote-43',
-    title: 'Lote 43',
-    category: 'Residencial',
-    image: '/Assets/Proyecto-3/1.png',
-    description: 'Vivienda unifamiliar de diseño contemporáneo con acabados de primera calidad.',
-  },
-  {
-    slug: 'ResidenciaMerida',
-    title: 'Residencia Mérida',
-    category: 'Residencial',
-    image: '/Assets/Proyecto-1/frente-1.png',
-    description: 'Casa moderna con líneas arquitectónicas definidas.',
-  },
-  {
-    slug: 'proyecto-5020-1',
-    title: '5020/1',
-    category: 'Diseño',
-    image: '/Assets/Proyecto-4/1.png',
-    description: 'Residencia unifamiliar con piscina y vista amplia.',
-  },
+  { slug: 'lote-43', title: 'Lote 43', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/1.png', descriptionKey: 'portfolio.desc.lote43' },
+  { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/frente-1.png', descriptionKey: 'portfolio.desc.merida' },
+  { slug: 'proyecto-5020-1', title: '5020/1', categoryKey: 'portfolio.category.design', image: '/Assets/Proyecto-4/1.png', descriptionKey: 'portfolio.desc.5020' },
 ];
 
 export function PortfolioPreview() {
+  const { t } = useLanguage();
   return (
     <section className="bg-white">
-      {/* Título */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -40,10 +23,10 @@ export function PortfolioPreview() {
           className="text-center"
         >
           <h2 className="text-4xl md:text-5xl text-[var(--petra-navy)] mb-3">
-            Nuestro <span className="text-[var(--petra-gold)]">Portfolio</span>
+            {t('portfolio.our')} <span className="text-[var(--petra-gold)]">{t('portfolio.title')}</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Proyectos que definen la excelencia en construcción
+            {t('portfolio.subtitle')}
           </p>
         </motion.div>
       </div>
@@ -84,13 +67,13 @@ export function PortfolioPreview() {
               {/* Etiqueta al pie */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                 <p className="text-white/80 text-sm uppercase tracking-wider mb-1">
-                  {item.category}
+                  {t(item.categoryKey)}
                 </p>
                 <h3 className="text-xl md:text-2xl font-semibold text-white">
                   {item.title}
                 </h3>
                 <p className="text-white/90 text-sm mt-1 max-w-xs">
-                  {item.description}
+                  {t(item.descriptionKey)}
                 </p>
               </div>
             </Link>
@@ -115,7 +98,7 @@ export function PortfolioPreview() {
                 aria-hidden
               />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                Ver más
+                {t('portfolio.seeMore')}
               </span>
               <ArrowRight size={18} strokeWidth={2.5} className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
             </Link>

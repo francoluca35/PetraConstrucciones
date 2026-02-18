@@ -4,8 +4,16 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/src/data/projects';
+import { useLanguage } from '@/src/context/LanguageContext';
+
+const categoryToKey: Record<string, string> = {
+  Residencial: 'portfolio.category.residential',
+  Oficinas: 'portfolio.category.offices',
+  Diseño: 'portfolio.category.design',
+};
 
 export function PortfolioPage() {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-white">
       {/* Hero: imagen con degradado - se extiende hasta arriba para navbar transparente */}
@@ -33,8 +41,8 @@ export function PortfolioPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-3xl md:text-4xl font-medium text-center tracking-tight"
         >
-          <span className="text-[#283777]">PROYECTOS </span>
-          <span className="text-[var(--petra-gold)]">PETRA</span>
+          <span className="text-[#283777]">{t('portfolioPage.title').split(' ')[0]} </span>
+          <span className="text-[var(--petra-gold)]">{t('portfolioPage.title').split(' ').slice(1).join(' ')}</span>
         </motion.h2>
       </section>
 
@@ -65,7 +73,7 @@ export function PortfolioPage() {
                   <div className="absolute bottom-4 left-0 -translate-x-1/2 z-10 w-max hidden lg:block">
                     <div className="px-5 py-3 bg-white text-center shadow-sm">
                       <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
-                        {project.category || 'PROYECTO'}
+                        {project.category ? t(categoryToKey[project.category] ?? 'portfolioPage.categoryProject') : t('portfolioPage.categoryProject')}
                       </p>
                       <p className="text-lg xl:text-xl font-bold uppercase text-[var(--petra-navy)] tracking-tight">
                         {project.label}
@@ -76,7 +84,7 @@ export function PortfolioPage() {
                 {/* Tablets y móvil (< lg): texto debajo de la imagen, siempre visible */}
                 <div className="mt-4 lg:hidden">
                   <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
-                    {project.category || 'PROYECTO'}
+                    {project.category ? t(categoryToKey[project.category] ?? 'portfolioPage.categoryProject') : t('portfolioPage.categoryProject')}
                   </p>
                   <p className="text-xl font-bold uppercase text-[var(--petra-navy)] tracking-tight mt-0.5">
                     {project.label}
@@ -101,8 +109,8 @@ export function PortfolioPage() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-medium text-center tracking-tight mb-10"
         >
-          <span className="text-[var(--petra-navy)]">PRESUPUESTO </span>
-          <span className="text-[var(--petra-gold)]">CERRADO</span>
+          <span className="text-[var(--petra-navy)]">{t('portfolioPage.budgetTitlePrefix')}</span>
+          <span className="text-[var(--petra-gold)]">{t('portfolioPage.budgetTitleSuffix')}</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-[var(--petra-navy)]">
@@ -112,12 +120,8 @@ export function PortfolioPage() {
             viewport={{ once: true }}
             className="space-y-4 text-base md:text-lg leading-relaxed text-gray-700"
           >
-            <p>
-              Trabajamos con presupuesto cerrado para que conozcas desde el primer día el costo total de tu obra. Sin sorpresas ni gastos ocultos: el precio acordado es el precio final.
-            </p>
-            <p>
-              Nuestro equipo define cada partida con transparencia y te entrega un detalle claro antes de comenzar. Así podés planificar tu inversión con seguridad y confianza.
-            </p>
+            <p>{t('portfolioPage.budgetP1')}</p>
+            <p>{t('portfolioPage.budgetP2')}</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 16 }}
@@ -125,12 +129,8 @@ export function PortfolioPage() {
             viewport={{ once: true }}
             className="space-y-4 text-base md:text-lg leading-relaxed text-gray-700"
           >
-            <p>
-              La metodología de presupuesto cerrado nos permite optimizar plazos y recursos, y a vos te garantiza que el proyecto se mantiene dentro de lo pactado. Cualquier variante se cotiza por separado y se acuerda antes de ejecutarla.
-            </p>
-            <p>
-              Si querés avanzar con tu proyecto con total claridad, contactanos y te enviamos una propuesta con presupuesto cerrado sin compromiso.
-            </p>
+            <p>{t('portfolioPage.budgetP3')}</p>
+            <p>{t('portfolioPage.budgetP4')}</p>
           </motion.div>
         </div>
 
@@ -144,7 +144,7 @@ export function PortfolioPage() {
             href="/contacto"
             className="inline-block px-8 py-4 bg-[var(--petra-navy)] text-white font-medium rounded-lg hover:bg-[var(--petra-navy-dark)] transition-colors"
           >
-            Solicitar presupuesto
+            {t('portfolioPage.requestQuote')}
           </Link>
         </motion.div>
       </section>

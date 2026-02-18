@@ -5,6 +5,7 @@ import { Footer } from '@/src/app/components/Footer';
 import { BackToTop } from '@/src/app/components/BackToTop';
 import { ScrollToTop } from '@/src/app/components/ScrollToTop';
 import { WhatsAppFloating } from '@/src/app/components/WhatsAppFloating';
+import { ClientProviders } from '@/src/app/components/ClientProviders';
 
 export const metadata: Metadata = {
   title: 'Petra Construcciones - Excelencia en Construcción',
@@ -29,14 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <BackToTop />
-        <ScrollToTop />
-        <WhatsAppFloating />
+        <ClientProviders>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <BackToTop />
+          <ScrollToTop />
+          <WhatsAppFloating />
+        </ClientProviders>
       </body>
     </html>
   );

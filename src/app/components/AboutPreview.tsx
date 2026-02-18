@@ -4,15 +4,17 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Award, Users, Target, Shield } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const values = [
-  { icon: Award, label: 'Excelencia' },
-  { icon: Users, label: 'Equipo' },
-  { icon: Target, label: 'Precisión' },
-  { icon: Shield, label: 'Seguridad' },
+  { icon: Award, labelKey: 'about.values.excellence' },
+  { icon: Users, labelKey: 'about.values.team' },
+  { icon: Target, labelKey: 'about.values.precision' },
+  { icon: Shield, labelKey: 'about.values.safety' },
 ];
 
 export function AboutPreview() {
+  const { t } = useLanguage();
   const [showLogoOverlay, setShowLogoOverlay] = useState(false);
 
   useEffect(() => {
@@ -73,15 +75,13 @@ export function AboutPreview() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl text-[var(--petra-navy)] mb-6">
-              Quiénes <span className="text-[var(--petra-gold)]">Somos</span>
+              {t('about.title').split(' ').slice(0, -1).join(' ')} <span className="text-[var(--petra-gold)]">{t('about.heading')}</span>
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Con más de 17 años de experiencia, Petra Construcciones se ha consolidado como líder 
-              en proyectos residenciales, comerciales e industriales en Mérida y la península.
+              {t('about.lead')}
             </p>
             <p className="text-lg text-gray-600 mb-8">
-              Nuestro equipo trabaja con dedicación y compromiso para transformar tus ideas en 
-              realidad, garantizando la máxima calidad en cada detalle.
+              {t('about.lead2')}
             </p>
 
             {/* 4 círculos con valores */}
@@ -90,7 +90,7 @@ export function AboutPreview() {
                 const Icon = item.icon;
                 return (
                   <motion.div
-                    key={item.label}
+                    key={item.labelKey}
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -101,7 +101,7 @@ export function AboutPreview() {
                       <Icon className="text-white" size={26} />
                     </div>
                     <span className="text-sm font-medium text-[var(--petra-navy)] text-center">
-                      {item.label}
+                      {t(item.labelKey)}
                     </span>
                   </motion.div>
                 );
@@ -118,7 +118,7 @@ export function AboutPreview() {
                 aria-hidden
               />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                Ver más
+                {t('about.seeMore')}
               </span>
               <ArrowRight size={18} strokeWidth={2.5} className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
             </Link>

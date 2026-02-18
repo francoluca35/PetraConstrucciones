@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { useLanguage } from '@/src/context/LanguageContext';
 import {
   Award,
   Users,
@@ -18,11 +19,11 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-const values = [
-  { icon: Award, title: 'Excelencia', description: 'Comprometidos con los más altos estándares de calidad en cada proyecto' },
-  { icon: Users, title: 'Equipo Profesional', description: 'Profesionales con años de experiencia en construcción y mantenimiento' },
-  { icon: Target, title: 'Precisión', description: 'Cumplimiento de plazos y presupuestos con total transparencia' },
-  { icon: Shield, title: 'Seguridad', description: 'Máximas medidas de seguridad en todos nuestros proyectos' },
+const valueKeys = [
+  { icon: Award, titleKey: 'aboutPage.value1Title', descKey: 'aboutPage.value1Desc' },
+  { icon: Users, titleKey: 'aboutPage.value2Title', descKey: 'aboutPage.value2Desc' },
+  { icon: Target, titleKey: 'aboutPage.value3Title', descKey: 'aboutPage.value3Desc' },
+  { icon: Shield, titleKey: 'aboutPage.value4Title', descKey: 'aboutPage.value4Desc' },
 ];
 
 const company = {
@@ -34,71 +35,44 @@ const company = {
 
 const profile = {
   name: 'Ing. Carlos Iván Pimentel Rodríguez',
-  cedula: 'Cédula Profesional 2813323',
+  cedulaNumber: '2813323',
   phone: '+52 999 994 4498',
   email: 'cipronet@hotmail.com',
-  age: '56 años',
 };
 
-const resume = {
-  summary: `La Gerencia de Mantenimiento con más de 17 años de experiencia planificando, desarrollando e implementando programas y procesos, gestión, diseño y proyectos. Coordinación, Supervisión de Obras y Mantenimiento de Mobiliario, Inmuebles y Parque Vehicular del Aeropuerto Internacional de la Ciudad de Mérida, Yucatán, México.
-  Profesional creativo con amplia experiencia en proyectos desde la concepción del desarrollo garantizando el soporte de Servicios de Operación y Conservación de las Instalaciones del Aeropuerto dentro y fuera de las actuaciones contempladas en el Plan Maestro de Desarrollo y Plan de Negocio.`,
-  formation: [
-    'Ingeniero Civil egresado del Tecnológico de Mérida, Yucatán, México',
-    'Especialización en Carreteras, Universidad Politécnica de Madrid',
-    'Certificado en Mantenimiento de Pavimentos de Aeródromos, Aeropuertos Argentinos',
-  ],
-  experience: {
-    title: 'Gerente de Mantenimiento en el Aeropuerto de la Ciudad de Mérida, Yucatán, México (2005 - 2023)',
-    items: [
-      'Procesos administrativos',
-      'Coordinación de mantenimiento de trabajos de maquinarias diversas',
-      'Licitaciones',
-      'Coordinación de mantenimientos en general de edificios y maquinarias, así como terracerías y pavimentaciones',
-    ],
-  },
-};
+const formationKeys = ['aboutPage.formation1', 'aboutPage.formation2', 'aboutPage.formation3'] as const;
+const expKeys = ['aboutPage.exp1', 'aboutPage.exp2', 'aboutPage.exp3', 'aboutPage.exp4'] as const;
 
-const obras = [
-  { inicio: '15 ene 1997', fin: '15 nov 2003', obra: 'Mantenimiento, conservación y construcción en general en edificio principal y pistas en el Aeropuerto Internacional de Mérida' },
-  { inicio: '01 ene 2002', fin: '30 dic 2002', obra: 'Construcción de Restaurante Talavera' },
-  { inicio: '15 sep 2002', fin: '15 sep 2008', obra: 'Restauración y remodelación de restaurantes en Telchac Puerto' },
-  { inicio: '27 may 2008', fin: '25 jul 2008', obra: 'Excavación de zanjas para agua potable' },
-  { inicio: '01 oct 2010', fin: '30 mar 2013', obra: 'Construcción de edificio de oficinas corporativas en la Col. Maya' },
-  { inicio: '14 abr 2013', fin: '20 may 2013', obra: 'Mantenimiento correctivo a diversas puertas y ventanas' },
-  { inicio: '22 may 2013', fin: '03 sep 2013', obra: 'Excavación de zanjas 0.30 x 0.40 m para líneas de transmisión en diversos puntos de Yucatán y Campeche' },
-  { inicio: '21 oct 2013', fin: '12 dic 2013', obra: 'Suministro y colocación de muros de tablaroca y puertas de aluminio' },
-  { inicio: '28 oct 2013', fin: '12 ene 2014', obra: 'Trabajos de reparación de instalaciones eléctricas (incluye suministro y colocación de equipos)' },
-  { inicio: '10 feb 2014', fin: '20 feb 2014', obra: 'Excavación de descargas domiciliarias y zanjas de agua potable en el fraccionamiento Altabrisa, Mérida' },
-  { inicio: '03 feb 2014', fin: '20 feb 2014', obra: 'Excavación de zanjas para riego en la localidad de Baca' },
-  { inicio: '01 mar 2014', fin: '30 dic 2015', obra: 'Excavación de zanjas 0.30 x 0.50 m y 0.30 x 0.80 m para electrificación en el fraccionamiento Pedregales' },
-  { inicio: '01 mar 2014', fin: '30 dic 2015', obra: 'Construcción de casas habitación en Mérida y alrededores' },
-  { inicio: '15 ene 2016', fin: '30 nov 2017', obra: 'Construcción de casa habitación en Árborea' },
-  { inicio: '15 ene 2018', fin: '30 nov 2018', obra: 'Departamento en zona residencial de Conkal' },
-  { inicio: '15 ene 2019', fin: '15 abr 2020', obra: 'Construcción de casa en la playa de Chicxulub' },
-  { inicio: '15 ene 2021', fin: 'A la fecha', obra: 'Construcción y remodelación de casas en la playa y en Mérida' },
+const obrasData = [
+  { inicio: '15 ene 1997', fin: '15 nov 2003' },
+  { inicio: '01 ene 2002', fin: '30 dic 2002' },
+  { inicio: '15 sep 2002', fin: '15 sep 2008' },
+  { inicio: '27 may 2008', fin: '25 jul 2008' },
+  { inicio: '01 oct 2010', fin: '30 mar 2013' },
+  { inicio: '14 abr 2013', fin: '20 may 2013' },
+  { inicio: '22 may 2013', fin: '03 sep 2013' },
+  { inicio: '21 oct 2013', fin: '12 dic 2013' },
+  { inicio: '28 oct 2013', fin: '12 ene 2014' },
+  { inicio: '10 feb 2014', fin: '20 feb 2014' },
+  { inicio: '03 feb 2014', fin: '20 feb 2014' },
+  { inicio: '01 mar 2014', fin: '30 dic 2015' },
+  { inicio: '01 mar 2014', fin: '30 dic 2015' },
+  { inicio: '15 ene 2016', fin: '30 nov 2017' },
+  { inicio: '15 ene 2018', fin: '30 nov 2018' },
+  { inicio: '15 ene 2019', fin: '15 abr 2020' },
+  { inicio: '15 ene 2021', fin: 'A la fecha' },
 ];
+const obraTextKeys = ['aboutPage.obra1', 'aboutPage.obra2', 'aboutPage.obra3', 'aboutPage.obra4', 'aboutPage.obra5', 'aboutPage.obra6', 'aboutPage.obra7', 'aboutPage.obra8', 'aboutPage.obra9', 'aboutPage.obra10', 'aboutPage.obra11', 'aboutPage.obra12', 'aboutPage.obra13', 'aboutPage.obra14', 'aboutPage.obra15', 'aboutPage.obra16', 'aboutPage.obra17', 'aboutPage.obra17'];
 
-const mision = `Realizar o supervisar toda clase de construcciones, edificaciones y urbanizaciones, así como fraccionar, edificar y dotar de servicios, ya sea por cuenta propia o a través de terceros. Proporcionar servicios de construcción de la más alta calidad, con profesionalismo y compromiso con la excelencia en cada proyecto.`;
-
-const vision = `Ser la empresa de construcción de referencia en Yucatán, reconocida por nuestra experiencia en mantenimiento de infraestructura, gestión de proyectos y capacidad para ejecutar obras residenciales, comerciales e industriales con los más altos estándares de calidad y seguridad.`;
-
-const servicios = [
-  'Construcción y supervisión de obras en general, edificaciones y urbanizaciones',
-  'Elaboración de planos, proyectos, maquetas, cálculos arquitectónicos y avalúo de bienes inmuebles',
-  'Adquisición y enajenación de terrenos, fincas, construcciones e inmuebles',
-  'Compra y venta de materiales de construcción',
-  'Mantenimiento de edificios, maquinarias, terracerías y pavimentaciones',
-  'Coordinación de licitaciones y procesos administrativos',
-];
+const servicioKeys = ['aboutPage.servicio1', 'aboutPage.servicio2', 'aboutPage.servicio3', 'aboutPage.servicio4', 'aboutPage.servicio5', 'aboutPage.servicio6'] as const;
 
 const sectionTitleClass = 'text-2xl font-semibold text-[var(--petra-navy)] mb-6 flex items-center gap-2';
 const sectionContainerClass = 'max-w-5xl mx-auto px-4 sm:px-6 lg:px-8';
 
 export function AboutPage() {
+  const { t } = useLanguage();
   return (
     <div>
-      {/* Hero */}
       <section className="relative h-[45vh] min-h-[260px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src="/Assets/1.jpg" alt="Petra Construcciones" className="w-full h-full object-cover" />
@@ -110,10 +84,10 @@ export function AboutPage() {
           className="relative z-10 text-center text-white px-4 pt-16"
         >
           <h1 className="text-4xl md:text-5xl font-semibold mb-3">
-            Quiénes <span className="text-[var(--petra-gold)]">Somos</span>
+            {t('aboutPage.hero').split(' ').slice(0, -1).join(' ')} <span className="text-[var(--petra-gold)]">{t('aboutPage.hero').split(' ').slice(-1)[0]}</span>
           </h1>
           <p className="text-base md:text-lg max-w-xl mx-auto opacity-95">
-            Servicios de construcción en general con más de 17 años de experiencia en Mérida, Yucatán
+            {t('aboutPage.heroSub')}
           </p>
         </motion.div>
       </section>
@@ -129,13 +103,13 @@ export function AboutPage() {
           >
             <div className="inline-flex items-center gap-2 text-[var(--petra-gold)] mb-4">
               <Building2 size={22} />
-              <span className="text-sm font-semibold uppercase tracking-wider">La constructora</span>
+              <span className="text-sm font-semibold uppercase tracking-wider">{t('aboutPage.builder')}</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold text-[var(--petra-navy)] mb-4">
               Petra Construcciones
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
-              Con más de 10 años en el rubro, <strong className="text-[var(--petra-navy)]">Petra</strong> se especializa en construcciones desde cero, reformas integrales, construcción y reparación de piscinas, y obras por metro cuadrado. Calidad, compromiso y experiencia en cada proyecto.
+              {t('aboutPage.companyLead')}
             </p>
             <a
               href="#servicios"
@@ -146,7 +120,7 @@ export function AboutPage() {
                 aria-hidden
               />
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                Conoce nuestros servicios
+                {t('aboutPage.ourServices')}
               </span>
               <ArrowRight size={18} strokeWidth={2.5} className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
             </a>
@@ -164,7 +138,7 @@ export function AboutPage() {
             className={sectionTitleClass}
           >
             <Briefcase className="text-[var(--petra-gold)]" size={28} />
-            Resumen profesional
+            {t('aboutPage.resume')}
           </motion.h2>
 
           <motion.div
@@ -192,12 +166,11 @@ export function AboutPage() {
                   {profile.name}
                 </h3>
                 <p className="text-sm text-[var(--petra-gold)] font-medium mb-6">
-                  Ingeniero Civil · Más de 17 años de experiencia
+                  {t('aboutPage.civilEngineer')}
                 </p>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
-                  {resume.summary.split(/\s{2,}/).map((paragraph, i) => (
-                    <p key={i}>{paragraph.trim()}</p>
-                  ))}
+                  <p>{t('aboutPage.resumeP1')}</p>
+                  <p>{t('aboutPage.resumeP2')}</p>
                 </div>
               </div>
             </div>
@@ -213,11 +186,11 @@ export function AboutPage() {
                   <Mail size={18} className="text-[var(--petra-gold)]" />
                   {profile.email}
                 </a>
-                <span className="text-gray-500">{profile.cedula}</span>
-                <span className="text-gray-500">Edad: {profile.age}</span>
+                <span className="text-gray-500">{t('aboutPage.cedulaLabel')} {profile.cedulaNumber}</span>
+                <span className="text-gray-500">{t('aboutPage.ageLabel')} {t('aboutPage.profileAge')}</span>
               </div>
               <div className="hidden md:flex flex-shrink-0 items-center justify-end">
-                <img src="/Assets/firma.png" alt="Firma" className="max-h-16 md:max-h-20 w-auto object-contain" />
+                <img src="/Assets/firma.png" alt={t('aboutPage.signature')} className="max-h-16 md:max-h-20 w-auto object-contain" />
               </div>
             </div>
           </motion.div>
@@ -234,28 +207,28 @@ export function AboutPage() {
             className="text-xl font-semibold text-[var(--petra-navy)] mb-8 flex items-center gap-2"
           >
             <GraduationCap className="text-[var(--petra-gold)]" size={24} />
-            Trayectoria
+            {t('aboutPage.trajectory')}
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-10 md:gap-14">
             <div>
-              <h3 className="text-lg font-semibold text-[var(--petra-navy)] mb-4">Formación académica</h3>
+              <h3 className="text-lg font-semibold text-[var(--petra-navy)] mb-4">{t('aboutPage.formation')}</h3>
               <ul className="space-y-3">
-                {resume.formation.map((item, i) => (
+                {formationKeys.map((key, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
                     <span className="mt-1.5 w-2 h-2 rounded-full bg-[var(--petra-gold)] flex-shrink-0" />
-                    {item}
+                    {t(key)}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-[var(--petra-navy)] mb-3">Experiencia profesional</h3>
-              <p className="text-[var(--petra-navy)] font-medium mb-4">{resume.experience.title}</p>
+              <h3 className="text-lg font-semibold text-[var(--petra-navy)] mb-3">{t('aboutPage.experience')}</h3>
+              <p className="text-[var(--petra-navy)] font-medium mb-4">{t('aboutPage.expTitle')}</p>
               <ul className="space-y-2">
-                {resume.experience.items.map((item, i) => (
+                {expKeys.map((key, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
                     <span className="mt-1.5 w-2 h-2 rounded-full bg-[var(--petra-gold)] flex-shrink-0" />
-                    {item}
+                    {t(key)}
                   </li>
                 ))}
               </ul>
@@ -274,23 +247,23 @@ export function AboutPage() {
             className={sectionTitleClass}
           >
             <FileCheck className="text-[var(--petra-gold)]" size={28} />
-            Obras ejecutadas
+            {t('aboutPage.works')}
           </motion.h2>
           <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
             <table className="w-full min-w-[640px] text-left text-sm">
               <thead>
                 <tr className="bg-[var(--petra-navy)] text-white">
-                  <th className="px-4 py-3 font-semibold">Fecha inicio</th>
-                  <th className="px-4 py-3 font-semibold">Fecha fin</th>
-                  <th className="px-4 py-3 font-semibold">Obra</th>
+                  <th className="px-4 py-3 font-semibold">{t('aboutPage.worksStart')}</th>
+                  <th className="px-4 py-3 font-semibold">{t('aboutPage.worksEnd')}</th>
+                  <th className="px-4 py-3 font-semibold">{t('aboutPage.worksName')}</th>
                 </tr>
               </thead>
               <tbody>
-                {obras.map((row, i) => (
+                {obrasData.map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                     <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.inicio}</td>
-                    <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.fin}</td>
-                    <td className="px-4 py-3 text-gray-800">{row.obra}</td>
+                    <td className="px-4 py-3 text-gray-600 whitespace-nowrap">{row.fin === 'A la fecha' ? t('aboutPage.toDate') : row.fin}</td>
+                    <td className="px-4 py-3 text-gray-800">{t(obraTextKeys[i])}</td>
                   </tr>
                 ))}
               </tbody>
@@ -309,16 +282,16 @@ export function AboutPage() {
             className={sectionTitleClass}
           >
             <Target className="text-[var(--petra-gold)]" size={28} />
-            Misión y visión
+            {t('aboutPage.missionVision')}
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-[var(--petra-navy)] text-white rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-[var(--petra-gold)] mb-3">Misión</h3>
-              <p className="text-gray-200 leading-relaxed text-sm md:text-base">{mision}</p>
+              <h3 className="text-lg font-semibold text-[var(--petra-gold)] mb-3">{t('aboutPage.mission')}</h3>
+              <p className="text-gray-200 leading-relaxed text-sm md:text-base">{t('aboutPage.misionText')}</p>
             </div>
             <div className="bg-gray-50 border border-[var(--petra-gold)]/20 rounded-xl p-8">
-              <h3 className="text-lg font-semibold text-[var(--petra-gold)] mb-3">Visión</h3>
-              <p className="text-gray-700 leading-relaxed text-sm md:text-base">{vision}</p>
+              <h3 className="text-lg font-semibold text-[var(--petra-gold)] mb-3">{t('aboutPage.vision')}</h3>
+              <p className="text-gray-700 leading-relaxed text-sm md:text-base">{t('aboutPage.visionText')}</p>
             </div>
           </div>
         </div>
@@ -334,13 +307,13 @@ export function AboutPage() {
             className={sectionTitleClass}
           >
             <Wrench className="text-[var(--petra-gold)]" size={28} />
-            Servicios que brindamos
+            {t('aboutPage.services')}
           </motion.h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {servicios.map((s, i) => (
+            {servicioKeys.map((key, i) => (
               <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm">
                 <Ruler className="text-[var(--petra-gold)] flex-shrink-0 mt-0.5" size={20} />
-                <span className="text-gray-700 text-sm md:text-base">{s}</span>
+                <span className="text-gray-700 text-sm md:text-base">{t(key)}</span>
               </div>
             ))}
           </div>
@@ -356,10 +329,10 @@ export function AboutPage() {
             viewport={{ once: true }}
             className="text-2xl font-semibold text-[var(--petra-navy)] mb-8 text-center"
           >
-            Nuestros <span className="text-[var(--petra-gold)]">valores</span>
+            {t('aboutPage.ourValues').split(' ').slice(0, -1).join(' ')} <span className="text-[var(--petra-gold)]">{t('aboutPage.ourValues').split(' ').slice(-1)[0]}</span>
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => {
+            {valueKeys.map((value, index) => {
               const Icon = value.icon;
               return (
                 <div
@@ -369,8 +342,8 @@ export function AboutPage() {
                   <div className="w-12 h-12 bg-[var(--petra-gold)] rounded-full flex items-center justify-center mx-auto mb-3">
                     <Icon className="text-white" size={24} />
                   </div>
-                  <h3 className="font-semibold text-[var(--petra-navy)] mb-2">{value.title}</h3>
-                  <p className="text-sm text-gray-600">{value.description}</p>
+                  <h3 className="font-semibold text-[var(--petra-navy)] mb-2">{t(value.titleKey)}</h3>
+                  <p className="text-sm text-gray-600">{t(value.descKey)}</p>
                 </div>
               );
             })}

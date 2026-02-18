@@ -3,45 +3,26 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const galleryImages = [
-  {
-    url: 'https://images.unsplash.com/photo-1769721209842-e46c60e7fbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZ3xlbnwxfHx8fDE3NzA3NDIzNTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Construcción Moderna 1',
-    category: 'Residencial',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Sitio de Construcción',
-    category: 'Comercial',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Edificio de Lujo',
-    category: 'Residencial',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Casa Moderna',
-    category: 'Residencial',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Planos Arquitectónicos',
-    category: 'Diseño',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1718209962486-4f91ce71886b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB0ZWFtJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Equipo de Trabajo',
-    category: 'Equipo',
-  },
+  { url: 'https://images.unsplash.com/photo-1769721209842-e46c60e7fbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZ3xlbnwxfHx8fDE3NzA3NDIzNTh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle1', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle2', category: 'Comercial', categoryKey: 'galleryPage.filterCommercial' },
+  { url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle3', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle4', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle5', category: 'Diseño', categoryKey: 'galleryPage.filterDesign' },
+  { url: 'https://images.unsplash.com/photo-1718209962486-4f91ce71886b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB0ZWFtJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle6', category: 'Equipo', categoryKey: 'galleryPage.filterTeam' },
 ];
 
+const CATEGORY_KEYS = ['galleryPage.filterAll', 'galleryPage.filterResidential', 'galleryPage.filterCommercial', 'galleryPage.filterDesign', 'galleryPage.filterTeam'] as const;
+const CATEGORY_VALUES = ['Todos', 'Residencial', 'Comercial', 'Diseño', 'Equipo'];
+
 export function GalleryPage() {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [filter, setFilter] = useState<string>('Todos');
 
-  const categories = ['Todos', 'Residencial', 'Comercial', 'Diseño', 'Equipo'];
+  const categories = CATEGORY_VALUES;
 
   const filteredImages = filter === 'Todos' 
     ? galleryImages 
@@ -54,7 +35,7 @@ export function GalleryPage() {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Galería"
+            alt={t('galleryPage.heroAlt')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[var(--petra-navy)]/80"></div>
@@ -65,10 +46,10 @@ export function GalleryPage() {
           className="relative z-10 text-center text-white px-4"
         >
           <h1 className="text-5xl md:text-6xl mb-4">
-            Nuestra <span className="text-[var(--petra-gold)]">Galería</span>
+            {t('galleryPage.our')} <span className="text-[var(--petra-gold)]">{t('galleryPage.title')}</span>
           </h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Explora nuestros proyectos más destacados
+            {t('galleryPage.subtitle')}
           </p>
         </motion.div>
       </section>
@@ -77,7 +58,7 @@ export function GalleryPage() {
       <section className="py-8 bg-white sticky top-20 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+            {categories.map((category, i) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
@@ -87,7 +68,7 @@ export function GalleryPage() {
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
-                {category}
+                {t(CATEGORY_KEYS[i])}
               </button>
             ))}
           </div>
@@ -151,15 +132,15 @@ export function GalleryPage() {
             >
               <img
                 src={filteredImages[selectedImage].url}
-                alt={filteredImages[selectedImage].title}
+                alt={t(filteredImages[selectedImage].titleKey)}
                 className="w-full h-auto rounded-lg"
               />
               <div className="text-center mt-4">
                 <h3 className="text-white text-2xl mb-2">
-                  {filteredImages[selectedImage].title}
+                  {t(filteredImages[selectedImage].titleKey)}
                 </h3>
                 <span className="inline-block bg-[var(--petra-gold)] text-white px-4 py-2 rounded-full">
-                  {filteredImages[selectedImage].category}
+                  {t(filteredImages[selectedImage].categoryKey)}
                 </span>
               </div>
             </motion.div>

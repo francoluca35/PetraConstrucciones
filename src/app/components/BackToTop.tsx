@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 export function BackToTop() {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -34,6 +36,7 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
+          aria-label={t('backToTop.ariaLabel')}
           className="fixed bottom-0 left-8 z-50 w-12 h-12 bg-[var(--petra-gold)] text-white rounded-none flex items-center justify-center shadow-lg hover:bg-[var(--petra-gold-light)] transition-colors cursor-pointer"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

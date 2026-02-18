@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
-
-const HERO_FULL_TEXT = 'PETRA\nCONSTRUCCIONES\nconstruyendo tus sueños';
+import { useLanguage } from '@/src/context/LanguageContext';
+import { getHeroTypewriterText } from '@/src/i18n/translations';
 
 function TypewriterLoop({
-  fullText = HERO_FULL_TEXT,
+  fullText,
   delay = 0,
   typeSpeed = 75,
   eraseSpeed = 45,
   holdAfterType = 2200,
   holdAfterErase = 600,
 }: {
-  fullText?: string;
+  fullText: string;
   delay?: number;
   typeSpeed?: number;
   eraseSpeed?: number;
@@ -107,9 +107,9 @@ function TypewriterLoop({
 }
 
 const STATS = [
-  { value: 300, label: 'OBRAS REALIZADAS' },
-  { value: 600000, label: 'M² CONSTRUIDOS', format: (n: number) => n.toLocaleString('es-AR') },
-  { value: 10, label: 'AÑOS DE EXPERIENCIA' },
+  { value: 300, labelKey: 'hero.stats.works' },
+  { value: 600000, labelKey: 'hero.stats.sqm', format: (n: number) => n.toLocaleString('es-AR') },
+  { value: 10, labelKey: 'hero.stats.years' },
 ];
 
 function CountUp({ target, format, duration = 2 }: { target: number; format?: (n: number) => string; duration?: number }) {
@@ -149,6 +149,7 @@ const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
 const SLIDE_DURATION_MS = 5000;
 
 export function Hero() {
+  const { locale, t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -221,7 +222,7 @@ export function Hero() {
           transition={{ duration: 0.7 }}
           className="mb-4"
         >
-          <TypewriterLoop delay={500} typeSpeed={75} eraseSpeed={45} holdAfterType={2200} holdAfterErase={600} />
+          <TypewriterLoop fullText={getHeroTypewriterText(locale)} delay={500} typeSpeed={75} eraseSpeed={45} holdAfterType={2200} holdAfterErase={600} />
         </motion.div>
 
         {/* Botón Contactanos + Estadísticas al lado - alineados a la misma altura */}
@@ -235,7 +236,7 @@ export function Hero() {
             href="/contacto"
             className="inline-flex shrink-0 items-center bg-white px-8 py-3 font-semibold text-[#1a1918] transition-colors hover:bg-[#E5C337] hover:text-[#283777]"
           >
-            Contactanos
+            {t('hero.contactBtn')}
           </Link>
           <div className="flex flex-wrap items-end gap-10 md:gap-14 lg:gap-20">
             {STATS.map((stat, i) => (
@@ -244,7 +245,7 @@ export function Hero() {
                   +<CountUp target={stat.value} format={stat.format} />
                 </span>
                 <span className="mt-1 text-xs font-medium uppercase tracking-wider text-white/90">
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </span>
               </div>
             ))}

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import { useLanguage } from '@/src/context/LanguageContext';
 
 const SIGLA = '/Assets/sigla1.png';
 
@@ -15,6 +16,7 @@ const TEXT_HOLD_DURATION = 10000;
 const TRANSITION_DURATION = 1500;
 
 export function Navbar() {
+  const { locale, setLocale, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -66,10 +68,10 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'HOME', path: '/' },
-    { name: 'QUIÉNES SOMOS', path: '/quienes-somos' },
-    { name: 'PORTFOLIO', path: '/portfolio' },
-    { name: 'CONTACTO', path: '/contacto' },
+    { nameKey: 'nav.home', path: '/' },
+    { nameKey: 'nav.about', path: '/quienes-somos' },
+    { nameKey: 'nav.portfolio', path: '/portfolio' },
+    { nameKey: 'nav.contact', path: '/contacto' },
   ];
 
   return (
@@ -174,25 +176,52 @@ export function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                className="relative group"
+          {/* Desktop Navigation + Language switcher */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex items-center space-x-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className="relative group"
+                >
+                  <span className="text-white hover:text-[var(--petra-gold)] transition-colors duration-300">
+                    {t(link.nameKey)}
+                  </span>
+                  {pathname === link.path && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--petra-gold)]"
+                    />
+                  )}
+                </Link>
+              ))}
+            </div>
+            {/* Banderas en círculo: México (ES) y USA (EN) */}
+            <div className="flex items-center gap-2 pl-2 border-l border-white/30">
+              <button
+                type="button"
+                onClick={() => setLocale('es')}
+                className={`rounded-full w-9 h-9 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
+                  locale === 'es' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40 hover:border-white/70'
+                }`}
+                aria-label="Español (México)"
+                title="Español"
               >
-                <span className="text-white hover:text-[var(--petra-gold)] transition-colors duration-300">
-                  {link.name}
-                </span>
-                {pathname === link.path && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--petra-gold)]"
-                  />
-                )}
-              </Link>
-            ))}
+                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setLocale('en')}
+                className={`rounded-full w-9 h-9 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
+                  locale === 'en' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40 hover:border-white/70'
+                }`}
+                aria-label="English (USA)"
+                title="English"
+              >
+                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -230,7 +259,7 @@ export function Navbar() {
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute right-6 top-12 flex h-10 w-10 items-center justify-center text-zinc-200 hover:text-[#E5C337] transition-colors "
-                aria-label="Cerrar menú"
+                aria-label={t('nav.closeMenu')}
               >
                 <X size={24} strokeWidth={2} />
               </button>
@@ -253,11 +282,34 @@ export function Navbar() {
                       pathname === link.path ? 'text-[#283777] underline underline-offset-9 decoration-[#E5C337]' : 'text-zinc-200 hover:text-[#E5C337]'
                     }`}
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </Link>
                 </motion.div>
               ))}
             </nav>
+            {/* Banderas idioma en móvil */}
+            <div className="flex items-center justify-center gap-3 pb-12">
+              <button
+                type="button"
+                onClick={() => { setLocale('es'); setIsOpen(false); }}
+                className={`rounded-full w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
+                  locale === 'es' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40'
+                }`}
+                aria-label="Español (México)"
+              >
+                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
+              </button>
+              <button
+                type="button"
+                onClick={() => { setLocale('en'); setIsOpen(false); }}
+                className={`rounded-full w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
+                  locale === 'en' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40'
+                }`}
+                aria-label="English (USA)"
+              >
+                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
