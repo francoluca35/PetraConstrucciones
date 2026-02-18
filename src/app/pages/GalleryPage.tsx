@@ -92,13 +92,13 @@ export function GalleryPage() {
               >
                 <img
                   src={image.url}
-                  alt={image.title}
+                  alt={t(image.titleKey)}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--petra-navy)]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <p className="text-white text-xl mb-2">{image.title}</p>
+                  <p className="text-white text-xl mb-2">{t(image.titleKey)}</p>
                   <span className="inline-block bg-[var(--petra-gold)] text-white px-3 py-1 rounded-full text-sm w-fit">
-                    {image.category}
+                    {t(image.categoryKey)}
                   </span>
                 </div>
               </motion.div>
