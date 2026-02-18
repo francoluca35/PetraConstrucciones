@@ -1,83 +1,110 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const galleryImages = [
   {
-    url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     title: 'Construcción Moderna',
   },
   {
-    url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    title: 'Edificios de Lujo',
+    url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    title: 'Casa en suburbios',
   },
   {
-    url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     title: 'Casas Modernas',
   },
   {
-    url: 'https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    url: '/Assets/plano.jpg',
     title: 'Diseño Arquitectónico',
   },
 ];
 
+const AUTOPLAY_MS = 5000;
+
 export function GalleryPreview() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const startTimeRef = useRef<number>(Date.now());
+  const frameRef = useRef<number>(0);
+
+  useEffect(() => {
+    startTimeRef.current = Date.now();
+    setProgress(0);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    const tick = () => {
+      const elapsed = Date.now() - startTimeRef.current;
+      const p = Math.min(elapsed / AUTOPLAY_MS, 1);
+      setProgress(p);
+      if (p >= 1) {
+        setCurrentIndex((i) => (i + 1) % galleryImages.length);
+        startTimeRef.current = Date.now();
+      }
+      frameRef.current = requestAnimationFrame(tick);
+    };
+    frameRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameRef.current);
+  }, [currentIndex]);
+
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full min-h-[75vh] overflow-hidden bg-gray-900">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
+          key={currentIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
         >
-          <h2 className="text-4xl md:text-5xl text-[var(--mavic-navy)] mb-4">
-            Nuestra <span className="text-[var(--mavic-gold)]">Galería</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Descubre algunos de nuestros proyectos más destacados
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {galleryImages.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer h-64"
+          <img
+            src={galleryImages[currentIndex].url}
+            alt={galleryImages[currentIndex].title}
+            className="w-full h-full object-cover"
+          />
+          {/* Sin bloque oscuro: texto directo sobre la imagen, esquina inferior derecha */}
+          <div className="absolute bottom-0 right-0 text-right p-6 md:p-10 pb-24 md:pb-28">
+            <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
+              {galleryImages[currentIndex].title}
+            </p>
+            <p className="text-white/90 text-sm md:text-base mb-4 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+              Petra Construcciones · Galería
+            </p>
+            <Link
+              href="/galeria"
+              className="inline-flex items-center gap-1.5 text-white text-sm font-medium border-b border-white/80 pb-0.5 hover:border-[var(--petra-gold)] hover:text-[var(--petra-gold)] transition-colors group"
             >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--mavic-navy)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <p className="text-white p-4">{image.title}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Link
-            href="/galeria"
-            className="inline-flex items-center px-6 py-3 bg-[var(--mavic-gold)] text-white rounded-lg hover:bg-[var(--mavic-gold-light)] transition-colors group"
-          >
-            Ver Más
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-          </Link>
+              Ver más
+              <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
         </motion.div>
+      </AnimatePresence>
+
+      {/* Líneas de carga: una por slide, la activa se llena hasta el cambio */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2 w-full max-w-[280px] px-4">
+        {galleryImages.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setCurrentIndex(i)}
+            className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden min-w-0"
+            aria-label={`Ir a imagen ${i + 1}`}
+          >
+            <div
+              className="h-full bg-white rounded-full transition-none"
+              style={{
+                width: i < currentIndex ? '100%' : i === currentIndex ? `${progress * 100}%` : '0%',
+              }}
+            />
+          </button>
+        ))}
       </div>
     </section>
   );

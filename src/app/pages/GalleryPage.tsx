@@ -57,7 +57,7 @@ export function GalleryPage() {
             alt="Galería"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[var(--mavic-navy)]/80"></div>
+          <div className="absolute inset-0 bg-[var(--petra-navy)]/80"></div>
         </div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,7 +65,7 @@ export function GalleryPage() {
           className="relative z-10 text-center text-white px-4"
         >
           <h1 className="text-5xl md:text-6xl mb-4">
-            Nuestra <span className="text-[var(--mavic-gold)]">Galería</span>
+            Nuestra <span className="text-[var(--petra-gold)]">Galería</span>
           </h1>
           <p className="text-xl max-w-3xl mx-auto">
             Explora nuestros proyectos más destacados
@@ -83,7 +83,7 @@ export function GalleryPage() {
                 onClick={() => setFilter(category)}
                 className={`px-6 py-2 rounded-full transition-all ${
                   filter === category
-                    ? 'bg-[var(--mavic-gold)] text-white'
+                    ? 'bg-[var(--petra-gold)] text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -114,9 +114,9 @@ export function GalleryPage() {
                   alt={image.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--mavic-navy)]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--petra-navy)]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <p className="text-white text-xl mb-2">{image.title}</p>
-                  <span className="inline-block bg-[var(--mavic-gold)] text-white px-3 py-1 rounded-full text-sm w-fit">
+                  <span className="inline-block bg-[var(--petra-gold)] text-white px-3 py-1 rounded-full text-sm w-fit">
                     {image.category}
                   </span>
                 </div>
@@ -137,7 +137,7 @@ export function GalleryPage() {
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 text-white hover:text-[var(--mavic-gold)] transition-colors"
+              className="absolute top-4 right-4 text-white hover:text-[var(--petra-gold)] transition-colors"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
@@ -158,7 +158,7 @@ export function GalleryPage() {
                 <h3 className="text-white text-2xl mb-2">
                   {filteredImages[selectedImage].title}
                 </h3>
-                <span className="inline-block bg-[var(--mavic-gold)] text-white px-4 py-2 rounded-full">
+                <span className="inline-block bg-[var(--petra-gold)] text-white px-4 py-2 rounded-full">
                   {filteredImages[selectedImage].category}
                 </span>
               </div>

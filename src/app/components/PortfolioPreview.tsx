@@ -1,99 +1,124 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight, Building2, Home, Factory } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const portfolioItems = [
   {
-    title: 'Torres Residenciales',
+    slug: 'lote-43',
+    title: 'Lote 43',
     category: 'Residencial',
-    image: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    icon: Building2,
-    description: 'Complejos residenciales de lujo',
+    image: '/Assets/Proyecto-3/1.png',
+    description: 'Vivienda unifamiliar de diseño contemporáneo con acabados de primera calidad.',
   },
   {
-    title: 'Viviendas Unifamiliares',
+    slug: 'ResidenciaMerida',
+    title: 'Residencia Mérida',
     category: 'Residencial',
-    image: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    icon: Home,
-    description: 'Diseños personalizados y modernos',
+    image: '/Assets/Proyecto-1/frente-1.png',
+    description: 'Casa moderna con líneas arquitectónicas definidas.',
   },
   {
-    title: 'Espacios Comerciales',
-    category: 'Comercial',
-    image: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-    icon: Factory,
-    description: 'Proyectos comerciales e industriales',
+    slug: 'proyecto-5020-1',
+    title: '5020/1',
+    category: 'Diseño',
+    image: '/Assets/Proyecto-4/1.png',
+    description: 'Residencia unifamiliar con piscina y vista amplia.',
   },
 ];
 
 export function PortfolioPreview() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white">
+      {/* Título */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl text-[var(--mavic-navy)] mb-4">
-            Nuestro <span className="text-[var(--mavic-gold)]">Portfolio</span>
+          <h2 className="text-4xl md:text-5xl text-[var(--petra-navy)] mb-3">
+            Nuestro <span className="text-[var(--petra-gold)]">Portfolio</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Proyectos que definen la excelencia en construcción
           </p>
         </motion.div>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {portfolioItems.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+      {/* Tres columnas a ancho completo — imagen entera + etiqueta abajo */}
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        {portfolioItems.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.08 }}
+            className="group relative min-h-[50vh] md:min-h-[70vh] overflow-hidden"
+          >
+            <Link href={`/portfolio/${item.slug}`} className="block absolute inset-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              {/* Marca de agua: logo en esquina superior derecha */}
+              <div
+                className="absolute top-6 right-6 w-20 md:w-28 h-auto opacity-20 pointer-events-none select-none"
+                aria-hidden
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute top-4 right-4 bg-[var(--mavic-gold)] text-white px-4 py-1 rounded-full text-sm">
-                    {item.category}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-3">
-                    <Icon className="text-[var(--mavic-gold)] mr-2" size={24} />
-                    <h3 className="text-xl text-[var(--mavic-navy)]">{item.title}</h3>
-                  </div>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                <img
+                  src="/Assets/sigla.png"
+                  alt=""
+                  className="w-full h-auto"
+                />
+              </div>
+              {/* Gradiente inferior para legibilidad del texto */}
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                aria-hidden
+              />
+              {/* Etiqueta al pie */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <p className="text-white/80 text-sm uppercase tracking-wider mb-1">
+                  {item.category}
+                </p>
+                <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="text-white/90 text-sm mt-1 max-w-xs">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
 
+      {/* Botón Ver Más */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
         >
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center px-6 py-3 bg-[var(--mavic-navy)] text-white rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors group"
-          >
-            Ver Más
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-          </Link>
+         <Link
+              href="/portfolio"
+              className="group relative inline-flex items-center gap-2 px-8 py-3.5  border-2 border-[#2c3e50] text-[#2c3e50] font-semibold tracking-wide overflow-hidden"
+            >
+              {/* Relleno que “carga” de izquierda a derecha al hacer hover */}
+              <span
+                className="absolute left-0 top-0 h-full w-0 bg-[#222222] transition-[width] duration-500 ease-out group-hover:w-full"
+                aria-hidden
+              />
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                Ver más
+              </span>
+              <ArrowRight size={18} strokeWidth={2.5} className="relative z-10 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+            </Link>
         </motion.div>
       </div>
     </section>

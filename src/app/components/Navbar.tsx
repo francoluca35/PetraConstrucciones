@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 
-const SIGLA = '/Assets/sigla.png';
+const SIGLA = '/Assets/sigla1.png';
 
 // Fases: sigla 5s → transición a texto → texto 10s → transición a sigla → repeat
 const SIGLA_DURATION = 5000;
@@ -67,6 +67,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: 'HOME', path: '/' },
+    { name: 'QUIÉNES SOMOS', path: '/quienes-somos' },
     { name: 'PORTFOLIO', path: '/portfolio' },
     { name: 'CONTACTO', path: '/contacto' },
   ];
@@ -76,11 +77,11 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[var(--mavic-navy)] shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-[var(--petra-navy)] shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-12 xl:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-20 min-h-[88px] md:min-h-[96px]">
           {/* Logo */}
           <Link href="/" className="flex items-center min-h-[60px] w-[220px] shrink-0">
             <motion.div
@@ -98,9 +99,9 @@ export function Navbar() {
                 <Image
                   src={SIGLA}
                   alt="Petra Construcciones"
-                  width={140}
-                  height={50}
-                  className="h-12 w-auto object-contain md:h-14"
+                  width={200}
+                  height={72}
+                  className="h-16 w-auto object-contain md:h-20"
                 />
               </motion.div>
 
@@ -113,7 +114,7 @@ export function Navbar() {
                 >
                   {/* Petra: aparece desde P, desaparece desde A - misma velocidad en apertura y cierre */}
                   <span
-                    className="flex text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#283777] tracking-[0.1em]"
+                    className="flex text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-[#283777] tracking-[0.1em]"
                     style={{ fontFamily: "'Good Times', sans-serif", textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
                   >
                     {'Petra'.split('').map((letter, i) => {
@@ -140,7 +141,7 @@ export function Navbar() {
                   </span>
                   {/* Construcciones: aparece desde S, desaparece desde C - misma velocidad en apertura y cierre */}
                   <span
-                    className="inline-flex text-[10px] sm:text-[11px] md:text-xs uppercase font-bold text-[#E5C337] mt-1.1 tracking-[.15em] sm:tracking-[.25em] md:tracking-[.4em] origin-center overflow-visible whitespace-nowrap [transform:scaleX(0.92)_scaleY(2.5)] md:[transform:scaleX(1.1)_scaleY(2.5)]"
+                    className="inline-flex text-xs sm:text-sm md:text-base uppercase font-bold text-[#E5C337] mt-1.1 tracking-[.15em] sm:tracking-[.25em] md:tracking-[.4em] origin-center overflow-visible whitespace-nowrap [transform:scaleX(0.92)_scaleY(2.5)] md:[transform:scaleX(1.1)_scaleY(2.5)]"
                     style={{ fontFamily: "'911', sans-serif" }}
                   >
                     {'Construcciones'.split('').map((letter, i) => {
@@ -181,13 +182,13 @@ export function Navbar() {
                 href={link.path}
                 className="relative group"
               >
-                <span className="text-white hover:text-[var(--mavic-gold)] transition-colors duration-300">
+                <span className="text-white hover:text-[var(--petra-gold)] transition-colors duration-300">
                   {link.name}
                 </span>
                 {pathname === link.path && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--mavic-gold)]"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--petra-gold)]"
                   />
                 )}
               </Link>
@@ -213,7 +214,7 @@ export function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ type: 'tween', duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-50 flex flex-col bg-[var(--mavic-navy)] md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-[var(--petra-navy)] md:hidden"
           >
             {/* Header: logo centrado + X derecha */}
             <div className="relative flex items-center justify-center px-6 pt-12 pb-6">

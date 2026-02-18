@@ -17,10 +17,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--mavic-gold);
+  background: var(--petra-gold);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--mavic-gold-light);
+  background: var(--petra-gold-light);
 }

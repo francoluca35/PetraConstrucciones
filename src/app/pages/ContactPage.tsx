@@ -34,11 +34,11 @@ export function ContactPage() {
       <section className="relative h-[50vh] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+           src="/Assets/contacto.jpg"
             alt="Contacto"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[var(--mavic-navy)]/80"></div>
+          <div className="absolute inset-0 bg-[var(--petra-navy)]/80"></div>
         </div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ export function ContactPage() {
           className="relative z-10 text-center text-white px-4 pt-16"
         >
           <h1 className="text-5xl md:text-6xl mb-4">
-            <span className="text-[var(--mavic-gold)]">Contacto</span>
+            <span className="text-[var(--petra-gold)]">Contacto</span>
           </h1>
           <p className="text-xl max-w-3xl mx-auto">
             Estamos aquí para ayudarte con tu proyecto
@@ -64,8 +64,8 @@ export function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl text-[var(--mavic-navy)] mb-6">
-                Información de <span className="text-[var(--mavic-gold)]">Contacto</span>
+              <h2 className="text-4xl text-[var(--petra-navy)] mb-6">
+                Información de <span className="text-[var(--petra-gold)]">Contacto</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 Ponte en contacto con nosotros a través de cualquiera de estos medios. 
@@ -77,11 +77,11 @@ export function ContactPage() {
                   whileHover={{ x: 10 }}
                   className="flex items-start bg-gray-50 p-6 rounded-lg"
                 >
-                  <div className="w-12 h-12 bg-[var(--mavic-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[var(--petra-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <Phone size={24} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg text-[var(--mavic-navy)] mb-1">Teléfono</h3>
+                    <h3 className="text-lg text-[var(--petra-navy)] mb-1">Teléfono</h3>
                     <p className="text-gray-600">+34 123 456 789</p>
                     <p className="text-gray-600">+34 987 654 321</p>
                   </div>
@@ -91,13 +91,13 @@ export function ContactPage() {
                   whileHover={{ x: 10 }}
                   className="flex items-start bg-gray-50 p-6 rounded-lg"
                 >
-                  <div className="w-12 h-12 bg-[var(--mavic-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[var(--petra-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <Mail size={24} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg text-[var(--mavic-navy)] mb-1">Email</h3>
-                    <p className="text-gray-600">info@mavicconstrucciones.com</p>
-                    <p className="text-gray-600">proyectos@mavicconstrucciones.com</p>
+                    <h3 className="text-lg text-[var(--petra-navy)] mb-1">Email</h3>
+                    <p className="text-gray-600">cipronet@hotmail.com</p>
+                    <p className="text-gray-600">proyectos@petraconstrucciones.com</p>
                   </div>
                 </motion.div>
 
@@ -105,13 +105,13 @@ export function ContactPage() {
                   whileHover={{ x: 10 }}
                   className="flex items-start bg-gray-50 p-6 rounded-lg"
                 >
-                  <div className="w-12 h-12 bg-[var(--mavic-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[var(--petra-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <MapPin size={24} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg text-[var(--mavic-navy)] mb-1">Dirección</h3>
-                    <p className="text-gray-600">Calle Principal 123</p>
-                    <p className="text-gray-600">28001 Madrid, España</p>
+                    <h3 className="text-lg text-[var(--petra-navy)] mb-1">Dirección</h3>
+                    <p className="text-gray-600">Calle 32-A por 9 y 11 No. 607-A</p>
+                    <p className="text-gray-600">Col. Maya, 97134 Mérida, Yucatán, México</p>
                   </div>
                 </motion.div>
 
@@ -119,11 +119,11 @@ export function ContactPage() {
                   whileHover={{ x: 10 }}
                   className="flex items-start bg-gray-50 p-6 rounded-lg"
                 >
-                  <div className="w-12 h-12 bg-[var(--mavic-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-[var(--petra-gold)] rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <Clock size={24} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg text-[var(--mavic-navy)] mb-1">Horario</h3>
+                    <h3 className="text-lg text-[var(--petra-navy)] mb-1">Horario</h3>
                     <p className="text-gray-600">Lunes - Viernes: 9:00 - 18:00</p>
                     <p className="text-gray-600">Sábados: 10:00 - 14:00</p>
                   </div>
@@ -138,7 +138,7 @@ export function ContactPage() {
               viewport={{ once: true }}
             >
               <div className="bg-gray-50 rounded-lg shadow-xl p-8">
-                <h3 className="text-3xl text-[var(--mavic-navy)] mb-6">Envíanos un Mensaje</h3>
+                <h3 className="text-3xl text-[var(--petra-navy)] mb-6">Envíanos un Mensaje</h3>
                 
                 {submitted && (
                   <motion.div
@@ -159,7 +159,7 @@ export function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] transition-all"
                       placeholder="Tu nombre"
                     />
                   </div>
@@ -172,7 +172,7 @@ export function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] transition-all"
                       placeholder="tu@email.com"
                     />
                   </div>
@@ -185,7 +185,7 @@ export function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] transition-all"
                       placeholder="+34 123 456 789"
                     />
                   </div>
@@ -197,7 +197,7 @@ export function ContactPage() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] transition-all"
                     >
                       <option value="">Selecciona un asunto</option>
                       <option value="presupuesto">Solicitud de Presupuesto</option>
@@ -215,7 +215,7 @@ export function ContactPage() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--mavic-gold)] resize-none transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] resize-none transition-all"
                       placeholder="Cuéntanos sobre tu proyecto..."
                     ></textarea>
                   </div>
@@ -224,7 +224,7 @@ export function ContactPage() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full px-6 py-4 bg-[var(--mavic-navy)] text-white rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors flex items-center justify-center group"
+                    className="w-full px-6 py-4 bg-[var(--petra-navy)] text-white rounded-lg hover:bg-[var(--petra-navy-dark)] transition-colors flex items-center justify-center group"
                   >
                     <span>Enviar Mensaje</span>
                     <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -245,20 +245,20 @@ export function ContactPage() {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h2 className="text-4xl text-[var(--mavic-navy)] mb-4">
-              Encuéntranos en <span className="text-[var(--mavic-gold)]">Madrid</span>
+            <h2 className="text-4xl text-[var(--petra-navy)] mb-4">
+              Encuéntranos en <span className="text-[var(--petra-gold)]">Mérida</span>
             </h2>
           </motion.div>
           <div className="w-full h-96 bg-gray-300 rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.4267932456087!2d-3.7037902!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287f3b6c5e45%3A0x400f5d1f5f0e190!2sMadrid%2C%20Spain!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119303.4715!2d-89.616!3d20.9674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56715f83c7584d%3A0x5e8a8b7c9d0e1f2a!2sM%C3%A9rida%2C%20Yucat%C3%A1n%2C%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="PetraConstrucciones Location"
+              title="Petra Construcciones - Mérida, Yucatán, México"
             ></iframe>
           </div>
         </div>

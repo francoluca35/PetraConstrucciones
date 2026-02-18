@@ -34,7 +34,7 @@ export function PortfolioPage() {
           className="text-3xl md:text-4xl font-medium text-center tracking-tight"
         >
           <span className="text-[#283777]">PROYECTOS </span>
-          <span className="text-[var(--mavic-gold)]">PETRA</span>
+          <span className="text-[var(--petra-gold)]">PETRA</span>
         </motion.h2>
       </section>
 
@@ -67,7 +67,7 @@ export function PortfolioPage() {
                       <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
                         {project.category || 'PROYECTO'}
                       </p>
-                      <p className="text-lg xl:text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight">
+                      <p className="text-lg xl:text-xl font-bold uppercase text-[var(--petra-navy)] tracking-tight">
                         {project.label}
                       </p>
                     </div>
@@ -78,7 +78,7 @@ export function PortfolioPage() {
                   <p className="text-xs uppercase tracking-wider text-[#4A9EBB] font-medium">
                     {project.category || 'PROYECTO'}
                   </p>
-                  <p className="text-xl font-bold uppercase text-[var(--mavic-navy)] tracking-tight mt-0.5">
+                  <p className="text-xl font-bold uppercase text-[var(--petra-navy)] tracking-tight mt-0.5">
                     {project.label}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ export function PortfolioPage() {
 
       {/* Línea divisoria */}
       <div className="max-w-6xl mx-auto px-4">
-        <hr className="border-t-2 border-[var(--mavic-gold)]" />
+        <hr className="border-t-2 border-[var(--petra-gold)]" />
       </div>
 
       {/* Sección PRESUPUESTO CERRADO */}
@@ -101,11 +101,11 @@ export function PortfolioPage() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-medium text-center tracking-tight mb-10"
         >
-          <span className="text-[var(--mavic-navy)]">PRESUPUESTO </span>
-          <span className="text-[var(--mavic-gold)]">CERRADO</span>
+          <span className="text-[var(--petra-navy)]">PRESUPUESTO </span>
+          <span className="text-[var(--petra-gold)]">CERRADO</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-[var(--mavic-navy)]">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-[var(--petra-navy)]">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -142,7 +142,7 @@ export function PortfolioPage() {
         >
           <Link
             href="/contacto"
-            className="inline-block px-8 py-4 bg-[var(--mavic-navy)] text-white font-medium rounded-lg hover:bg-[var(--mavic-navy-dark)] transition-colors"
+            className="inline-block px-8 py-4 bg-[var(--petra-navy)] text-white font-medium rounded-lg hover:bg-[var(--petra-navy-dark)] transition-colors"
           >
             Solicitar presupuesto
           </Link>

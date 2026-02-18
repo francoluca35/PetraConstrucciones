@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Petra Construcciones - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación.',
   keywords:
-    'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, Petra Construcciones, construcción Madrid, constructora',
+    'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, Petra Construcciones, construcción Mérida, Yucatán, México, constructora',
   icons: {
     icon: '/Assets/sigla.png',
     apple: '/Assets/sigla.png',
