@@ -5,22 +5,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/src/context/LanguageContext';
 
-type GalleryItem = {
-  url: string;
-  titleKey: string;
-  category: string;
-  categoryKey: string;
-  type?: 'image' | 'video';
-};
-
-const galleryImages: GalleryItem[] = [
-  { url: '/Assets/Proyecto-1/frente-1.png', titleKey: 'galleryPage.imgTitle1', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-2/1.png', titleKey: 'galleryPage.imgTitle2', category: 'Comercial', categoryKey: 'galleryPage.filterCommercial' },
-  { url: '/Assets/Proyecto-3/1.png', titleKey: 'galleryPage.imgTitle3', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-4/1.png', titleKey: 'galleryPage.imgTitle4', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-5/1.jpg', titleKey: 'galleryPage.imgTitle5', category: 'Diseño', categoryKey: 'galleryPage.filterDesign' },
-  { url: '/Assets/piscina-foto.png', titleKey: 'galleryPage.imgTitle6', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/piscina.mp4', titleKey: 'galleryPage.imgTitle7', category: 'Residencial', categoryKey: 'galleryPage.filterResidential', type: 'video' },
+const galleryImages = [
+  { url: 'https://images.unsplash.com/photo-1769721209842-e46c60e7fbf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb25zdHJ1Y3Rpb24lMjBidWlsZGluZ3xlbnwxfHx8fDE3NzA3NDIzNTh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle1', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1673978484308-6f32e2c4a984?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwYXJjaGl0ZWN0dXJlfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle2', category: 'Comercial', categoryKey: 'galleryPage.filterCommercial' },
+  { url: 'https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc3MDg1Njk4N3ww&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle3', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle4', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: 'https://images.unsplash.com/photo-1742415106160-594d07f6cc23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBibHVlcHJpbnQlMjBwbGFuc3xlbnwxfHx8fDE3NzA3NjU0MjB8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle5', category: 'Diseño', categoryKey: 'galleryPage.filterDesign' },
+  { url: 'https://images.unsplash.com/photo-1718209962486-4f91ce71886b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjB0ZWFtJTIwd29ya2Vyc3xlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080', titleKey: 'galleryPage.imgTitle6', category: 'Equipo', categoryKey: 'galleryPage.filterTeam' },
 ];
 
 const CATEGORY_KEYS = ['galleryPage.filterAll', 'galleryPage.filterResidential', 'galleryPage.filterCommercial', 'galleryPage.filterDesign', 'galleryPage.filterTeam'] as const;
@@ -124,22 +115,11 @@ export function GalleryPage() {
               className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/5 text-left focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-[#0a0a0b]"
               onClick={() => setSelectedImage(filteredImages.indexOf(image))}
             >
-              {image.type === 'video' ? (
-                <video
-                  src={image.url}
-                  muted
-                  loop
-                  playsInline
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  aria-label={t(image.titleKey)}
-                />
-              ) : (
-                <img
-                  src={image.url}
-                  alt={t(image.titleKey)}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              )}
+              <img
+                src={image.url}
+                alt={t(image.titleKey)}
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
               <div className="absolute inset-x-0 bottom-0 translate-y-2 p-6 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="h-px w-12 bg-[var(--petra-gold)] mb-3" />
@@ -206,23 +186,11 @@ export function GalleryPage() {
                 className="flex max-h-[70vh] w-full max-w-5xl items-center justify-center"
                 onClick={(e) => e.stopPropagation()}
               >
-                {filteredImages[selectedImage].type === 'video' ? (
-                  <video
-                    src={filteredImages[selectedImage].url}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="max-h-[70vh] w-auto max-w-full object-contain"
-                    aria-label={t(filteredImages[selectedImage].titleKey)}
-                  />
-                ) : (
-                  <img
-                    src={filteredImages[selectedImage].url}
-                    alt={t(filteredImages[selectedImage].titleKey)}
-                    className="max-h-[70vh] w-auto max-w-full object-contain"
-                  />
-                )}
+                <img
+                  src={filteredImages[selectedImage].url}
+                  alt={t(filteredImages[selectedImage].titleKey)}
+                  className="max-h-[70vh] w-auto max-w-full object-contain"
+                />
               </motion.div>
             </div>
 
