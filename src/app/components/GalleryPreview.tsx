@@ -6,11 +6,11 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/src/context/LanguageContext';
 
-const galleryImages = [
+const galleryImages: { url: string; titleKey: string; type?: 'image' | 'video' }[] = [
   { url: '/Assets/plano.jpg', titleKey: 'gallery.img4' },
   { url: '/Assets/Proyecto-1/frente-1.png', titleKey: 'gallery.img1' },
   { url: '/Assets/home.png', titleKey: 'gallery.img2' },
-  { url: '/Assets/Proyecto-4/2.png', titleKey: 'gallery.img3' },
+  { url: '/Assets/piscina.mp4', titleKey: 'gallery.img3', type: 'video' },
   { url: '/Assets/oficinas.png', titleKey: 'gallery.img4' },
 ];
 
@@ -54,11 +54,23 @@ export function GalleryPreview() {
           transition={{ duration: 0.5 }}
           className="absolute inset-0"
         >
-          <img
-            src={galleryImages[currentIndex].url}
-            alt={t(galleryImages[currentIndex].titleKey)}
-            className="w-full h-full object-cover"
-          />
+          {galleryImages[currentIndex].type === 'video' ? (
+            <video
+              src={galleryImages[currentIndex].url}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+              aria-label={t(galleryImages[currentIndex].titleKey)}
+            />
+          ) : (
+            <img
+              src={galleryImages[currentIndex].url}
+              alt={t(galleryImages[currentIndex].titleKey)}
+              className="w-full h-full object-cover"
+            />
+          )}
           {/* Sin bloque oscuro: texto directo sobre la imagen, esquina inferior derecha */}
           <div className="absolute bottom-0 right-0 text-right p-6 md:p-10 pb-24 md:pb-28">
             <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight mb-1 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
