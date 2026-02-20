@@ -38,15 +38,16 @@ export function PortfolioPreview() {
             key={index}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -6 }}
             className="group relative min-h-[50vh] md:min-h-[70vh] overflow-hidden"
           >
             <Link href={`/portfolio/${item.slug}`} className="block absolute inset-0">
               <img
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
               {/* Marca de agua: logo en esquina superior derecha */}
               <div
