@@ -1,7 +1,4 @@
-Claro Franco 👍
-Te dejo un **README completo y profesional** para tu repo de **PetraConstrucciones**, basado en el sitio web de la empresa y lo que estuve viendo en tu código.
 
----
 
 # 📌 README.md — Proyecto **Petra Construcciones**
 
