@@ -33,10 +33,14 @@ export const projects: Project[] = [
     label: 'RESIDENCIA MERIDA',
     image: '/Assets/Proyecto-1/frente-1.png',
     gallery: [
+      '/Assets/Proyecto-1/1.png',
+
       '/Assets/Proyecto-1/frente-1.png',
       '/Assets/Proyecto-1/living-1.jpg',
       '/Assets/Proyecto-1/Baño-1.jpg',
       '/Assets/Proyecto-1/exterior-terraza.jpg',
+      '/Assets/Proyecto-1/2.png',
+
       '/Assets/Proyecto-1/patio-trasero.png',
     ],
     category: 'Residencial',
