@@ -158,10 +158,11 @@ function CountUp({ target, format, duration = 2 }: { target: number; format?: (n
   return <>{formatter(display)}</>;
 }
 
+// Sincronizado con BG_IMAGES_DESKTOP por índice: slide 0 = about-3 + home, 1 = home-m3 + home-2, 2 = home-mobile + home-3
 const BG_IMAGES_MOBILE: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/home-mobile.png', objectPosClass: 'object-center' },
-  { src: '/Assets/home-m.png', objectPosClass: 'object-center' },
+  { src: '/Assets/about-3.jpg', objectPosClass: 'object-center' },
   { src: '/Assets/home-m3.jpg', objectPosClass: 'object-center' },
+  { src: '/Assets/home-mobile.png', objectPosClass: 'object-center' },
 ];
 
 const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
@@ -206,7 +207,7 @@ export function Hero() {
         <div
           className="absolute inset-0 z-10"
           style={{
-            background: 'linear-gradient(135deg, rgba(20,18,16,0.85) 0%, rgba(35,30,28,0.75) 50%, rgba(25,22,20,0.9) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.55) 100%)',
           }}
         />
       </div>
@@ -232,7 +233,7 @@ export function Hero() {
         <div
           className="absolute inset-0 z-10"
           style={{
-            background: 'linear-gradient(135deg, rgba(20,18,16,0.85) 0%, rgba(35,30,28,0.75) 50%, rgba(25,22,20,0.9) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.55) 100%)',
           }}
         />
       </div>

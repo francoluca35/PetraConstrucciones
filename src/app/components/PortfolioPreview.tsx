@@ -7,8 +7,8 @@ import { useLanguage } from '@/src/context/LanguageContext';
 
 const portfolioItems = [
   { slug: 'lote-43', title: 'Lote 43', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/1.png', descriptionKey: 'portfolio.desc.lote43' },
-  { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/frente-1.png', descriptionKey: 'portfolio.desc.merida' },
-  { slug: 'proyecto-5020-1', title: '5020/1', categoryKey: 'portfolio.category.design', image: '/Assets/Proyecto-4/1.png', descriptionKey: 'portfolio.desc.5020' },
+  { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/1.png', descriptionKey: 'portfolio.desc.merida' },
+  { slug: 'lote-101', title: 'Lote 101', categoryKey: 'portfolio.category.offices', image: '/Assets/Proyecto-2/1.png', descriptionKey: 'portfolio.desc.lote101' },
 ];
 
 export function PortfolioPreview() {
