@@ -68,10 +68,10 @@ export const projects: Project[] = [
   {
     slug: 'proyecto-residencial',
     label: 'RESIDENCIA MX',
-    image: 'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3VzZSUyMGNvbnN0cnVjdGlvbnxlbnwxfHx8fDE3NzA4NTY5ODh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/Assets/Proyecto-6/proyecto-6.png',
     gallery: [
-      'https://images.unsplash.com/photo-1684691376857-5dfb87f6bc65?w=800&q=80',
-   
+      '/Assets/Proyecto-6/proyecto-6.png',
+      '/Assets/Proyecto-6/proyecto-6-a.png',
     ],
     category: 'Residencial',
     description: 'Villa de lujo con vistas al mar. Acabados premium y diseño exclusivo.',
