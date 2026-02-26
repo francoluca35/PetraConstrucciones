@@ -1,17 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Home, Building2, Waves, Landmark, Hammer } from 'lucide-react';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const SERVICE_IMAGES = {
-  viviendas: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-  oficinas: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
-  piscinas: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=80',
-  civiles: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-  municipales: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
-  remodelaciones: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=800&q=80',
+  viviendas: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+  oficinas: 'https://images.unsplash.com/photo-1497366216548-37526070297c',
+  piscinas: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7',
+  civiles: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd',
+  municipales: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5',
+  remodelaciones: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8',
 } as const;
 
 const CARD_KEYS = [
@@ -126,10 +127,12 @@ function ServiceCard({
           aria-hidden
         />
         <div className="absolute inset-0 bg-neutral-800">
-          <img
+          <Image
             src={card.image}
             alt={`${t(card.title)} en Mérida, Yucatán - Constructora Estrategia Conesa S.A.`}
-            className={`absolute inset-0 w-full h-full object-cover ${card.imgPos} opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+            className={`object-cover ${card.imgPos} opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700`}
           />
           <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
             <Icon className="w-16 h-16 opacity-30 group-hover:opacity-0 transition-opacity duration-500" />

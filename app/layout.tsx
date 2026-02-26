@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Navbar } from '@/src/app/components/Navbar';
-import { Footer } from '@/src/app/components/Footer';
-import { BackToTop } from '@/src/app/components/BackToTop';
-import { ScrollToTop } from '@/src/app/components/ScrollToTop';
-import { WhatsAppFloating } from '@/src/app/components/WhatsAppFloating';
+import { AppShell } from '@/src/app/components/AppShell';
 import { ClientProviders } from '@/src/app/components/ClientProviders';
 import { StructuredData } from '@/src/app/components/StructuredData';
 
@@ -58,14 +54,15 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/911v2.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        {/* Hace el CSS principal no bloqueante: media=print hasta que cargue, luego media=all (~120ms ahorro en LCP) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){function u(){var s=document.querySelectorAll('link[rel="stylesheet"][href*="/_next/static/css"]');s.forEach(function(l){if(l.getAttribute('data-nb'))return;l.setAttribute('data-nb','1');l.media='print';l.onload=function(){this.media='all';};if(l.sheet)l.media='all';});}u();if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',u);})();`,
+          }}
+        />
         <StructuredData />
         <ClientProviders>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <BackToTop />
-          <ScrollToTop />
-          <WhatsAppFloating />
+          <AppShell>{children}</AppShell>
         </ClientProviders>
       </body>
     </html>
