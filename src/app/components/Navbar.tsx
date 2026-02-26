@@ -25,9 +25,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
-  const [phase, setPhase] = useState<'sigla' | 'toText' | 'text' | 'toSigla'>(() =>
-    typeof window !== 'undefined' && window.innerWidth < MOBILE_BREAKPOINT ? 'text' : 'sigla'
-  );
+  // Mismo valor en servidor y cliente para evitar hydration mismatch en móvil; el useEffect de isMobile ajusta la fase después.
+  const [phase, setPhase] = useState<'sigla' | 'toText' | 'text' | 'toSigla'>('sigla');
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
