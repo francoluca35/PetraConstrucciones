@@ -4,11 +4,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const aboutImages = [
-  { src: '/Assets/about.jpg', alt: 'Construcción en obra - Constructora en Mérida, Yucatán - Constructora Estrategia Conesa S.A.' },
-  { src: '/Assets/about-3.jpg', alt: 'Proyecto de construcción residencial en Mérida, Yucatán' },
+  { src: '/Assets/about.avif', alt: 'Construcción en obra - Constructora en Mérida, Yucatán - Constructora Estrategia Conesa S.A.' },
+  { src: '/Assets/about-3.avif', alt: 'Proyecto de construcción residencial en Mérida, Yucatán' },
 ];
 
 const AUTOPLAY_MS = 4000;
@@ -87,10 +88,12 @@ export function AboutPreview() {
               transition={{ duration: 0.7 }}
               className="absolute inset-0 z-0 [&:last-child]:z-10"
             >
-              <img
+              <Image
                 src={aboutImages[currentIndex].src}
                 alt={aboutImages[currentIndex].alt}
-                className="w-full h-full object-cover object-center"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
               />
             </motion.div>
           </AnimatePresence>

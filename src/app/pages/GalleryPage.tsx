@@ -14,11 +14,11 @@ type GalleryItem = {
 };
 
 const galleryImages: GalleryItem[] = [
-  { url: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.png', titleKey: 'galleryPage.imgTitle1', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-2/casa-moderna-merida-1.png', titleKey: 'galleryPage.imgTitle2', category: 'Comercial', categoryKey: 'galleryPage.filterCommercial' },
-  { url: '/Assets/Proyecto-3/casa-moderna-mexico-1.png', titleKey: 'galleryPage.imgTitle3', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.png', titleKey: 'galleryPage.imgTitle4', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
-  { url: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg', titleKey: 'galleryPage.imgTitle5', category: 'Diseño', categoryKey: 'galleryPage.filterDesign' },
+  { url: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.avif', titleKey: 'galleryPage.imgTitle1', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: '/Assets/Proyecto-2/casa-moderna-merida-1.avif', titleKey: 'galleryPage.imgTitle2', category: 'Comercial', categoryKey: 'galleryPage.filterCommercial' },
+  { url: '/Assets/Proyecto-3/casa-moderna-mexico-1.avif', titleKey: 'galleryPage.imgTitle3', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif', titleKey: 'galleryPage.imgTitle4', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
+  { url: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif', titleKey: 'galleryPage.imgTitle5', category: 'Diseño', categoryKey: 'galleryPage.filterDesign' },
   { url: '/Assets/piscina-foto.png', titleKey: 'galleryPage.imgTitle6', category: 'Residencial', categoryKey: 'galleryPage.filterResidential' },
   { url: '/Assets/piscina.mp4', titleKey: 'galleryPage.imgTitle7', category: 'Residencial', categoryKey: 'galleryPage.filterResidential', type: 'video' },
 ];

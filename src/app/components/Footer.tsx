@@ -17,7 +17,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Image src="/Assets/logo-pagina.png" alt="Conesa constructora" width={160} height={64} className="h-16 w-auto mb-4" />
+            <Image src="/Assets/logo-pagina.avif" alt="Conesa constructora" width={160} height={64} className="h-16 w-auto mb-4" />
             <p className="text-gray-300 text-sm">
               {t('footer.tagline')}
             </p>

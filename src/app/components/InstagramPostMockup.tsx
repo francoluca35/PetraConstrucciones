@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Heart, MessageCircle, Send, MoreHorizontal } from 'lucide-react';
+import Image from 'next/image';
 import { projects } from '@/src/data/projects';
 
 const projectImages = projects
@@ -11,7 +12,7 @@ const projectImages = projects
 
 export function InstagramPostMockup() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = projectImages.length ? projectImages : ['/Assets/service.jpg'];
+  const images = projectImages.length ? projectImages : ['/Assets/service.avif'];
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -28,11 +29,14 @@ export function InstagramPostMockup() {
       {/* Header del post: usuario + menú */}
       <div className="flex items-center justify-between px-3 py-2.5 bg-[#000] border-b border-[#262626]">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex-shrink-0 ring-1 ring-[#363636] flex items-center justify-center p-0.5">
-            <img
-              src="/Assets/sigladef1.png"
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white flex-shrink-0 ring-1 ring-[#363636] flex items-center justify-center p-0.5 relative">
+            <Image
+              src="/Assets/sigladef1.avif"
               alt=""
-              className="w-full h-full object-contain"
+              width={32}
+              height={32}
+              sizes="32px"
+              className="object-contain"
             />
           </div>
           <a

@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   keywords:
     'constructora en Mérida Yucatán, construcción de casas en Mérida, empresa constructora Mérida México, construcción de piscinas en Mérida, casas llave en mano Mérida, construcción residencial Mérida, construcción comercial Yucatán, Constructora Estrategia Conesa',
   icons: {
-    icon: '/Assets/favicon.ico',
-    apple: '/Assets/favicon.ico',
+    icon: '/Assets/favicon.avif',
+    apple: '/Assets/favicon.avif',
   },
   openGraph: {
     type: 'website',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas',
     description:
       'Constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano. +17 años en Yucatán.',
-    images: [{ url: '/Assets/logo-pagina.png', width: 1200, height: 630, alt: 'Constructora en Mérida Yucatán - Constructora Estrategia Conesa S.A.' }],
+    images: [{ url: '/Assets/logo-pagina.avif', width: 1200, height: 630, alt: 'Constructora en Mérida Yucatán - Constructora Estrategia Conesa S.A.' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -53,6 +53,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <link rel="preload" href="/fonts/good-times-rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/911v2.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-screen flex flex-col antialiased">
         <StructuredData />
         <ClientProviders>
