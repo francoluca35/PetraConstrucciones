@@ -162,7 +162,7 @@ function CountUp({ target, format, duration = 2 }: { target: number; format?: (n
 
 // Sincronizado con BG_IMAGES_DESKTOP por índice: slide 0 = about-3 + home, 1 = home-m3 + home-2, 2 = home-mobile + home-3
 const BG_IMAGES_MOBILE: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/about-3.avif', objectPosClass: 'object-center' },
+  { src: '/Assets/home-m1.jpg', objectPosClass: 'object-center' },
   { src: '/Assets/home-m3.avif', objectPosClass: 'object-center' },
   { src: '/Assets/home-mobile.avif', objectPosClass: 'object-center' },
 ];
