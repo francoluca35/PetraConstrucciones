@@ -52,14 +52,14 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/fonts/good-times-rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/911v2.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased">
-        {/* Hace el CSS principal no bloqueante: media=print hasta que cargue, luego media=all (~120ms ahorro en LCP) */}
+        {/* CSS no bloqueante en móvil: aplica aunque el link se inyecte después (streaming). MutationObserver + ejecución inmediata. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){function u(){var s=document.querySelectorAll('link[rel="stylesheet"][href*="/_next/static/css"]');s.forEach(function(l){if(l.getAttribute('data-nb'))return;l.setAttribute('data-nb','1');l.media='print';l.onload=function(){this.media='all';};if(l.sheet)l.media='all';});}u();if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',u);})();`,
+            __html: `(function(){function u(){var s=document.querySelectorAll('link[rel="stylesheet"][href*="/_next/static/css"]');s.forEach(function(l){if(l.getAttribute('data-nb'))return;l.setAttribute('data-nb','1');l.media='print';l.onload=function(){this.media='all';};if(l.sheet)l.media='all';});}u();document.addEventListener('DOMContentLoaded',u);var o=new MutationObserver(u);o.observe(document.documentElement,{childList:true,subtree:true});setTimeout(function(){o.disconnect();},8000);})();`,
           }}
         />
+      </head>
+      <body className="min-h-screen flex flex-col antialiased">
         <StructuredData />
         <ClientProviders>
           <AppShell>{children}</AppShell>
