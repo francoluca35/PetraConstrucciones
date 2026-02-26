@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
-import { getHeroPrefix } from '@/src/i18n/translations';
+import { getHeroPrefix, getHeroRotatingSubtitles } from '@/src/i18n/translations';
 
 const titleClass = 'block text-4xl tracking-tight sm:text-5xl md:text-6xl lg:text-7xl';
 const subtitleClass = 'block text-lg font-medium tracking-wide text-white/90 sm:text-xl md:text-2xl';
@@ -251,7 +251,7 @@ export function Hero() {
         >
           <HeroTypewriter
             prefix={getHeroPrefix(locale)}
-            rotatingSubtitles={[t('hero.typewriter1'), t('hero.typewriter2')]}
+            rotatingSubtitles={getHeroRotatingSubtitles(locale)}
             delay={500}
             typeSpeed={75}
             eraseSpeed={45}

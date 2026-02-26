@@ -1,7 +1,8 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { Locale, translations } from '@/src/i18n/translations';
+import { Locale, loadTranslations } from '@/src/i18n/translations';
+import translationsEs from '@/src/i18n/translations.es';
 
 const STORAGE_KEY = 'conesa-locale';
 
@@ -21,6 +22,7 @@ const LanguageContext = createContext<LanguageContextType>(defaultContext);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('es');
+  const [dict, setDict] = useState<Record<string, string>>(translationsEs);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -32,6 +34,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (locale === 'es') {
+      setDict(translationsEs);
+      return;
+    }
+    loadTranslations('en').then(setDict);
+  }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
@@ -47,10 +57,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = useCallback(
     (key: string): string => {
-      const dict = translations[locale];
-      return dict[key] ?? translations.es[key] ?? key;
+      return dict[key] ?? translationsEs[key] ?? key;
     },
-    [locale]
+    [dict]
   );
 
   useEffect(() => {
