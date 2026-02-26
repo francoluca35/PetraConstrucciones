@@ -1,9 +1,5 @@
 import dynamic from 'next/dynamic';
-
-const Hero = dynamic(
-  () => import('@/src/app/components/Hero').then((m) => ({ default: m.Hero })),
-  { ssr: true }
-);
+import { Hero } from '@/src/app/components/Hero';
 
 const AboutPreview = dynamic(
   () => import('@/src/app/components/AboutPreview').then((m) => ({ default: m.AboutPreview })),

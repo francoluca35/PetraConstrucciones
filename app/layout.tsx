@@ -52,8 +52,6 @@ export default function RootLayout({
       <head>
         <link rel="preload" href="/fonts/good-times-rg.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/911v2.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        {/* LCP móvil: primera imagen del hero (about-3.avif) para que el navegador la pida desde el primer HTML */}
-        <link rel="preload" href="/Assets/about-3.avif" as="image" media="(max-width: 1023px)" />
         {/* CSS no bloqueante en móvil: aplica aunque el link se inyecte después (streaming). MutationObserver + ejecución inmediata. */}
         <script
           dangerouslySetInnerHTML={{
