@@ -42,12 +42,12 @@ export function ContactPreview() {
               {t('contact.lead')}
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-5 mb-8">
               <motion.div
                 whileHover={{ x: 10 }}
                 className="flex items-center text-[var(--petra-navy)]"
               >
-                <div className="w-12 h-12 bg-[var(--petra-gold-dark)] rounded-full flex items-center justify-center mr-4 text-[var(--petra-navy)]">
+                <div className="w-12 h-12 border-2 border-[var(--petra-gold)] bg-white rounded-full flex items-center justify-center mr-4 text-[var(--petra-gold)] shadow-sm">
                   <Phone size={20} strokeWidth={2} />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export function ContactPreview() {
                 whileHover={{ x: 10 }}
                 className="flex items-center text-[var(--petra-navy)]"
               >
-                <div className="w-12 h-12 bg-[var(--petra-gold-dark)] rounded-full flex items-center justify-center mr-4 text-[var(--petra-navy)]">
+                <div className="w-12 h-12 border-2 border-[var(--petra-gold)] bg-white rounded-full flex items-center justify-center mr-4 text-[var(--petra-gold)] shadow-sm">
                   <Mail size={20} strokeWidth={2} />
                 </div>
                 <div>
@@ -73,7 +73,7 @@ export function ContactPreview() {
                 whileHover={{ x: 10 }}
                 className="flex items-center text-[var(--petra-navy)]"
               >
-                <div className="w-12 h-12 bg-[var(--petra-gold-dark)] rounded-full flex items-center justify-center mr-4 text-[var(--petra-navy)]">
+                <div className="w-12 h-12 border-2 border-[var(--petra-gold)] bg-white rounded-full flex items-center justify-center mr-4 text-[var(--petra-gold)] shadow-sm">
                   <MapPin size={20} strokeWidth={2} />
                 </div>
                 <div>

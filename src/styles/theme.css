@@ -40,12 +40,18 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #C9A961;
   
-  /* Conesa constructora - Custom Colors */
-  --petra-navy: #171717;
-  --petra-gold: #C9A961;
-  --petra-navy-dark: #1a252f;
-  --petra-gold-light: #d4b876;
+  /* Conesa constructora - Custom Colors (luxury palette) */
+  --petra-navy: #0f0f0f;
+  --petra-navy-soft: #171717;
+  --petra-gold: #c9a961;
+  --petra-gold-bright: #d4af37;
+  --petra-gold-light: #e5c76b;
   --petra-gold-dark: #9b814a;
+  --petra-navy-dark: #1a252f;
+  /* Luxury effects */
+  --petra-glow-gold: 0 0 20px rgba(212, 175, 55, 0.25);
+  --petra-shadow-lux: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  --petra-border-gold: 1px solid rgba(201, 169, 97, 0.4);
 }
 
 .dark {
@@ -127,7 +133,9 @@
   
   /* Conesa constructora Custom Color Classes */
   --color-petra-navy: var(--petra-navy);
+  --color-petra-navy-soft: var(--petra-navy-soft);
   --color-petra-gold: var(--petra-gold);
+  --color-petra-gold-bright: var(--petra-gold-bright);
   --color-petra-navy-dark: var(--petra-navy-dark);
   --color-petra-gold-light: var(--petra-gold-light);
 }

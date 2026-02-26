@@ -111,8 +111,10 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[var(--petra-navy)] shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-[var(--petra-navy)]/92 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] backdrop-blur-md border-b border-white/5'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-12 xl:px-8">
@@ -220,7 +222,7 @@ export function Navbar() {
                   href={link.path}
                   className="relative group"
                 >
-                  <span className="text-white hover:text-[var(--petra-gold)] transition-colors duration-300">
+                  <span className="text-white/95 tracking-[0.12em] text-sm font-medium uppercase hover:text-[var(--petra-gold)] transition-colors duration-300">
                     {t(link.nameKey)}
                   </span>
                   {pathname === link.path && (

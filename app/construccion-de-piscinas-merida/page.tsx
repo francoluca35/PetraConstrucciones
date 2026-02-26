@@ -1,75 +1,69 @@
-import Link from 'next/link';
-import { Waves, Droplets, ArrowRight } from 'lucide-react';
+import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
 
 export const metadata = {
-  title: 'Construcción de Piscinas en Mérida, Yucatán',
+  title: 'Construcción de Piscinas en Mérida, Yucatán | Piscinas Residenciales | Constructora Conesa',
   description:
-    'Construcción de piscinas en Mérida, Yucatán. Diseño y obra de piscinas residenciales. Constructora Estrategia Conesa S.A. Especialistas en piscinas en Yucatán.',
+    'Construcción de piscinas en Mérida, Yucatán. Diseño y obra de piscinas residenciales, acabados de calidad. Constructora Estrategia Conesa S.A. Especialistas en piscinas en Yucatán. +80 piscinas construidas.',
   keywords:
-    'construcción de piscinas en Mérida, piscinas Mérida Yucatán, construir piscina Mérida, precio piscinas Mérida',
+    'construcción de piscinas en Mérida, piscinas Mérida Yucatán, construir piscina Mérida, precio piscinas Mérida, piscinas residenciales Yucatán, diseño piscinas Mérida, obra de piscinas Mérida, piscinas llave en mano Yucatán',
 };
 
 export default function ConstruccionPiscinasMeridaPage() {
   return (
-    <main className="min-h-screen bg-neutral-50">
-      {/* Hero */}
-      <section className="relative bg-[var(--petra-navy)] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(160deg,var(--petra-navy)_0%,#0c4a6e_40%,#0f172a_100%)]" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 right-0 w-96 h-96 bg-cyan-500/30 rounded-full -translate-y-1/2 blur-3xl" />
-        </div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--petra-gold)]/20 text-[var(--petra-gold)] text-sm font-medium px-4 py-1.5 mb-6 border border-[var(--petra-gold)]/30">
-            <Waves className="w-4 h-4" />
-            <span>Piscinas residenciales</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-3xl leading-[1.1]">
-            Construcción de piscinas en Mérida, Yucatán
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
-            Diseño y obra de piscinas con acabados de calidad. Adaptadas al clima y al estilo de vida de Yucatán.
-          </p>
-        </div>
-      </section>
-
-      {/* Contenido */}
-      <section className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 md:-mt-16">
-        <div className="grid gap-6 md:gap-8">
-          <article className="rounded-2xl bg-white p-6 md:p-8 shadow-xl shadow-black/5 border border-neutral-100">
-            <h2 className="text-xl md:text-2xl font-bold text-[var(--petra-navy)] mb-4 flex items-center gap-3">
-              <span className="w-1 h-8 rounded-full bg-[var(--petra-gold)]" />
-              Piscinas residenciales en Mérida
-            </h2>
-            <p className="text-neutral-600 leading-relaxed">
-              Somos especialistas en construcción de piscinas en Mérida, Yucatán. Diseñamos y construimos piscinas residenciales con acabados de calidad para hogares en Mérida, Conkal, Cholul, Temozón y la península. Obras con estándares de seguridad y durabilidad.
-            </p>
-          </article>
-
-          <article className="rounded-2xl bg-white p-6 md:p-8 shadow-xl shadow-black/5 border border-neutral-100">
-            <h2 className="text-xl md:text-2xl font-bold text-[var(--petra-navy)] mb-4 flex items-center gap-3">
-              <span className="w-1 h-8 rounded-full bg-[var(--petra-gold)]" />
-              Cobertura en Yucatán
-            </h2>
-            <p className="text-neutral-600 leading-relaxed">
-              Atendemos construcción de piscinas en Mérida y alrededores: zona norte de Mérida, Conkal, Cholul, Progreso y más localidades de Yucatán.
-            </p>
-            <div className="mt-4 flex items-center gap-2 text-[var(--petra-gold)] font-medium">
-              <Droplets className="w-5 h-5" />
-              <span>Diseños integrados al entorno</span>
-            </div>
-          </article>
-        </div>
-
-        <div className="mt-12 md:mt-16 pb-20 text-center">
-          <Link
-            href="/contacto"
-            className="group inline-flex items-center gap-3 bg-[var(--petra-gold)] text-[var(--petra-navy)] font-semibold px-8 py-4 rounded-xl hover:bg-[var(--petra-gold-light)] transition-all duration-300 shadow-lg shadow-[var(--petra-gold)]/20 hover:shadow-xl hover:shadow-[var(--petra-gold)]/30 hover:-translate-y-0.5"
-          >
-            Cotizar construcción de piscina en Mérida
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </section>
-    </main>
+    <ServicePageLayout
+      hero={{
+        badge: 'Piscinas residenciales',
+        badgeIcon: 'Waves',
+        title: 'Construcción de piscinas en Mérida, Yucatán',
+        subtitle: 'Diseño y obra de piscinas con acabados de calidad. Adaptadas al clima y al estilo de vida de Yucatán. Más de 80 piscinas construidas en la península.',
+        imageSrc: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7',
+        imageAlt: 'Piscina residencial Mérida Yucatán - construcción de piscinas Constructora Conesa',
+      }}
+      intro="Somos especialistas en construcción de piscinas en Mérida, Yucatán. Diseñamos y construimos piscinas residenciales con acabados de calidad para hogares en Mérida, Conkal, Cholul, Temozón y la península. Obras con estándares de seguridad y durabilidad. Más de 80 piscinas construidas. Piscinas a medida, diseños integrados al jardín y al clima de Yucatán. Cotización de construcción de piscina en Mérida sin compromiso."
+      sections={[
+        {
+          title: 'Piscinas residenciales en Mérida y zona norte',
+          content:
+            'Construcción de piscinas en Mérida, Yucatán para casas y residencias. Piscinas de concreto, acabados en loseta o pintura, diseños rectangulares, libres o con forma. Instalación de equipo de filtrado, iluminación y escalones de seguridad. Atendemos Mérida, Conkal, Cholul, Temozón, Progreso y alrededores. Piscinas residenciales adaptadas al clima de Yucatán.',
+          imageSrc: 'https://images.unsplash.com/photo-1585951237313-1979e4df7385',
+          imageAlt: 'Piscina residencial construcción Mérida Yucatán',
+        },
+        {
+          title: 'Diseño e integración con tu proyecto',
+          content:
+            'Diseñamos piscinas que se integran a tu casa y jardín en Mérida. Desde piscinas pequeñas hasta albercas de gran formato. Constructora en Mérida con experiencia en obra de piscinas: excavación, estructura, impermeabilización y acabados. Presupuesto de construcción de piscina en Mérida con detalle de materiales y mano de obra.',
+          imageSrc: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3',
+          imageAlt: 'Diseño piscina residencial Yucatán - Constructora Conesa',
+          imageRight: true,
+        },
+      ]}
+      benefits={[
+        {
+          title: '+80 piscinas construidas',
+          description: 'Más de 80 piscinas residenciales completadas en Mérida, Yucatán y la península. Experiencia comprobada.',
+        },
+        {
+          title: 'Acabados de calidad',
+          description: 'Construcción de piscinas en Mérida con materiales y acabados duraderos. Loseta, pintura epóxica o recubrimiento de calidad.',
+        },
+        {
+          title: 'Diseño a medida',
+          description: 'Piscinas diseñadas según tu espacio y gusto. Formas, tamaños y equipamiento a tu medida en Mérida.',
+        },
+        {
+          title: 'Clima Yucatán',
+          description: 'Piscinas adaptadas al clima de Mérida y Yucatán. Resistencia al sol y al uso intensivo.',
+        },
+        {
+          title: 'Seguridad y normativa',
+          description: 'Obra de piscinas con estándares de seguridad y durabilidad. Constructora en Mérida responsable.',
+        },
+        {
+          title: 'Presupuesto sin compromiso',
+          description: 'Cotización detallada para construir tu piscina en Mérida. Sin compromiso.',
+        },
+      ]}
+      ctaText="Cotizar construcción de piscina en Mérida"
+    />
   );
 }

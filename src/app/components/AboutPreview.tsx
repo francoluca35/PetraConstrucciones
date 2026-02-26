@@ -34,17 +34,20 @@ export function AboutPreview() {
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="bg-[var(--petra-navy)] text-white flex flex-col justify-center px-8 py-16 md:py-20 lg:px-12 xl:px-16"
         >
-          <p className="text-xs uppercase tracking-widest text-[var(--petra-gold)] mb-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-[var(--petra-gold)] mb-3 font-medium">
             {t('about.socialProof')}
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-semibold leading-tight mb-4 tracking-tight">
             {t('about.previewHeadline1')}{' '}
             <span className="text-[var(--petra-gold)]">{t('about.previewHeadline2')}</span>
           </h2>
-          <div className="w-16 h-1 bg-[var(--petra-gold)] mb-6" />
+          <div className="flex gap-1 mb-6">
+            <div className="w-12 h-0.5 bg-[var(--petra-gold)]" />
+            <div className="w-6 h-0.5 bg-[var(--petra-gold)]/60" />
+          </div>
           <p className="text-[var(--petra-gold)] font-medium text-sm md:text-base tracking-wide mb-6">
             {t('about.previewServices')}
           </p>
@@ -56,16 +59,16 @@ export function AboutPreview() {
           </p>
           <Link
             href="/quienes-somos"
-            className="group inline-flex items-center gap-2 text-white font-semibold tracking-wide border-b-2 border-[var(--petra-gold)] pb-1 w-fit hover:text-[var(--petra-gold)] transition-colors"
+            className="group inline-flex items-center gap-2 text-white font-semibold tracking-[0.08em] border-b-2 border-[var(--petra-gold)] pb-1 w-fit hover:text-[var(--petra-gold)] transition-colors duration-300"
           >
             {t('about.seeMore')}
-            <ArrowRight size={18} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
+            <ArrowRight size={18} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('about.whatsappMessage'))}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center justify-center bg-[var(--petra-gold)] text-[var(--petra-navy)] font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all w-fit"
+            className="mt-5 inline-flex items-center justify-center bg-[var(--petra-gold)] text-[var(--petra-navy)] font-semibold px-7 py-3.5 tracking-wide hover:bg-[var(--petra-gold-light)] hover:shadow-[var(--petra-glow-gold)] transition-all duration-300 w-fit"
           >
             {t('about.ctaPrimary')}
           </a>
