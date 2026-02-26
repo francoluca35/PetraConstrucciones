@@ -67,14 +67,7 @@ export function AboutPage() {
       {/* Hero — impacto fuerte */}
       <section className="relative flex min-h-[55vh] flex-col items-center justify-center overflow-hidden bg-[var(--petra-navy)] px-4 py-28">
         <div className="absolute inset-0">
-          <Image
-            src="/Assets/quienes-somos.avif"
-            alt="Obra de construcción en Mérida - Equipo de Constructora Estrategia Conesa S.A."
-            fill
-            className="object-cover opacity-90"
-            sizes="100vw"
-            priority
-          />
+          <img src="/Assets/quienes-somos.jpg" alt="" className="h-full w-full object-cover opacity-90" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--petra-navy)]/90 to-[var(--petra-navy)]" />
         </div>
         <motion.div
@@ -321,8 +314,8 @@ export function AboutPage() {
       <section className="relative min-h-[420px] overflow-hidden px-4 py-16 sm:py-20">
         <div className="absolute inset-0">
           <Image
-            src="/Assets/fondo-pabout.avif"
-            alt="Fondo de obra - Misión y visión de Constructora Conesa en Mérida, Yucatán"
+            src="/Assets/quienes-somos.jpg"
+            alt=""
             fill
             className="object-cover object-center"
             sizes="100vw"

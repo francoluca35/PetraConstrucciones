@@ -36,7 +36,7 @@ export function ContactPage() {
       <section className="relative h-[50vh] min-h-[280px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-           src="/Assets/contacto.jpg"
+           src="/Assets/contacto.avif"
             alt="Contacto"
             className="w-full h-full object-cover"
           />

@@ -3,12 +3,13 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const portfolioItems = [
-  { slug: 'lote-43', title: 'Residencia Yucatan', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/casa-moderna-mexico-1.png', descriptionKey: 'portfolio.desc.lote43', alt: 'Construcción de vivienda residencial en Mérida, Yucatán - Lote 43' },
-  { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.png', descriptionKey: 'portfolio.desc.merida', alt: 'Casa moderna construida en Mérida, Yucatán - Residencia Mérida' },
-  { slug: 'lote-101', title: 'Oficinas en Merida', categoryKey: 'portfolio.category.offices', image: '/Assets/Proyecto-2/casa-moderna-merida-1.png', descriptionKey: 'portfolio.desc.lote101', alt: 'Construcción de oficinas en Mérida, Yucatán - Lote 101' },
+  { slug: 'lote-43', title: 'Residencia Yucatan', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/casa-moderna-mexico-1.avif', descriptionKey: 'portfolio.desc.lote43', alt: 'Construcción de vivienda residencial en Mérida, Yucatán - Lote 43' },
+  { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.avif', descriptionKey: 'portfolio.desc.merida', alt: 'Casa moderna construida en Mérida, Yucatán - Residencia Mérida' },
+  { slug: 'lote-101', title: 'Oficinas en Merida', categoryKey: 'portfolio.category.offices', image: '/Assets/Proyecto-2/casa-moderna-merida-1.avif', descriptionKey: 'portfolio.desc.lote101', alt: 'Construcción de oficinas en Mérida, Yucatán - Lote 101' },
 ];
 
 export function PortfolioPreview() {
@@ -44,20 +45,25 @@ export function PortfolioPreview() {
             className="group relative min-h-[50vh] md:min-h-[70vh] overflow-hidden"
           >
             <Link href={`/portfolio/${item.slug}`} className="block absolute inset-0">
-              <img
+              <Image
                 src={item.image}
                 alt={item.alt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
               {/* Marca de agua: logo en esquina superior derecha */}
               <div
                 className="absolute top-6 right-6 w-20 md:w-28 h-auto opacity-20 pointer-events-none select-none"
                 aria-hidden
               >
-                <img
-                  src="/Assets/sigla1.png"
+                <Image
+                  src="/Assets/sigla1.avif"
                   alt=""
-                  className="w-full h-auto"
+                  width={112}
+                  height={84}
+                  sizes="(max-width: 768px) 80px, 112px"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               {/* Gradiente inferior para legibilidad del texto */}

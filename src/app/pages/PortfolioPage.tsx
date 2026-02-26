@@ -20,7 +20,7 @@ export function PortfolioPage() {
       <section className="relative h-[55vh] min-h-[320px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg"
+            src="/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif"
             alt="Conesa constructora"
             fill
             className="object-cover"

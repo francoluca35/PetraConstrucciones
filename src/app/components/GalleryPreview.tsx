@@ -7,11 +7,11 @@ import Link from 'next/link';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const galleryImages: { url: string; titleKey: string; type?: 'image' | 'video' }[] = [
-  { url: '/Assets/plano.jpg', titleKey: 'gallery.img4' },
-  { url: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.png', titleKey: 'gallery.img1' },
-  { url: '/Assets/home.png', titleKey: 'gallery.img2' },
+  { url: '/Assets/plano.avif', titleKey: 'gallery.img4' },
+  { url: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.avif', titleKey: 'gallery.img1' },
+  { url: '/Assets/home.webp', titleKey: 'gallery.img2' },
   { url: '/Assets/piscina.mp4', titleKey: 'gallery.img3', type: 'video' },
-  { url: '/Assets/oficinas.png', titleKey: 'gallery.img4' },
+  { url: '/Assets/oficinas.avif', titleKey: 'gallery.img4' },
 ];
 
 const AUTOPLAY_MS = 5000;

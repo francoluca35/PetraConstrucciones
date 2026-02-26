@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
 
-const SIGLA = '/Assets/sigladef1.png';
-const SIGLA_MOBILE = '/Assets/sigladef1.png';
-const LOGO_MOBILE = '/Assets/logo-pagina.png';
+const SIGLA = '/Assets/sigladef1.avif';
+const SIGLA_MOBILE = '/Assets/sigladef1.avif';
+const LOGO_MOBILE = '/Assets/logo-pagina.avif';
 
 // Fases: sigla 5s → transición a texto → texto 10s → transición a sigla → repeat
 const SIGLA_DURATION = 5000;
@@ -138,6 +138,8 @@ export function Navbar() {
                   width={200}
                   height={72}
                   className="h-[4.75rem] w-auto object-contain md:h-20"
+                  priority
+                  sizes="(max-width: 768px) 85px, 220px"
                 />
               </motion.div>
 
@@ -242,7 +244,7 @@ export function Navbar() {
                 aria-label="Español (México)"
                 title="Español"
               >
-                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/mx.png" alt="Bandera México" className="w-full h-full object-cover" />
               </button>
               <button
                 type="button"
@@ -253,7 +255,7 @@ export function Navbar() {
                 aria-label="English (USA)"
                 title="English"
               >
-                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/us.png" alt="Bandera USA" className="w-full h-full object-cover" />
               </button>
             </div>
           </div>
@@ -331,7 +333,7 @@ export function Navbar() {
                 }`}
                 aria-label="Español (México)"
               >
-                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/mx.png" alt="Bandera México" className="w-full h-full object-cover" />
               </button>
               <button
                 type="button"
@@ -341,7 +343,7 @@ export function Navbar() {
                 }`}
                 aria-label="English (USA)"
               >
-                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/us.png" alt="Bandera USA" className="w-full h-full object-cover" />
               </button>
             </div>
           </motion.div>

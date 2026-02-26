@@ -162,15 +162,15 @@ function CountUp({ target, format, duration = 2 }: { target: number; format?: (n
 
 // Sincronizado con BG_IMAGES_DESKTOP por índice: slide 0 = about-3 + home, 1 = home-m3 + home-2, 2 = home-mobile + home-3
 const BG_IMAGES_MOBILE: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/about-3.jpg', objectPosClass: 'object-center' },
-  { src: '/Assets/home-m3.jpg', objectPosClass: 'object-center' },
-  { src: '/Assets/home-mobile.png', objectPosClass: 'object-center' },
+  { src: '/Assets/about-3.avif', objectPosClass: 'object-center' },
+  { src: '/Assets/home-m3.avif', objectPosClass: 'object-center' },
+  { src: '/Assets/home-mobile.avif', objectPosClass: 'object-center' },
 ];
 
 const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
-  { src: '/Assets/home.png', objectPosClass: 'object-[center_40%] md:object-center' },
-  { src: '/Assets/home-2.jpeg', objectPosClass: 'object-[center_40%] md:object-[70%_center]' },
-  { src: '/Assets/home-3.png', objectPosClass: 'object-[center_40%] md:object-center' },
+  { src: '/Assets/home.webp', objectPosClass: 'object-[center_40%] md:object-center' },
+  { src: '/Assets/home-2.avif', objectPosClass: 'object-[center_40%] md:object-[70%_center]' },
+  { src: '/Assets/home-3.avif', objectPosClass: 'object-[center_40%] md:object-center' },
 ];
 
 const SLIDE_DURATION_MS = 5000;
