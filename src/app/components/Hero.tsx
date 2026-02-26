@@ -202,6 +202,7 @@ export function Hero() {
               fill
               className={`object-cover ${img.objectPosClass ?? 'object-center'}`}
               priority={i === 0}
+              fetchPriority={i === 0 ? 'high' : undefined}
               sizes="100vw"
             />
           </div>
@@ -228,6 +229,7 @@ export function Hero() {
               fill
               className={`object-cover ${img.objectPosClass ?? 'object-center'}`}
               priority={i === 0}
+              fetchPriority={i === 0 ? 'high' : undefined}
               sizes="100vw"
             />
           </div>
