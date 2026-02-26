@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { Locale, translations } from '@/src/i18n/translations';
 
-const STORAGE_KEY = 'petra-locale';
+const STORAGE_KEY = 'conesa-locale';
 
 type LanguageContextType = {
   locale: Locale;

@@ -56,13 +56,15 @@ export function SEO() {
     }
     ogDescription.setAttribute('content', description);
 
+    const baseUrl = 'https://www.constructoraconesa.com';
+    const canonicalHref = `${baseUrl}${pathname === '/' ? '' : pathname}`.replace(/\/$/, '') || baseUrl;
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', window.location.href);
+    canonical.setAttribute('href', canonicalHref);
   }, [pathname, t]);
 
   return null;

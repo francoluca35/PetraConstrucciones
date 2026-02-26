@@ -7,20 +7,41 @@ import { ScrollToTop } from '@/src/app/components/ScrollToTop';
 import { WhatsAppFloating } from '@/src/app/components/WhatsAppFloating';
 import { ClientProviders } from '@/src/app/components/ClientProviders';
 
+const SITE_URL = 'https://www.constructoraconesa.com';
+
 export const metadata: Metadata = {
-  title: 'Petra Construcciones - Excelencia en Construcción',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
+    template: '%s | Constructora Estrategia Conesa S.A.',
+  },
   description:
-    'Petra Construcciones - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación.',
+    'Constructora Estrategia Conesa S.A. - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación. Mérida, Yucatán, México.',
   keywords:
-    'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, Petra Construcciones, construcción Mérida, Yucatán, México, constructora',
+    'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, Constructora Estrategia Conesa, construcción Mérida, Yucatán, México, constructora',
   icons: {
-    icon: '/Assets/sigla.png',
-    apple: '/Assets/sigla.png',
+    icon: '/Assets/favicon.ico',
+    apple: '/Assets/favicon.ico',
   },
   openGraph: {
-    title: 'Petra Construcciones - Excelencia en Construcción',
+    type: 'website',
+    locale: 'es_MX',
+    url: SITE_URL,
+    siteName: 'Constructora Estrategia Conesa S.A.',
+    title: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
     description:
-      'Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad.',
+      'Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad. Mérida, Yucatán.',
+    images: [{ url: '/Assets/logo-pagina.png', width: 1200, height: 630, alt: 'Constructora Estrategia Conesa S.A.' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
+    description: 'Líderes en construcción residencial, comercial e industrial. Mérida, Yucatán, México.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 

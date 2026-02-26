@@ -21,7 +21,7 @@ export function PortfolioPage() {
         <div className="absolute inset-0">
           <Image
             src="/Assets/Proyecto-5/1.jpg"
-            alt="Petra Construcciones"
+            alt="Conesa constructora"
             fill
             className="object-cover"
             priority
@@ -34,7 +34,7 @@ export function PortfolioPage() {
         </div>
       </section>
 
-      {/* Título: PROYECTOS PETRA */}
+      {/* Título: PROYECTOS CONESA */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}

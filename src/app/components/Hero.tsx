@@ -42,7 +42,7 @@ function HeroTypewriter({
     return () => clearTimeout(t);
   }, [delay]);
 
-  // Fase 1: escribir el prefijo (PETRA + CONSTRUCCIONES) una sola vez
+  // Fase 1: escribir el prefijo (CONESA + CONSTRUCTORA) una sola vez
   useEffect(() => {
     if (!started || phase !== 'prefix') return;
     if (prefixLen >= prefix.length) {

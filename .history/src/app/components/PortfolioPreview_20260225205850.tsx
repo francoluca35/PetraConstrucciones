@@ -55,7 +55,7 @@ export function PortfolioPreview() {
                 aria-hidden
               >
                 <img
-                  src="/Assets/sigla1.png"
+                  src="/Assets/siglade1.png"
                   alt=""
                   className="w-full h-auto"
                 />

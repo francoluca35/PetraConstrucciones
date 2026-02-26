@@ -98,7 +98,7 @@ export function ContactPage() {
                   <div>
                     <h3 className="text-lg text-[var(--petra-navy)] mb-1">{t('contactPage.email')}</h3>
                     <p className="text-gray-600">cipronet@hotmail.com</p>
-                    <p className="text-gray-600">proyectos@petraconstrucciones.com</p>
+                    <p className="text-gray-600">proyectos@conesaconstructora.com</p>
                   </div>
                 </motion.div>
 
@@ -259,7 +259,7 @@ export function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Petra Construcciones - Mérida, Yucatán, México"
+              title="Conesa constructora - Mérida, Yucatán, México"
             ></iframe>
           </div>
         </div>

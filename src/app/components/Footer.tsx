@@ -17,7 +17,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Image src="/Assets/logo-pagina.png" alt="PetraConstrucciones" width={160} height={64} className="h-16 w-auto mb-4" />
+            <Image src="/Assets/logo-pagina.png" alt="Conesa constructora" width={160} height={64} className="h-16 w-auto mb-4" />
             <p className="text-gray-300 text-sm">
               {t('footer.tagline')}
             </p>
@@ -108,7 +108,7 @@ export function Footer() {
           className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400"
         >
 <p className="text-sm text-gray-500">
-  © {new Date().getFullYear()} <span className="font-semibold text-[#E5C337]">Petra Construcciones</span>. {t('footer.rights')}
+  © {new Date().getFullYear()} <span className="font-semibold text-[#E5C337]">Conesa constructora</span>. {t('footer.rights')}
   <br className="sm:hidden" />
   <span className="opacity-80"> {t('footer.by')}{' '}
     <a href="https://www.deamondd.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-[var(--petra-gold)]">DeamonDD</a>

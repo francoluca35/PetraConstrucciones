@@ -21,7 +21,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     // About preview (home)
     'about.title': 'Quiénes Somos',
     'about.heading': 'Somos',
-    'about.lead': 'Con más de 17 años de experiencia, Petra Construcciones se ha consolidado como líder en proyectos residenciales, comerciales e industriales en Mérida y la península.',
+    'about.lead': 'Con más de 17 años de experiencia, Conesa constructora se ha consolidado como líder en proyectos residenciales, comerciales e industriales en Mérida y la península.',
     'about.lead2': 'Nuestro equipo trabaja con dedicación y compromiso para transformar tus ideas en realidad, garantizando la máxima calidad en cada detalle.',
     'about.values.excellence': 'Excelencia',
     'about.values.team': 'Equipo',
@@ -33,7 +33,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'about.socialProof': '+17 años construyendo en Mérida',
     'about.previewHeadline1': 'No solo construimos',
     'about.previewHeadline2': 'Creamos legados',
-    'about.previewP1': 'Durante más de 17 años, PETRA ha estado a la vanguardia de la excelencia en construcción en Mérida y la península de Yucatán. Nuestro compromiso con la precisión, la innovación y la sostenibilidad nos distingue.',
+    'about.previewP1': 'Durante más de 17 años, Constructora Estrategia Conesa S.A. ha estado a la vanguardia de la excelencia en construcción en Mérida y la península de Yucatán. Nuestro compromiso con la precisión, la innovación y la sostenibilidad nos distingue.',
     'about.previewP2': 'Desde obras residenciales hasta proyectos comerciales e instalaciones industriales, aportamos una experiencia incomparable a cada proyecto.',
     'about.previewServices': 'Construcciones civiles y comerciales · Construcción de piscinas',
     'about.quienesTitle': 'QUIÉNES',
@@ -95,7 +95,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'services.requestQuote': 'Solicitar Presupuesto',
 
     // Gallery preview (home)
-    'gallery.brand': 'Petra Construcciones · Galería',
+    'gallery.brand': 'Conesa constructora · Galería',
     'gallery.seeMore': 'Ver más',
     'gallery.img1': 'Construcción Moderna',
     'gallery.img2': 'Casa en suburbios',
@@ -145,7 +145,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'aboutPage.heroSub': 'Servicios de construcción en general con más de 17 años de experiencia en Mérida, Yucatán',
     'aboutPage.builder': 'La constructora',
     'aboutPage.introBadge': '17+ años · Dedicándonos a la construcción',
-    'aboutPage.companyLead': 'Con más de 17 años en el rubro, Petra se especializa en construcciones desde cero, reformas integrales, construcción de piscinas, y obras por metro cuadrado. Calidad, compromiso y experiencia en cada proyecto.',
+    'aboutPage.companyLead': 'Con más de 17 años en el rubro, Constructora Estrategia Conesa S.A. se especializa en construcciones desde cero, reformas integrales, construcción de piscinas, y obras por metro cuadrado. Calidad, compromiso y experiencia en cada proyecto.',
     'aboutPage.ourServices': 'Conoce nuestros servicios',
     'aboutPage.resume': 'Resumen profesional',
     'aboutPage.civilEngineer': 'Ingeniero Civil · Más de 17 años de experiencia',
@@ -213,7 +213,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'aboutPage.signature': 'Firma',
 
     // Portfolio page
-    'portfolioPage.title': 'PROYECTOS PETRA',
+    'portfolioPage.title': 'PROYECTOS CONESA',
     'portfolioPage.budgetTitlePrefix': 'PRESUPUESTO ',
     'portfolioPage.budgetTitleSuffix': 'CERRADO',
     'portfolioPage.budgetP1': 'Trabajamos con presupuesto cerrado para que conozcas desde el primer día el costo total de tu obra. Sin sorpresas ni gastos ocultos: el precio acordado es el precio final.',
@@ -249,22 +249,22 @@ export const translations: Record<Locale, Record<string, string>> = {
     'galleryPage.imgTitle6': 'Piscina',
     'galleryPage.imgTitle7': 'Piscina (video)',
 
-    'seo.default.title': 'Petra Construcciones - Excelencia en Construcción',
-    'seo.default.description': 'Petra Construcciones - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación.',
+    'seo.default.title': 'Conesa constructora - Excelencia en Construcción',
+    'seo.default.description': 'Conesa constructora - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación.',
     'seo.default.keywords': 'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, construcción Mérida, Yucatán, México, constructora',
-    'seo.home.title': 'Petra Construcciones - Construyendo el Futuro',
+    'seo.home.title': 'Conesa constructora - Construyendo el Futuro',
     'seo.home.description': 'Empresa líder en construcción con más de 20 años de experiencia. Proyectos residenciales, comerciales e industriales de alta calidad.',
     'seo.home.keywords': 'construcción, constructora, obras, edificios, viviendas',
-    'seo.about.title': 'Quiénes Somos - Petra Construcciones',
-    'seo.about.description': 'Conoce la historia, valores y equipo de Petra Construcciones. Más de 20 años construyendo con pasión y compromiso.',
+    'seo.about.title': 'Quiénes Somos - Conesa constructora',
+    'seo.about.description': 'Conoce la historia, valores y equipo de Conesa constructora. Más de 20 años construyendo con pasión y compromiso.',
     'seo.about.keywords': 'sobre nosotros, equipo construcción, historia, valores empresa',
-    'seo.gallery.title': 'Galería - Petra Construcciones',
+    'seo.gallery.title': 'Galería - Conesa constructora',
     'seo.gallery.description': 'Explora nuestra galería de proyectos destacados. Imágenes de construcciones residenciales, comerciales e industriales.',
     'seo.gallery.keywords': 'galería construcción, fotos proyectos, imágenes obras, portfolio visual',
-    'seo.portfolio.title': 'Portfolio - Petra Construcciones',
+    'seo.portfolio.title': 'Portfolio - Conesa constructora',
     'seo.portfolio.description': 'Descubre nuestros proyectos más destacados: torres residenciales, viviendas unifamiliares, espacios comerciales y más.',
     'seo.portfolio.keywords': 'portfolio construcción, proyectos realizados, obras terminadas, referencias',
-    'seo.contact.title': 'Contacto - Petra Construcciones',
+    'seo.contact.title': 'Contacto - Conesa constructora',
     'seo.contact.description': 'Contáctanos para tu próximo proyecto. Consultoría gratuita. Teléfono, email y oficinas en Mérida, Yucatán, México.',
     'seo.contact.keywords': 'contacto construcción, presupuesto construcción, consultoría obras',
 
@@ -321,7 +321,7 @@ export const translations: Record<Locale, Record<string, string>> = {
 
     'about.title': 'About Us',
     'about.heading': 'Us',
-    'about.lead': 'With over 17 years of experience, Petra Construcciones has established itself as a leader in residential, commercial and industrial projects in Mérida and the peninsula.',
+    'about.lead': 'With over 17 years of experience, Conesa constructora has established itself as a leader in residential, commercial and industrial projects in Mérida and the peninsula.',
     'about.lead2': 'Our team works with dedication and commitment to turn your ideas into reality, ensuring the highest quality in every detail.',
     'about.values.excellence': 'Excellence',
     'about.values.team': 'Team',
@@ -333,7 +333,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'about.socialProof': '+17 years building in Mérida',
     'about.previewHeadline1': "We don't just build",
     'about.previewHeadline2': 'We create legacies',
-    'about.previewP1': 'For over 17 years, PETRA has been at the forefront of construction excellence in Mérida and the Yucatán Peninsula. Our commitment to precision, innovation and sustainability sets us apart.',
+    'about.previewP1': 'For over 17 years, Constructora Estrategia Conesa S.A. has been at the forefront of construction excellence in Mérida and the Yucatán Peninsula. Our commitment to precision, innovation and sustainability sets us apart.',
     'about.previewP2': 'From residential projects to commercial landmarks and industrial facilities, we bring unparalleled expertise to every project.',
     'about.previewServices': 'Civil and commercial construction · Pool construction',
     'about.quienesTitle': 'WHO WE ARE',
@@ -391,7 +391,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'services.projectsDone': '+500 projects completed',
     'services.requestQuote': 'Request Quote',
 
-    'gallery.brand': 'Petra Construcciones · Gallery',
+    'gallery.brand': 'Conesa constructora · Gallery',
     'gallery.seeMore': 'See more',
     'gallery.img1': 'Modern Construction',
     'gallery.img2': 'Suburban House',
@@ -438,7 +438,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'aboutPage.heroSub': 'General construction services with over 17 years of experience in Mérida, Yucatán',
     'aboutPage.builder': 'The construction company',
     'aboutPage.introBadge': '17+ years · Dedicated to construction',
-    'aboutPage.companyLead': 'With over 17 years in the industry, Petra specializes in construction from scratch, full renovations, pool construction, and square-meter works. Quality, commitment and experience in every project.',
+    'aboutPage.companyLead': 'With over 17 years in the industry, Constructora Estrategia Conesa S.A. specializes in construction from scratch, full renovations, pool construction, and square-meter works. Quality, commitment and experience in every project.',
     'aboutPage.ourServices': 'Learn about our services',
     'aboutPage.resume': 'Professional summary',
     'aboutPage.civilEngineer': 'Civil Engineer · Over 17 years of experience',
@@ -505,7 +505,7 @@ export const translations: Record<Locale, Record<string, string>> = {
     'aboutPage.profileAge': '56 years',
     'aboutPage.signature': 'Signature',
 
-    'portfolioPage.title': 'PETRA PROJECTS',
+    'portfolioPage.title': 'CONESA PROJECTS',
     'portfolioPage.budgetTitlePrefix': 'CLOSED ',
     'portfolioPage.budgetTitleSuffix': 'BUDGET',
     'portfolioPage.budgetP1': 'We work with a closed budget so you know the total cost of your project from day one. No surprises or hidden costs: the agreed price is the final price.',
@@ -540,22 +540,22 @@ export const translations: Record<Locale, Record<string, string>> = {
     'galleryPage.imgTitle6': 'Pool',
     'galleryPage.imgTitle7': 'Pool (video)',
 
-    'seo.default.title': 'Petra Construcciones - Excellence in Construction',
-    'seo.default.description': 'Petra Construcciones - Leaders in residential, commercial and industrial construction. Over 20 years turning projects into reality with excellence and innovation.',
+    'seo.default.title': 'Conesa constructora - Excellence in Construction',
+    'seo.default.description': 'Conesa constructora - Leaders in residential, commercial and industrial construction. Over 20 years turning projects into reality with excellence and innovation.',
     'seo.default.keywords': 'construction, building, works, buildings, housing, projects, architecture, construction Merida, Yucatan, Mexico, contractor',
-    'seo.home.title': 'Petra Construcciones - Building the Future',
+    'seo.home.title': 'Conesa constructora - Building the Future',
     'seo.home.description': 'Leading construction company with over 20 years of experience. Residential, commercial and industrial projects of the highest quality.',
     'seo.home.keywords': 'construction, contractor, works, buildings, housing',
-    'seo.about.title': 'About Us - Petra Construcciones',
-    'seo.about.description': 'Learn about the history, values and team of Petra Construcciones. Over 20 years building with passion and commitment.',
+    'seo.about.title': 'About Us - Conesa constructora',
+    'seo.about.description': 'Learn about the history, values and team of Conesa constructora. Over 20 years building with passion and commitment.',
     'seo.about.keywords': 'about us, construction team, history, company values',
-    'seo.gallery.title': 'Gallery - Petra Construcciones',
+    'seo.gallery.title': 'Gallery - Conesa constructora',
     'seo.gallery.description': 'Explore our gallery of outstanding projects. Images of residential, commercial and industrial construction.',
     'seo.gallery.keywords': 'construction gallery, project photos, work images, visual portfolio',
-    'seo.portfolio.title': 'Portfolio - Petra Construcciones',
+    'seo.portfolio.title': 'Portfolio - Conesa constructora',
     'seo.portfolio.description': 'Discover our most outstanding projects: residential towers, single-family homes, commercial spaces and more.',
     'seo.portfolio.keywords': 'construction portfolio, completed projects, finished works, references',
-    'seo.contact.title': 'Contact - Petra Construcciones',
+    'seo.contact.title': 'Contact - Conesa constructora',
     'seo.contact.description': 'Contact us for your next project. Free consultation. Phone, email and offices in Mérida, Yucatán, Mexico.',
     'seo.contact.keywords': 'construction contact, construction budget, project consultation',
 
@@ -597,9 +597,9 @@ export const translations: Record<Locale, Record<string, string>> = {
   },
 };
 
-// Hero: título fijo (se escribe una vez). Siempre "Petra Construcciones", no se traduce.
+// Hero: título fijo (se escribe una vez). "Constructora Estrategia" / "Conesa S.A."
 export function getHeroPrefix(_locale: Locale): string {
-  return 'PETRA\nCONSTRUCCIONES';
+  return 'CONSTRUCTORA ESTRATEGIA\nCONESA S.A.';
 }
 
 export function getHeroRotatingSubtitles(locale: Locale): string[] {

@@ -32,12 +32,12 @@ export function InstagramPostMockup() {
             <img src="/Assets/sigla2.png" alt="" className="w-full h-full object-cover" />
           </div>
           <a
-            href="https://www.instagram.com/petra.construcciones/"
+            href="https://www.instagram.com/conesa.constructora/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-semibold text-white hover:opacity-80 transition-opacity"
           >
-            petra.construcciones
+            conesa.constructora
           </a>
         </div>
         <button type="button" className="p-1 text-white/90" aria-hidden>
@@ -82,7 +82,7 @@ export function InstagramPostMockup() {
       <div className="px-3 py-2 bg-[#000] text-sm text-white/90">
         <p className="font-semibold">Me gusta</p>
         <p>
-          <span className="font-semibold">petra.construcciones</span>{' '}
+          <span className="font-semibold">conesa.constructora</span>{' '}
           <span className="text-white/80">Construcción y diseño en Mérida</span>
         </p>
       </div>

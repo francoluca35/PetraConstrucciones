@@ -40,7 +40,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #C9A961;
   
-  /* Petra Construcciones - Custom Colors */
+  /* Conesa constructora - Custom Colors */
   --petra-navy: #171717;
   --petra-gold: #C9A961;
   --petra-navy-dark: #1a252f;
@@ -125,7 +125,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   
-  /* PetraConstrucciones Custom Color Classes */
+  /* Conesa constructora Custom Color Classes */
   --color-petra-navy: var(--petra-navy);
   --color-petra-gold: var(--petra-gold);
   --color-petra-navy-dark: var(--petra-navy-dark);

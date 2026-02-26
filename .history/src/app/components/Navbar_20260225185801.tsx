@@ -8,8 +8,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
 
-const SIGLA = '/Assets/sigladef1.png';
-const SIGLA_MOBILE = '/Assets/sigladef1.png';
+const SIGLA = '/Assets/sigladef.png';
+const SIGLA_MOBILE = '/Assets/sigladef.png';
 
 // Fases: sigla 5s → transición a texto → texto 10s → transición a sigla → repeat
 const SIGLA_DURATION = 5000;
@@ -111,7 +111,7 @@ export function Navbar() {
               >
                 <Image
                   src={isMobile ? SIGLA_MOBILE : SIGLA}
-                  alt="Conesa constructora"
+                  alt="Petra Construcciones"
                   width={200}
                   height={72}
                   className="h-[4.75rem] w-auto object-contain md:h-20"
@@ -125,7 +125,7 @@ export function Navbar() {
                   animate={{ opacity: 1 }}
                   className="relative z-10 flex flex-col items-center leading-none"
                 >
-                  {/* Conesa: aparece desde C, desaparece desde A - misma velocidad en apertura y cierre */}
+                  {/* Petra: aparece desde P, desaparece desde A - misma velocidad en apertura y cierre */}
                   <span
                     className="flex text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-[#283777] tracking-[0.1em]"
                     style={{ fontFamily: "'Good Times', sans-serif", textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
@@ -152,7 +152,7 @@ export function Navbar() {
                       );
                     })}
                   </span>
-                  {/* Constructora: aparece desde S, desaparece desde C - misma velocidad en apertura y cierre */}
+                  {/* Construcciones: aparece desde S, desaparece desde C - misma velocidad en apertura y cierre */}
                   <span
                     className="inline-flex text-xs sm:text-sm md:text-base uppercase font-bold text-[#E5C337] mt-1.1 tracking-[.15em] sm:tracking-[.25em] md:tracking-[.4em] origin-center overflow-visible whitespace-nowrap [transform:scaleX(0.92)_scaleY(2.5)] md:[transform:scaleX(1.1)_scaleY(2.5)]"
                     style={{ fontFamily: "'911', sans-serif" }}
@@ -261,7 +261,7 @@ export function Navbar() {
               <Link href="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center">
                 <Image
                   src={SIGLA_MOBILE}
-                  alt="Conesa constructora"
+                  alt="Petra Construcciones"
                   width={200}
                   height={80}
                   className="h-24 w-auto object-contain"

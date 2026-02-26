@@ -117,7 +117,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Petra Construcciones
+            Constructora Estrategia Conesa S.A.
           </motion.h2>
           <motion.div
             className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-[var(--petra-gold)]"
