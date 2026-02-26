@@ -19,8 +19,8 @@ const CARD_KEYS = [
   { title: 'services.card2.title', desc: 'services.card2.desc', stats: 'services.card2.stats', imgPos: 'object-center', image: SERVICE_IMAGES.viviendas, color: 'from-amber-500/20 to-orange-600/20', icon: Home, servicePage: '/construccion-de-casas-merida' },
   { title: 'services.card3.title', desc: 'services.card3.desc', stats: 'services.card3.stats', imgPos: 'object-center', image: SERVICE_IMAGES.oficinas, color: 'from-blue-500/20 to-indigo-600/20', icon: Building2, servicePage: '/construccion-de-oficinas-merida' },
   { title: 'services.card4.title', desc: 'services.card4.desc', stats: 'services.card4.stats', imgPos: 'object-center', image: SERVICE_IMAGES.piscinas, color: 'from-cyan-500/20 to-blue-600/20', icon: Waves, servicePage: '/construccion-de-piscinas-merida' },
-  { title: 'services.card5.title', desc: 'services.card5.desc', stats: 'services.card5.stats', imgPos: 'object-center', image: SERVICE_IMAGES.civiles, color: 'from-stone-500/20 to-neutral-600/20', icon: Landmark, servicePage: '/contacto' },
-  { title: 'services.card6.title', desc: 'services.card6.desc', stats: 'services.card6.stats', imgPos: 'object-center', image: SERVICE_IMAGES.municipales, color: 'from-slate-500/20 to-neutral-600/20', icon: Building2, servicePage: '/contacto' },
+  { title: 'services.card5.title', desc: 'services.card5.desc', stats: 'services.card5.stats', imgPos: 'object-center', image: SERVICE_IMAGES.civiles, color: 'from-stone-500/20 to-neutral-600/20', icon: Landmark, servicePage: '/obras-civiles-merida' },
+  { title: 'services.card6.title', desc: 'services.card6.desc', stats: 'services.card6.stats', imgPos: 'object-center', image: SERVICE_IMAGES.municipales, color: 'from-slate-500/20 to-neutral-600/20', icon: Building2, servicePage: '/obras-municipales-merida' },
   { title: 'services.card7.title', desc: 'services.card7.desc', stats: 'services.card7.stats', imgPos: 'object-center', image: SERVICE_IMAGES.remodelaciones, color: 'from-emerald-500/20 to-teal-600/20', icon: Hammer, servicePage: '/remodelaciones-merida' },
 ] as const;
 
@@ -32,12 +32,13 @@ export function ServicesPreview() {
   return (
     <section
       id="servicios"
-      className="relative bg-[var(--petra-navy)] py-24 md:py-32 overflow-hidden"
+      className="relative bg-[var(--petra-navy)] py-28 md:py-36 overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--petra-gold)]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--petra-gold-dark)]/10 rounded-full blur-3xl" />
+      {/* Background: orbes dorados suaves */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div className="absolute top-0 left-1/4 w-[28rem] h-[28rem] bg-[var(--petra-gold)]/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-[28rem] h-[28rem] bg-[var(--petra-gold-dark)]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20rem] h-[20rem] bg-[var(--petra-gold)]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,14 +47,18 @@ export function ServicesPreview() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 md:mb-20"
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="mb-20 md:mb-24"
         >
           <div className="text-center">
-            <span className="text-[var(--petra-gold)] text-sm uppercase tracking-[0.3em] font-medium mb-4 inline-block">
+            <span className="text-[var(--petra-gold)] text-xs uppercase tracking-[0.35em] font-semibold mb-5 inline-block">
               {t('services.badge')}
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight font-light max-w-3xl mx-auto">
+            <div className="flex justify-center gap-1 mb-5">
+              <div className="w-16 h-px bg-[var(--petra-gold)]/60" />
+              <div className="w-8 h-px bg-[var(--petra-gold)]/40" />
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[3.5rem] text-white leading-tight font-light max-w-3xl mx-auto tracking-tight">
               {t('services.heading')}{' '}
               <span className="italic text-[var(--petra-gold)]">{t('services.headingItalic')}</span>
             </h2>
@@ -61,30 +66,30 @@ export function ServicesPreview() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {CARD_KEYS.map((card, index) => (
             <ServiceCard key={card.title} card={card} index={index} t={t} />
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 md:mt-20 text-center"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-20 md:mt-24 text-center"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 bg-neutral-950/50 backdrop-blur-sm rounded-2xl border border-neutral-800">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-8 p-8 md:p-10 bg-white/5 backdrop-blur-md rounded-sm border border-[var(--petra-gold)]/20 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)]">
             <div className="text-left">
-              <p className="text-white text-xl mb-1 font-medium">{t('services.ctaTitle')}</p>
-              <p className="text-neutral-400 text-sm">{t('services.ctaSubtitle')}</p>
+              <p className="text-white text-xl md:text-2xl font-semibold tracking-tight mb-1">{t('services.ctaTitle')}</p>
+              <p className="text-white/60 text-sm md:text-base">{t('services.ctaSubtitle')}</p>
             </div>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t('about.whatsappMessage'))}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-8 py-4 bg-[var(--petra-gold-dark)] hover:bg-[var(--petra-gold)] text-neutral-950 font-medium rounded-full transition-all duration-300 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-neutral-950"
+              className="group inline-flex items-center gap-3 px-10 py-4 bg-[var(--petra-gold)] hover:bg-[var(--petra-gold-light)] text-[var(--petra-navy)] font-semibold rounded-sm transition-all duration-300 whitespace-nowrap shadow-[0_0_24px_rgba(201,169,97,0.3)] hover:shadow-[0_0_32px_rgba(201,169,97,0.4)] focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-[var(--petra-navy)]"
               aria-label={t('services.requestQuote')}
             >
               {t('services.requestQuote')}
@@ -106,74 +111,54 @@ function ServiceCard({
   index: number;
   t: (key: string) => string;
 }) {
-  const Icon = card.icon;
-
   return (
     <motion.article
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.16, 1, 0.3, 1],
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className="group relative bg-neutral-950/50 rounded-2xl overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-colors duration-500"
+      className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-[var(--petra-gold)]/40 transition-all duration-500 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]"
     >
-      {/* Image / visual area */}
-      <div className="relative h-64 overflow-hidden">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10`}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-neutral-800">
+      <Link href={card.servicePage} className="block relative aspect-[4/5] min-h-[320px] md:min-h-[380px]">
+        {/* Imagen a toda la card */}
+        <div className="absolute inset-0 bg-neutral-900">
           <Image
             src={card.image}
             alt={`${t(card.title)} en Mérida, Yucatán - Constructora Estrategia Conesa S.A.`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
-            className={`object-cover ${card.imgPos} opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700`}
+            className={`object-cover ${card.imgPos} opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700`}
           />
-          <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
-            <Icon className="w-16 h-16 opacity-30 group-hover:opacity-0 transition-opacity duration-500" />
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-neutral-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" aria-hidden />
-        <div className="absolute top-4 right-4 z-30 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-          <span className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-xs font-medium border border-white/20">
-            {t(card.stats)}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6 md:p-8 relative">
-        <div className="flex items-start justify-between mb-4">
-          <div className="p-3 bg-neutral-800 rounded-xl group-hover:bg-[var(--petra-gold-dark)]/20 transition-colors duration-300">
-            <Icon className="w-6 h-6 text-neutral-300 group-hover:text-[var(--petra-gold)] transition-colors" />
-          </div>
-          <Link
-            href={card.servicePage}
-            className="text-neutral-600 hover:text-[var(--petra-gold)] transition-colors duration-300 focus:outline-none focus:text-[var(--petra-gold)]"
-            aria-label={t('services.seeMore')}
-          >
-            <ArrowUpRight className="w-6 h-6 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </Link>
         </div>
 
-        <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[var(--petra-gold)] transition-colors duration-300">
-          {t(card.title)}
-        </h3>
-
-        <p className="text-neutral-400 text-sm leading-relaxed line-clamp-3 group-hover:text-neutral-300 transition-colors">
-          {t(card.desc)}
-        </p>
-
+        {/* Overlay gradiente fijo abajo: todo el contenido aquí */}
         <div
-          className="absolute bottom-0 left-0 w-0 h-1 bg-[var(--petra-gold)] group-hover:w-full transition-all duration-700 ease-out"
+          className="absolute inset-0 bg-gradient-to-t from-black/95 from-40% via-black/50 to-transparent"
           aria-hidden
         />
-      </div>
+        <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+          <div className="w-12 h-px bg-[var(--petra-gold)]/80 mb-4" aria-hidden />
+          <h3 className="text-2xl md:text-3xl font-semibold text-white leading-tight tracking-tight mb-2 group-hover:text-[var(--petra-gold)] transition-colors duration-300">
+            {t(card.title)}
+          </h3>
+          <p className="text-white/80 text-sm leading-relaxed line-clamp-2 mb-4">
+            {t(card.desc)}
+          </p>
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[var(--petra-gold)]/90 text-xs font-medium uppercase tracking-wider">
+              {t(card.stats)}
+            </span>
+            <span className="inline-flex items-center gap-1 text-white font-medium text-sm group-hover:text-[var(--petra-gold)] transition-colors">
+              {t('services.seeMore')}
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </div>
+        </div>
+      </Link>
     </motion.article>
   );
 }

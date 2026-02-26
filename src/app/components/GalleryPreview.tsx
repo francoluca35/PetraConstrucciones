@@ -44,7 +44,7 @@ export function GalleryPreview() {
   }, [currentIndex]);
 
   return (
-    <section className="relative w-full min-h-[75vh] overflow-hidden bg-gray-900">
+    <section className="relative w-full min-h-[75vh] overflow-hidden bg-[var(--petra-navy)]">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={currentIndex}
@@ -81,7 +81,7 @@ export function GalleryPreview() {
             </p>
             <Link
               href="/galeria"
-              className="inline-flex items-center gap-1.5 text-white text-sm font-medium border-b border-white/80 pb-0.5 hover:border-[var(--petra-gold)] hover:text-[var(--petra-gold)] transition-colors group"
+              className="inline-flex items-center gap-1.5 text-white/95 text-sm font-medium tracking-wide border-b border-white/70 pb-0.5 hover:border-[var(--petra-gold)] hover:text-[var(--petra-gold)] transition-all duration-300 group"
             >
               {t('gallery.seeMore')}
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -90,18 +90,18 @@ export function GalleryPreview() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Líneas de carga: una por slide, la activa se llena hasta el cambio */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2 w-full max-w-[280px] px-4">
+      {/* Indicadores de slide: estilo premium */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2.5 w-full max-w-[240px] px-4">
         {galleryImages.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setCurrentIndex(i)}
-            className="flex-1 h-0.5 bg-white/30 rounded-full overflow-hidden min-w-0"
+            className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden min-w-0 transition-colors duration-300 hover:bg-white/40"
             aria-label={`Ir a imagen ${i + 1}`}
           >
             <div
-              className="h-full bg-white rounded-full transition-none"
+              className="h-full bg-gradient-to-r from-[var(--petra-gold-dark)] to-[var(--petra-gold)] rounded-full transition-none"
               style={{
                 width: i < currentIndex ? '100%' : i === currentIndex ? `${progress * 100}%` : '0%',
               }}

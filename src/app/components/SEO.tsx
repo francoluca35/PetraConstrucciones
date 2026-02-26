@@ -30,7 +30,7 @@
  *    - JSON-LD WebSite: name, description, publisher, inLanguage es-MX, SearchAction (target /contacto?q=)
  *
  * 5. SITEMAP (app/sitemap.ts)
- *    - Rutas: '', /quienes-somos, /portfolio, /galeria, /contacto, /construccion-de-casas-merida, /construccion-de-piscinas-merida, /construccion-de-oficinas-merida, /remodelaciones-merida
+ *    - Rutas: '', /quienes-somos, /portfolio, /galeria, /contacto, /construccion-de-casas-merida, /construccion-de-piscinas-merida, /construccion-de-oficinas-merida, /remodelaciones-merida, /obras-civiles-merida, /obras-municipales-merida
  *    - lastModified: new Date(), changeFrequency (home weekly, resto monthly), priority (home 1, resto 0.8)
  *
  * 6. ROBOTS (app/robots.ts)

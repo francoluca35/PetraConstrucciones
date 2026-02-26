@@ -173,7 +173,7 @@ const BG_IMAGES_DESKTOP: { src: string; objectPosClass?: string }[] = [
   { src: '/Assets/home-3.avif', objectPosClass: 'object-[center_40%] md:object-center' },
 ];
 
-const SLIDE_DURATION_MS = 5000;
+const SLIDE_DURATION_MS = 6000;
 
 export function Hero() {
   const { locale, t } = useLanguage();
@@ -193,7 +193,7 @@ export function Hero() {
         {BG_IMAGES_MOBILE.map((img, i) => (
           <div
             key={img.src}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            className="absolute inset-0 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
             style={{ opacity: i === activeIndex ? 1 : 0, zIndex: i }}
           >
             <Image
@@ -219,7 +219,7 @@ export function Hero() {
         {BG_IMAGES_DESKTOP.map((img, i) => (
           <div
             key={img.src}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            className="absolute inset-0 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
             style={{ opacity: i === activeIndex ? 1 : 0, zIndex: i }}
           >
             <Image
@@ -246,7 +246,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mb-4"
         >
           <HeroTypewriter
@@ -261,18 +261,27 @@ export function Hero() {
           />
         </motion.div>
 
-        {/* Botón Contactanos + Estadísticas al lado - alineados a la misma altura */}
+        {/* Línea dorada de lujo bajo el título */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-6 h-px w-24 origin-left bg-gradient-to-r from-[var(--petra-gold)] to-transparent"
+          aria-hidden
+        />
+
+        {/* Botón Contactanos premium */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-wrap items-center gap-12 md:gap-16 lg:gap-20"
         >
           <Link
             href="/contacto"
-            className="inline-flex shrink-0 items-center bg-white px-8 py-3 font-semibold text-[#1a1918] transition-colors hover:bg-[#E5C337] hover:text-[#283777]"
+            className="group relative inline-flex shrink-0 items-center overflow-hidden border-2 border-[var(--petra-gold)] bg-transparent px-8 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-[var(--petra-gold)] hover:text-[var(--petra-navy)] focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent"
           >
-            {t('hero.contactBtn')}
+            <span className="relative z-10">{t('hero.contactBtn')}</span>
           </Link>
           {/* <div className="flex flex-wrap items-end gap-10 md:gap-14 lg:gap-20">
             {STATS.map((stat, i) => (

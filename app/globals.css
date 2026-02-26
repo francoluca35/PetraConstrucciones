@@ -11,20 +11,25 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for webkit browsers */
+/* Luxury scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #0f0f0f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--petra-gold);
-  border-radius: 6px;
+  background: linear-gradient(180deg, var(--petra-gold) 0%, var(--petra-gold-dark) 100%);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--petra-gold-light);
+  background: var(--petra-gold-bright);
+}
+
+::selection {
+  background: rgba(201, 169, 97, 0.35);
+  color: #0f0f0f;
 }

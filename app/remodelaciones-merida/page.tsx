@@ -1,75 +1,69 @@
-import Link from 'next/link';
-import { Hammer, Sparkles, ArrowRight } from 'lucide-react';
+import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
 
 export const metadata = {
-  title: 'Remodelaciones en Mérida, Yucatán',
+  title: 'Remodelaciones en Mérida, Yucatán | Reformas Integrales | Constructora Conesa',
   description:
-    'Remodelaciones y renovaciones en Mérida, Yucatán. Constructora Estrategia Conesa S.A. Reformas integrales, ampliaciones y mejoras en viviendas y locales.',
+    'Remodelaciones y renovaciones en Mérida, Yucatán. Constructora Estrategia Conesa S.A. Reformas integrales, ampliaciones y mejoras en viviendas y locales. Presupuesto cerrado. +200 renovaciones.',
   keywords:
-    'remodelaciones Mérida, reformas Mérida Yucatán, renovación casas Mérida, constructora remodelaciones Yucatán',
+    'remodelaciones Mérida, reformas Mérida Yucatán, renovación casas Mérida, constructora remodelaciones Yucatán, reformas integrales Mérida, ampliación casa Mérida, renovación vivienda Yucatán',
 };
 
 export default function RemodelacionesMeridaPage() {
   return (
-    <main className="min-h-screen bg-neutral-50">
-      {/* Hero */}
-      <section className="relative bg-[var(--petra-navy)] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,var(--petra-navy)_0%,#1c1917_50%,#0f172a_100%)]" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/2 w-[90%] h-80 bg-[var(--petra-gold)]/20 rounded-b-[50%] -translate-x-1/2 blur-2xl" />
-        </div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--petra-gold)]/20 text-[var(--petra-gold)] text-sm font-medium px-4 py-1.5 mb-6 border border-[var(--petra-gold)]/30">
-            <Hammer className="w-4 h-4" />
-            <span>Reformas integrales</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-3xl leading-[1.1]">
-            Remodelaciones en Mérida, Yucatán
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
-            Transformamos espacios existentes en ambientes modernos. Presupuesto cerrado y plazos definidos.
-          </p>
-        </div>
-      </section>
-
-      {/* Contenido */}
-      <section className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 md:-mt-16">
-        <div className="grid gap-6 md:gap-8">
-          <article className="rounded-2xl bg-white p-6 md:p-8 shadow-xl shadow-black/5 border border-neutral-100">
-            <h2 className="text-xl md:text-2xl font-bold text-[var(--petra-navy)] mb-4 flex items-center gap-3">
-              <span className="w-1 h-8 rounded-full bg-[var(--petra-gold)]" />
-              Reformas integrales en Mérida
-            </h2>
-            <p className="text-neutral-600 leading-relaxed">
-              Ofrecemos remodelaciones y reformas integrales en Mérida, Yucatán. Renovación de viviendas, ampliaciones, actualización de instalaciones y mejoras estéticas. Trabajamos en Mérida, Conkal, Cholul, Temozón y zona norte de Yucatán.
-            </p>
-          </article>
-
-          <article className="rounded-2xl bg-white p-6 md:p-8 shadow-xl shadow-black/5 border border-neutral-100">
-            <h2 className="text-xl md:text-2xl font-bold text-[var(--petra-navy)] mb-4 flex items-center gap-3">
-              <span className="w-1 h-8 rounded-full bg-[var(--petra-gold)]" />
-              Proyectos llave en mano en Yucatán
-            </h2>
-            <p className="text-neutral-600 leading-relaxed">
-              Gestionamos tu remodelación de principio a fin en Mérida, Yucatán. Constructora Estrategia Conesa S.A. con más de 17 años de experiencia en la península.
-            </p>
-            <div className="mt-4 flex items-center gap-2 text-[var(--petra-gold)] font-medium">
-              <Sparkles className="w-5 h-5" />
-              <span>De la idea al resultado final</span>
-            </div>
-          </article>
-        </div>
-
-        <div className="mt-12 md:mt-16 pb-20 text-center">
-          <Link
-            href="/contacto"
-            className="group inline-flex items-center gap-3 bg-[var(--petra-gold)] text-[var(--petra-navy)] font-semibold px-8 py-4 rounded-xl hover:bg-[var(--petra-gold-light)] transition-all duration-300 shadow-lg shadow-[var(--petra-gold)]/20 hover:shadow-xl hover:shadow-[var(--petra-gold)]/30 hover:-translate-y-0.5"
-          >
-            Solicitar presupuesto de remodelación en Mérida
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </section>
-    </main>
+    <ServicePageLayout
+      hero={{
+        badge: 'Reformas integrales',
+        badgeIcon: 'Hammer',
+        title: 'Remodelaciones en Mérida, Yucatán',
+        subtitle: 'Transformamos espacios existentes en ambientes modernos. Presupuesto cerrado, plazos definidos y más de 200 renovaciones completadas en la península.',
+        imageSrc: '/Assets/about.avif',
+        imageAlt: 'Obra de remodelación Mérida Yucatán - Constructora Conesa',
+      }}
+      intro="Ofrecemos remodelaciones y reformas integrales en Mérida, Yucatán. Renovación de viviendas, ampliaciones, actualización de instalaciones eléctricas e hidráulicas, y mejoras estéticas. Trabajamos en Mérida, Conkal, Cholul, Temozón y zona norte de Yucatán. Más de 200 renovaciones completadas. Constructora en Mérida con experiencia en transformar espacios: de la idea al resultado final con presupuesto cerrado."
+      sections={[
+        {
+          title: 'Reformas integrales en Mérida y zona norte',
+          content:
+            'Remodelaciones en Mérida, Yucatán para casas, departamentos y locales. Reformas de cocinas, baños, recámaras y áreas comunes. Ampliaciones, cambio de pisos, pintura, instalaciones nuevas y demoliciones controladas. Constructora en Mérida que gestiona tu reforma de principio a fin. Presupuesto cerrado y plazos acordados. Renovación integral preservando la esencia de tu espacio.',
+          imageSrc: '/Assets/service.avif',
+          imageAlt: 'Reforma integral vivienda Mérida - Constructora Conesa',
+        },
+        {
+          title: 'De la idea al resultado final',
+          content:
+            'Gestionamos tu remodelación en Mérida, Yucatán de principio a fin. Asesoría en diseño, permisos si aplican, compra de materiales y coordinación de oficios. Más de 17 años de experiencia en la península. Reformas en Mérida, Conkal, Cholul, Temozón y Progreso. Transformamos espacios existentes en ambientes contemporáneos con calidad y compromiso.',
+          imageSrc: '/Assets/about-3.avif',
+          imageAlt: 'Proyecto de remodelación Yucatán - Constructora Conesa',
+          imageRight: true,
+        },
+      ]}
+      benefits={[
+        {
+          title: '+200 renovaciones',
+          description: 'Más de 200 proyectos de remodelación y reformas completados en Mérida, Yucatán.',
+        },
+        {
+          title: 'Presupuesto cerrado',
+          description: 'Remodelaciones en Mérida con presupuesto cerrado. Sin sorpresas en el costo final.',
+        },
+        {
+          title: 'Reformas integrales',
+          description: 'Cocinas, baños, ampliaciones, instalaciones. Reforma integral de tu vivienda en Mérida.',
+        },
+        {
+          title: 'Plazos definidos',
+          description: 'Cronograma claro para tu remodelación en Mérida. Cumplimiento de fechas.',
+        },
+        {
+          title: 'Calidad en acabados',
+          description: 'Materiales y mano de obra de calidad. Remodelaciones en Yucatán que perduran.',
+        },
+        {
+          title: 'Una sola empresa',
+          description: 'Constructora en Mérida que coordina todo: albañilería, electricidad, plomería y acabados.',
+        },
+      ]}
+      ctaText="Solicitar presupuesto de remodelación en Mérida"
+    />
   );
 }
