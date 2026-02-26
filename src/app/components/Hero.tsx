@@ -104,7 +104,9 @@ function HeroTypewriter({
 
   return (
     <>
+      {/* H1 único SEO: constructora Mérida Yucatán (visible, reemplaza tipo genérico) */}
       <h1 className="mb-0 text-left font-bold uppercase leading-[1.1] text-white">
+        <span className="sr-only">Constructora en Mérida, Yucatán especializada en casas, oficinas y piscinas. Construcción llave en mano. </span>
         {prefixLines[0] !== undefined && (
           <span className={titleClass}>
             {prefixLines[0]}

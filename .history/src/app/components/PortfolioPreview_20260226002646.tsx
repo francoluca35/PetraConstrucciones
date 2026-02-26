@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const portfolioItems = [
-  { slug: 'lote-43', title: 'Residencia Yucatan', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/casa-moderna-mexico-1.png', descriptionKey: 'portfolio.desc.lote43', alt: 'Construcción de vivienda residencial en Mérida, Yucatán - Lote 43' },
+  { slug: 'lote-43', title: 'Lote 43', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-3/casa-moderna-mexico-1.png', descriptionKey: 'portfolio.desc.lote43', alt: 'Construcción de vivienda residencial en Mérida, Yucatán - Lote 43' },
   { slug: 'ResidenciaMerida', title: 'Residencia Mérida', categoryKey: 'portfolio.category.residential', image: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.png', descriptionKey: 'portfolio.desc.merida', alt: 'Casa moderna construida en Mérida, Yucatán - Residencia Mérida' },
   { slug: 'lote-101', title: 'Oficinas en Merida', categoryKey: 'portfolio.category.offices', image: '/Assets/Proyecto-2/casa-moderna-merida-1.png', descriptionKey: 'portfolio.desc.lote101', alt: 'Construcción de oficinas en Mérida, Yucatán - Lote 101' },
 ];

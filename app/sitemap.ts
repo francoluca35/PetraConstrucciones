@@ -9,6 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/portfolio',
     '/galeria',
     '/contacto',
+    '/construccion-de-casas-merida',
+    '/construccion-de-piscinas-merida',
+    '/construccion-de-oficinas-merida',
+    '/remodelaciones-merida',
   ];
 
   return routes.map((route) => ({

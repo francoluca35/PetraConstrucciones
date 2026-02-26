@@ -13,12 +13,12 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'lote-43',
-    label: 'RESIDENCIA YUCATAN',
-    image: '/Assets/Proyecto-3/casa-moderna-mexico-1.png',
+    label: 'LOTE 43',
+    image: '/Assets/Proyecto-3/1.png',
     gallery: [
-      '/Assets/Proyecto-3/casa-moderna-mexico-1.png',
-      '/Assets/Proyecto-3/casa-moderna-mexico-2.png',
-      '/Assets/Proyecto-3/casa-moderna-mexico-3.png',
+      '/Assets/Proyecto-3/1.png',
+      '/Assets/Proyecto-3/2.png',
+      '/Assets/Proyecto-3/3.png',
 
 
     ],
@@ -31,15 +31,17 @@ export const projects: Project[] = [
   {
     slug: 'ResidenciaMerida',
     label: 'RESIDENCIA MERIDA',
-    image: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.png',
+    image: '/Assets/Proyecto-1/frente-1.png',
     gallery: [
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.png',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.png',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-living-1.jpg',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-Baño-1.jpg',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-exterior-terraza.jpg',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-2.png',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-cochera-1.jpg',
+      '/Assets/Proyecto-1/1.png',
+
+      '/Assets/Proyecto-1/frente-1.png',
+      '/Assets/Proyecto-1/living-1.jpg',
+      '/Assets/Proyecto-1/Baño-1.jpg',
+      '/Assets/Proyecto-1/exterior-terraza.jpg',
+      '/Assets/Proyecto-1/2.png',
+
+      '/Assets/Proyecto-1/patio-trasero.png',
     ],
     category: 'Residencial',
     description: 'Casa moderna con líneas arquitectónicas definidas. Excelente integración entre interior y exterior.',
@@ -49,11 +51,11 @@ export const projects: Project[] = [
   },
   {
     slug: 'lote-101',
-    label: 'OFICINAS EN MERIDA',
-    image: '/Assets/Proyecto-2/casa-moderna-merida-1.png',
+    label: 'LOTE 101',
+    image: '/Assets/Proyecto-2/1.png',
     gallery: [
-      '/Assets/Proyecto-2/casa-moderna-merida-1.png',
-      '/Assets/Proyecto-2/casa-moderna-merida-2.png',
+      '/Assets/Proyecto-2/1.png',
+      '/Assets/Proyecto-2/2.png',
       
     ],
     category: 'Oficinas',
@@ -66,10 +68,10 @@ export const projects: Project[] = [
   {
     slug: 'proyecto-residencial',
     label: 'RESIDENCIA MX',
-    image: '/Assets/Proyecto-6/casa-moderna-mexico-yucatan-merida-frente.png',
+    image: '/Assets/Proyecto-6/proyecto-6.png',
     gallery: [
-      '/Assets/Proyecto-6/casa-moderna-mexico-yucatan-merida-frente.png',
-      '/Assets/Proyecto-6/casa-moderna-mexico-merida-yucatan-trasero.png',
+      '/Assets/Proyecto-6/proyecto-6.png',
+      '/Assets/Proyecto-6/proyecto-6-a.png',
     ],
     category: 'Residencial',
     description: 'Villa de lujo con Piscina. Acabados premium y diseño exclusivo.',
@@ -77,14 +79,16 @@ export const projects: Project[] = [
     year: '2024',
     features: ['450m²', 'Piscina infinity', 'Home cinema', 'Bodega'],
   },
+  
+ 
   {
     slug: 'edificio-one-rose',
-    label: 'RESIDENCIA GUADALAJARA',
-    image: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',
+    label: 'RESIDENCIA ONE ROSE',
+    image: '/Assets/Proyecto-5/1.jpg',
     gallery: [
-      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',
-      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-2.jpg',
-      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-3.jpg',
+      '/Assets/Proyecto-5/1.jpg',
+      '/Assets/Proyecto-5/2.jpg',
+      '/Assets/Proyecto-5/3.jpg',
     
     ],
     category: 'Residencial',

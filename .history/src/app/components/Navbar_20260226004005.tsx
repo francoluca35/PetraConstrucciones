@@ -280,19 +280,19 @@ export function Navbar() {
             className="fixed inset-0 z-50 flex flex-col bg-[var(--petra-navy)] md:hidden"
           >
             {/* Header: logo centrado + X derecha */}
-            <div className="relative flex items-center justify-center px-6 pt-10 pb-5">
-              <Link href="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center max-w-[85%]">
+            <div className="relative flex items-center justify-center px-6 pt-12 pb-6">
+              <Link href="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center">
                 <Image
-                  src={LOGO_MOBILE}
+                  src={SIGLA_MOBILE}
                   alt="Conesa constructora"
-                  width={180}
-                  height={72}
-                  className="h-[4rem] sm:h-[4.5rem] w-auto max-w-[200px] object-contain"
+                  width={200}
+                  height={80}
+                  className="h-24 w-auto object-contain"
                 />
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute right-4 top-10 flex h-10 w-10 items-center justify-center text-zinc-200 hover:text-[#E5C337] transition-colors"
+                className="absolute right-6 top-12 flex h-10 w-10 items-center justify-center text-zinc-200 hover:text-[#E5C337] transition-colors "
                 aria-label={t('nav.closeMenu')}
               >
                 <X size={24} strokeWidth={2} />

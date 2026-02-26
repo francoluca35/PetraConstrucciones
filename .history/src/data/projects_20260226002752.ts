@@ -79,7 +79,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'edificio-one-rose',
-    label: 'RESIDENCIA GUADALAJARA',
+    label: 'RESIDENCIA ONE ROSE',
     image: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',
     gallery: [
       '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',

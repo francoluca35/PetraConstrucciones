@@ -7,9 +7,8 @@ import Link from 'next/link';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const aboutImages = [
-  { src: '/Assets/about.jpg', alt: 'Trabajo en obra - Conesa constructora' },
-
-  { src: '/Assets/about-3.jpg', alt: 'Proyecto - Conesa constructora' },
+  { src: '/Assets/about.jpg', alt: 'Construcción en obra - Constructora en Mérida, Yucatán - Constructora Estrategia Conesa S.A.' },
+  { src: '/Assets/about-3.jpg', alt: 'Proyecto de construcción residencial en Mérida, Yucatán' },
 ];
 
 const AUTOPLAY_MS = 4000;

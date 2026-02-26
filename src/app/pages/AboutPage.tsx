@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { useLanguage } from '@/src/context/LanguageContext';
 import {
@@ -66,7 +67,7 @@ export function AboutPage() {
       {/* Hero — impacto fuerte */}
       <section className="relative flex min-h-[55vh] flex-col items-center justify-center overflow-hidden bg-[var(--petra-navy)] px-4 py-28">
         <div className="absolute inset-0">
-          <img src="/Assets/1.jpg" alt="" className="h-full w-full object-cover opacity-25" />
+          <img src="/Assets/quienes-somos.jpg" alt="" className="h-full w-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--petra-navy)]/90 to-[var(--petra-navy)]" />
         </div>
         <motion.div
@@ -310,12 +311,14 @@ export function AboutPage() {
       </section>
 
       {/* Misión — full width con imagen de fondo */}
-      <section className="relative overflow-hidden px-4 py-16 sm:py-20">
+      <section className="relative min-h-[420px] overflow-hidden px-4 py-16 sm:py-20">
         <div className="absolute inset-0">
-          <img
-            src="/Assets/fondo-pabout.jpg"
+          <Image
+            src="/Assets/quienes-somos.jpg"
             alt=""
-            className="h-full w-full object-cover object-center"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-[var(--petra-navy)]/80" aria-hidden />
         </div>

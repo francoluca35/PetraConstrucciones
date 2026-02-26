@@ -13,7 +13,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'lote-43',
-    label: 'RESIDENCIA YUCATAN',
+    label: 'RESIDENCIA JUAREZ',
     image: '/Assets/Proyecto-3/casa-moderna-mexico-1.png',
     gallery: [
       '/Assets/Proyecto-3/casa-moderna-mexico-1.png',
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'edificio-one-rose',
-    label: 'RESIDENCIA GUADALAJARA',
+    label: 'RESIDENCIA ONE ROSE',
     image: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',
     gallery: [
       '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.jpg',

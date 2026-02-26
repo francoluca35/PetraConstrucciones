@@ -15,12 +15,12 @@ const SERVICE_IMAGES = {
 } as const;
 
 const CARD_KEYS = [
-  { title: 'services.card2.title', desc: 'services.card2.desc', stats: 'services.card2.stats', imgPos: 'object-center', image: SERVICE_IMAGES.viviendas, color: 'from-amber-500/20 to-orange-600/20', icon: Home },
-  { title: 'services.card3.title', desc: 'services.card3.desc', stats: 'services.card3.stats', imgPos: 'object-center', image: SERVICE_IMAGES.oficinas, color: 'from-blue-500/20 to-indigo-600/20', icon: Building2 },
-  { title: 'services.card4.title', desc: 'services.card4.desc', stats: 'services.card4.stats', imgPos: 'object-center', image: SERVICE_IMAGES.piscinas, color: 'from-cyan-500/20 to-blue-600/20', icon: Waves },
-  { title: 'services.card5.title', desc: 'services.card5.desc', stats: 'services.card5.stats', imgPos: 'object-center', image: SERVICE_IMAGES.civiles, color: 'from-stone-500/20 to-neutral-600/20', icon: Landmark },
-  { title: 'services.card6.title', desc: 'services.card6.desc', stats: 'services.card6.stats', imgPos: 'object-center', image: SERVICE_IMAGES.municipales, color: 'from-slate-500/20 to-neutral-600/20', icon: Building2 },
-  { title: 'services.card7.title', desc: 'services.card7.desc', stats: 'services.card7.stats', imgPos: 'object-center', image: SERVICE_IMAGES.remodelaciones, color: 'from-emerald-500/20 to-teal-600/20', icon: Hammer },
+  { title: 'services.card2.title', desc: 'services.card2.desc', stats: 'services.card2.stats', imgPos: 'object-center', image: SERVICE_IMAGES.viviendas, color: 'from-amber-500/20 to-orange-600/20', icon: Home, servicePage: '/construccion-de-casas-merida' },
+  { title: 'services.card3.title', desc: 'services.card3.desc', stats: 'services.card3.stats', imgPos: 'object-center', image: SERVICE_IMAGES.oficinas, color: 'from-blue-500/20 to-indigo-600/20', icon: Building2, servicePage: '/construccion-de-oficinas-merida' },
+  { title: 'services.card4.title', desc: 'services.card4.desc', stats: 'services.card4.stats', imgPos: 'object-center', image: SERVICE_IMAGES.piscinas, color: 'from-cyan-500/20 to-blue-600/20', icon: Waves, servicePage: '/construccion-de-piscinas-merida' },
+  { title: 'services.card5.title', desc: 'services.card5.desc', stats: 'services.card5.stats', imgPos: 'object-center', image: SERVICE_IMAGES.civiles, color: 'from-stone-500/20 to-neutral-600/20', icon: Landmark, servicePage: '/contacto' },
+  { title: 'services.card6.title', desc: 'services.card6.desc', stats: 'services.card6.stats', imgPos: 'object-center', image: SERVICE_IMAGES.municipales, color: 'from-slate-500/20 to-neutral-600/20', icon: Building2, servicePage: '/contacto' },
+  { title: 'services.card7.title', desc: 'services.card7.desc', stats: 'services.card7.stats', imgPos: 'object-center', image: SERVICE_IMAGES.remodelaciones, color: 'from-emerald-500/20 to-teal-600/20', icon: Hammer, servicePage: '/remodelaciones-merida' },
 ] as const;
 
 const WHATSAPP_NUMBER = '5491131199872';
@@ -128,7 +128,7 @@ function ServiceCard({
         <div className="absolute inset-0 bg-neutral-800">
           <img
             src={card.image}
-            alt=""
+            alt={`${t(card.title)} en Mérida, Yucatán - Constructora Estrategia Conesa S.A.`}
             className={`absolute inset-0 w-full h-full object-cover ${card.imgPos} opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700`}
           />
           <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
@@ -150,7 +150,7 @@ function ServiceCard({
             <Icon className="w-6 h-6 text-neutral-300 group-hover:text-[var(--petra-gold)] transition-colors" />
           </div>
           <Link
-            href="/contacto"
+            href={card.servicePage}
             className="text-neutral-600 hover:text-[var(--petra-gold)] transition-colors duration-300 focus:outline-none focus:text-[var(--petra-gold)]"
             aria-label={t('services.seeMore')}
           >

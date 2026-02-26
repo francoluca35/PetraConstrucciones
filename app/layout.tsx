@@ -6,19 +6,20 @@ import { BackToTop } from '@/src/app/components/BackToTop';
 import { ScrollToTop } from '@/src/app/components/ScrollToTop';
 import { WhatsAppFloating } from '@/src/app/components/WhatsAppFloating';
 import { ClientProviders } from '@/src/app/components/ClientProviders';
+import { StructuredData } from '@/src/app/components/StructuredData';
 
 const SITE_URL = 'https://www.constructoraconesa.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
-    template: '%s | Constructora Estrategia Conesa S.A.',
+    default: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas | Constructora Estrategia Conesa S.A.',
+    template: '%s | Constructora en Mérida',
   },
   description:
-    'Constructora Estrategia Conesa S.A. - Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad con excelencia e innovación. Mérida, Yucatán, México.',
+    'Empresa constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano Mérida, construcción residencial y comercial. +17 años de experiencia en Yucatán y península.',
   keywords:
-    'construcción, construcciones, obras, edificios, viviendas, proyectos, arquitectura, Constructora Estrategia Conesa, construcción Mérida, Yucatán, México, constructora',
+    'constructora en Mérida Yucatán, construcción de casas en Mérida, empresa constructora Mérida México, construcción de piscinas en Mérida, casas llave en mano Mérida, construcción residencial Mérida, construcción comercial Yucatán, Constructora Estrategia Conesa',
   icons: {
     icon: '/Assets/favicon.ico',
     apple: '/Assets/favicon.ico',
@@ -27,16 +28,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_MX',
     url: SITE_URL,
-    siteName: 'Constructora Estrategia Conesa S.A.',
-    title: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
+    siteName: 'Constructora en Mérida, Yucatán | Constructora Estrategia Conesa S.A.',
+    title: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas',
     description:
-      'Líderes en construcción residencial, comercial e industrial. Más de 20 años transformando proyectos en realidad. Mérida, Yucatán.',
-    images: [{ url: '/Assets/logo-pagina.png', width: 1200, height: 630, alt: 'Constructora Estrategia Conesa S.A.' }],
+      'Constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano. +17 años en Yucatán.',
+    images: [{ url: '/Assets/logo-pagina.png', width: 1200, height: 630, alt: 'Constructora en Mérida Yucatán - Constructora Estrategia Conesa S.A.' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Constructora Estrategia Conesa S.A. - Excelencia en Construcción',
-    description: 'Líderes en construcción residencial, comercial e industrial. Mérida, Yucatán, México.',
+    title: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas',
+    description: 'Empresa constructora Mérida México. Construcción de casas y piscinas. Yucatán.',
   },
   robots: {
     index: true,
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
+        <StructuredData />
         <ClientProviders>
           <Navbar />
           <main className="flex-grow">{children}</main>

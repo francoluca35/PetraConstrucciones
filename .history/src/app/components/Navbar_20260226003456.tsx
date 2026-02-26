@@ -9,8 +9,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const SIGLA = '/Assets/sigladef1.png';
-const SIGLA_MOBILE = '/Assets/sigladef1.png';
-const LOGO_MOBILE = '/Assets/logo-pagina.png';
+const SIGLA_MOBILE = '/Assets/logo-pagina-mobile.png';
 
 // Fases: sigla 5s → transición a texto → texto 10s → transición a sigla → repeat
 const SIGLA_DURATION = 5000;
@@ -25,9 +24,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
-  const [phase, setPhase] = useState<'sigla' | 'toText' | 'text' | 'toSigla'>(() =>
-    typeof window !== 'undefined' && window.innerWidth < MOBILE_BREAKPOINT ? 'text' : 'sigla'
-  );
+  const [phase, setPhase] = useState<'sigla' | 'toText' | 'text' | 'toSigla'>('sigla');
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -59,11 +56,11 @@ export function Navbar() {
     };
   }, [isOpen]);
 
-  // Ciclo: desktop = sigla → texto → sigla. Mobile = nombre (texto) primero → luego logo.
+  // Ciclo infinito: sigla → texto → sigla
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
 
-    const runCycleDesktop = () => {
+    const runCycle = () => {
       setPhase('sigla');
       timers.push(setTimeout(() => {
         setPhase('toText');
@@ -71,35 +68,15 @@ export function Navbar() {
           setPhase('text');
           timers.push(setTimeout(() => {
             setPhase('toSigla');
-            timers.push(setTimeout(runCycleDesktop, TRANSITION_DURATION));
+            timers.push(setTimeout(runCycle, TRANSITION_DURATION));
           }, TEXT_HOLD_DURATION));
         }, TRANSITION_DURATION));
       }, SIGLA_DURATION));
     };
 
-    const runCycleMobile = () => {
-      setPhase('text');
-      timers.push(setTimeout(() => {
-        setPhase('toSigla');
-        timers.push(setTimeout(() => {
-          setPhase('sigla');
-          timers.push(setTimeout(() => {
-            setPhase('toText');
-            timers.push(setTimeout(() => runCycleMobile(), TRANSITION_DURATION));
-          }, SIGLA_DURATION));
-        }, TRANSITION_DURATION));
-      }, TEXT_HOLD_DURATION));
-    };
-
-    if (isMobile) {
-      setPhase('text');
-      runCycleMobile();
-    } else {
-      setPhase('sigla');
-      runCycleDesktop();
-    }
+    runCycle();
     return () => timers.forEach(clearTimeout);
-  }, [isMobile]);
+  }, []);
 
   const navLinks = [
     { nameKey: 'nav.home', path: '/' },
@@ -119,10 +96,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:px-12 xl:px-8">
         <div className="flex justify-between items-center h-20 min-h-[88px] md:min-h-[96px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center min-h-[60px] w-[220px] md:w-[220px] shrink-0 overflow-visible">
+          <Link href="/" className="flex items-center min-h-[60px] w-[220px] shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="relative flex flex-col items-center justify-center leading-none w-full overflow-visible"
+              className="relative flex flex-col items-center justify-center leading-none w-full"
             >
               {/* Sigla: visible 5s, se desvanece en toText, reaparece en toSigla */}
               <motion.div
@@ -280,27 +257,27 @@ export function Navbar() {
             className="fixed inset-0 z-50 flex flex-col bg-[var(--petra-navy)] md:hidden"
           >
             {/* Header: logo centrado + X derecha */}
-            <div className="relative flex items-center justify-center px-6 pt-10 pb-5">
-              <Link href="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center max-w-[85%]">
+            <div className="relative flex items-center justify-center px-6 pt-8 pb-4">
+              <Link href="/" onClick={() => setIsOpen(false)} className="flex flex-col items-center">
                 <Image
-                  src={LOGO_MOBILE}
+                  src={SIGLA_MOBILE}
                   alt="Conesa constructora"
-                  width={180}
-                  height={72}
-                  className="h-[4rem] sm:h-[4.5rem] w-auto max-w-[200px] object-contain"
+                  width={160}
+                  height={64}
+                  className="h-14 w-auto max-w-[180px] object-contain"
                 />
               </Link>
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute right-4 top-10 flex h-10 w-10 items-center justify-center text-zinc-200 hover:text-[#E5C337] transition-colors"
+                className="absolute right-4 top-8 flex h-9 w-9 items-center justify-center text-zinc-200 hover:text-[#E5C337] transition-colors "
                 aria-label={t('nav.closeMenu')}
               >
                 <X size={24} strokeWidth={2} />
               </button>
             </div>
 
-            {/* Links apilados verticalmente, centrados y grandes */}
-            <nav className="flex flex-1 flex-col items-center justify-center gap-2 px-8">
+            {/* Links apilados verticalmente, centrados */}
+            <nav className="flex flex-1 flex-col items-center justify-center gap-1 px-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
@@ -312,8 +289,8 @@ export function Navbar() {
                   <Link
                     href={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`text-4xl font-medium tracking-wide transition-colors ${
-                      pathname === link.path ? 'text-[#283777] underline underline-offset-9 decoration-[#E5C337]' : 'text-zinc-200 hover:text-[#E5C337]'
+                    className={`text-xl font-medium tracking-wide transition-colors py-2 ${
+                      pathname === link.path ? 'text-[#283777] underline underline-offset-4 decoration-2 decoration-[#E5C337]' : 'text-zinc-200 hover:text-[#E5C337]'
                     }`}
                   >
                     {t(link.nameKey)}
@@ -322,7 +299,7 @@ export function Navbar() {
               ))}
             </nav>
             {/* Banderas idioma en móvil */}
-            <div className="flex items-center justify-center gap-3 pb-12">
+            <div className="flex items-center justify-center gap-3 pb-8">
               <button
                 type="button"
                 onClick={() => { setLocale('es'); setIsOpen(false); }}
