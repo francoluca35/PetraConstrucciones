@@ -3,19 +3,23 @@ import './globals.css';
 import { AppShell } from '@/src/app/components/AppShell';
 import { ClientProviders } from '@/src/app/components/ClientProviders';
 import { StructuredData } from '@/src/app/components/StructuredData';
+import { BreadcrumbStructuredData } from '@/src/app/components/BreadcrumbStructuredData';
+import { SITE_URL } from '@/src/lib/site';
 
-const SITE_URL = 'https://www.constructoraconesa.com';
+const DEFAULT_TITLE = 'Conesa Constructora en Mérida | Casas, Oficinas, Piscinas y Remodelaciones';
+const DEFAULT_DESCRIPTION =
+  'Constructora en Mérida: casas llave en mano, oficinas, albercas chukum y remodelaciones. +17 años. Presupuesto cerrado. Conkal, Cholul, Temozón. ¿Cuánto cuesta construir? Cotiza hoy sin compromiso.';
+const DEFAULT_KEYWORDS =
+  'constructora en Mérida, mejores constructoras en Mérida, constructoras confiables Yucatán, directorio de constructoras en Mérida, construcción de casas Mérida, casas llave en mano Mérida, cuánto cuesta construir una casa en Mérida 2025, construcción de oficinas Mérida, construcción de piscinas Mérida, albercas Mérida, albercas chukum Yucatán, piscinas estilo cenote Mérida, remodelación de casas en Mérida, reformas integrales Mérida, remodelación casas antiguas Mérida, obras civiles Mérida, obras municipales Yucatán, infraestructura Mérida, constructora Estrategia Conesa, construcción residencial comercial Mérida, construcción de bodegas Mérida, naves industriales sureste, parques industriales Yucatán, plusvalía Mérida, seguridad Mérida construcción, arquitectura sostenible Mérida, casas ecológicas Yucatán, Tren Maya impacto inmobiliario Mérida, Conkal Cholul Temozón Progreso Dzityá, CMIC construcción Yucatán, constructora cerca de mí Mérida, presupuesto construcción casa Mérida, permisos remodelar casa Yucatán';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas | Constructora Estrategia Conesa S.A.',
-    template: '%s | Constructora en Mérida',
+    default: DEFAULT_TITLE,
+    template: '%s | Conesa Constructora Mérida',
   },
-  description:
-    'Empresa constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano Mérida, construcción residencial y comercial. +17 años de experiencia en Yucatán y península.',
-  keywords:
-    'constructora en Mérida Yucatán, construcción de casas en Mérida, empresa constructora Mérida México, construcción de piscinas en Mérida, casas llave en mano Mérida, construcción residencial Mérida, construcción comercial Yucatán, Constructora Estrategia Conesa',
+  description: DEFAULT_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
   icons: {
     icon: '/Assets/favicon.avif',
     apple: '/Assets/favicon.avif',
@@ -24,22 +28,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_MX',
     url: SITE_URL,
-    siteName: 'Constructora en Mérida, Yucatán | Constructora Estrategia Conesa S.A.',
-    title: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas',
-    description:
-      'Constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano. +17 años en Yucatán.',
+    siteName: 'Constructora Estrategia Conesa S.A. - Mérida, Yucatán',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     images: [{ url: '/Assets/logo-pagina.avif', width: 1200, height: 630, alt: 'Constructora en Mérida Yucatán - Constructora Estrategia Conesa S.A.' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Constructora en Mérida, Yucatán | Casas, Oficinas y Piscinas',
-    description: 'Empresa constructora Mérida México. Construcción de casas y piscinas. Yucatán.',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  // Verificación Google Search Console: añade GOOGLE_SITE_VERIFICATION en .env.local con el código que te da Google.
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 };
 
 export default function RootLayout({
@@ -61,6 +68,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         <StructuredData />
+        <BreadcrumbStructuredData />
         <ClientProviders>
           <AppShell>{children}</AppShell>
         </ClientProviders>

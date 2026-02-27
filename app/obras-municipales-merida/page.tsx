@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Obras Municipales en Mérida, Yucatán | Infraestructura Pública | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Obras Municipales en Mérida | Infraestructura Pública | Constructora Conesa',
   description:
-    'Obras y proyectos municipales en Mérida, Yucatán. Constructora Estrategia Conesa S.A. Infraestructura pública, pavimentación, edificios municipales. Gestión de obra para municipios y entes públicos. +20 obras.',
+    'Obras y proyectos municipales en Mérida, Yucatán. Infraestructura pública, pavimentación, edificios municipales. Gestión de obra para municipios y entes públicos. Licitaciones. +20 obras.',
   keywords:
-    'obras municipales Mérida, infraestructura pública Yucatán, construcción municipal Mérida, proyectos gobierno Yucatán, constructora obras públicas, licitaciones Mérida, obra pública Yucatán',
+    'obras municipales Mérida, infraestructura pública Yucatán, construcción municipal Mérida, proyectos gobierno Yucatán, constructora obras públicas, licitaciones Mérida, obra pública Yucatán, Ayuntamiento Mérida construcción, directorio Ayuntamiento Mérida prosperidad económica, licitaciones obra pública Yucatán, gestión obra entes públicos Mérida, pavimentación espacios públicos Mérida, edificios municipales Yucatán, transparencia licitaciones construcción Mérida',
+  openGraph: {
+    title: 'Obras Municipales en Mérida | Infraestructura Pública',
+    description: 'Proyectos para entes públicos. Pavimentación, edificios. +20 obras. Constructora Conesa.',
+    url: `${SITE_URL}/obras-municipales-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Obras Municipales Mérida', description: 'Infraestructura pública y licitaciones.' },
+  alternates: { canonical: `${SITE_URL}/obras-municipales-merida` },
 };
 
 export default function ObrasMunicipalesMeridaPage() {

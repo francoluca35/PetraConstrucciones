@@ -1,4 +1,4 @@
-const SITE_URL = 'https://www.constructoraconesa.com';
+import { SITE_URL } from '@/src/lib/site';
 
 export function StructuredData() {
   const localBusiness = {
@@ -8,7 +8,7 @@ export function StructuredData() {
     name: 'Constructora Estrategia Conesa S.A.',
     alternateName: 'Constructora Conesa',
     description:
-      'Empresa constructora en Mérida, Yucatán. Construcción de casas, oficinas y piscinas. Casas llave en mano. Especialistas en construcción residencial y comercial en Mérida y península de Yucatán.',
+      'Constructora en Mérida, Yucatán. Construcción de casas llave en mano, oficinas, piscinas y albercas chukum. Remodelaciones, obras civiles y obras municipales. Especialistas en construcción residencial, comercial e infraestructura en Mérida, Conkal, Cholul, Temozón, Progreso, Dzityá y península de Yucatán. Cuánto cuesta construir una casa en Mérida, presupuesto cerrado, permisos remodelación Yucatán. +17 años de experiencia. Constructora confiable, plusvalía y seguridad.',
     url: SITE_URL,
     telephone: '+52 999 994 4498',
     email: 'proyectos@conesaconstructora.com',
@@ -45,28 +45,16 @@ export function StructuredData() {
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Servicios de construcción en Mérida',
+      name: 'Servicios de construcción en Mérida, Yucatán',
       itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Construcción de casas en Mérida' },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Construcción de oficinas Mérida Yucatán' },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Construcción de piscinas en Mérida' },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Casas llave en mano Mérida' },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name: 'Remodelaciones Mérida' },
-        },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Construcción de casas en Mérida' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Casas llave en mano Mérida' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Construcción de oficinas Mérida Yucatán' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Construcción de piscinas y albercas Mérida' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Albercas chukum y estilo cenote Yucatán' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Remodelaciones y reformas integrales Mérida' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Obras civiles e infraestructura Mérida' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Obras municipales e infraestructura pública Yucatán' } },
       ],
     },
   };
@@ -77,7 +65,8 @@ export function StructuredData() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: 'Constructora Estrategia Conesa S.A. - Mérida, Yucatán',
-    description: 'Constructora en Mérida, Yucatán. Casas, oficinas, piscinas. Construcción llave en mano.',
+    description:
+      'Constructora en Mérida, Yucatán. Construcción de casas, oficinas, piscinas, remodelaciones y obras civiles. Casas llave en mano, albercas chukum, naves industriales. Cotización, presupuesto sin compromiso y búsqueda de servicios de construcción en la península.',
     publisher: { '@id': `${SITE_URL}/#company` },
     inLanguage: 'es-MX',
     potentialAction: {
