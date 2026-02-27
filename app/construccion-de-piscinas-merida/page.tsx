@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Construcción de Piscinas en Mérida, Yucatán | Piscinas Residenciales | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Construcción de Albercas en Mérida | Piscinas Chukum y Estilo Cenote',
   description:
-    'Construcción de piscinas en Mérida, Yucatán. Diseño y obra de piscinas residenciales, acabados de calidad. Constructora Estrategia Conesa S.A. Especialistas en piscinas en Yucatán. +80 piscinas construidas.',
+    'Diseño y construcción de albercas en Mérida con acabado Chukum. Piscinas estilo cenote, sistemas de filtrado e iluminación LED. Especialistas en Yucatán. +80 albercas. Cotiza sin compromiso.',
   keywords:
-    'construcción de piscinas en Mérida, piscinas Mérida Yucatán, construir piscina Mérida, precio piscinas Mérida, piscinas residenciales Yucatán, diseño piscinas Mérida, obra de piscinas Mérida, piscinas llave en mano Yucatán',
+    'construcción de albercas Mérida, construcción de piscinas Mérida, albercas chukum Yucatán, piscinas estilo cenote Mérida, diseño albercas Mérida, precios construcción piscinas Mérida, albercas modernas casas Mérida, mantenimiento albercas Yucatán, acabado Chukum o mosaico veneciano albercas, diseño albercas estilo cenote, sistemas filtrado iluminación LED piscinas Mérida, bombas calor albercas Yucatán, piscinas prefabricadas instalación rápida Mérida, construcción piscinas 7 días Mérida, albercas para casas pequeñas Mérida, render 3D diseño piscina Mérida, tratamiento agua piscinas Yucatán',
+  openGraph: {
+    title: 'Construcción de Albercas en Mérida | Piscinas Chukum',
+    description: 'Albercas estilo cenote con acabado Chukum. +80 piscinas en Yucatán. Constructora Conesa.',
+    url: `${SITE_URL}/construccion-de-piscinas-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Albercas y Piscinas Mérida', description: 'Acabado Chukum y estilo cenote. +80 piscinas.' },
+  alternates: { canonical: `${SITE_URL}/construccion-de-piscinas-merida` },
 };
 
 export default function ConstruccionPiscinasMeridaPage() {

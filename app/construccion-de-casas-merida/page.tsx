@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Construcción de Casas en Mérida, Yucatán | Casas Llave en Mano | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Construcción de Casas en Mérida | Casas Llave en Mano | Constructora Conesa',
   description:
-    'Construcción de casas en Mérida, Yucatán. Casas llave en mano, viviendas unifamiliares, residenciales y construcción desde cero. Constructora Estrategia Conesa S.A. +17 años en Yucatán. Presupuesto cerrado, Conkal, Cholul, Temozón.',
+    'Construcción de casas en Mérida, Yucatán. Casas llave en mano, viviendas unifamiliares y construcción desde cero. Presupuesto cerrado. +17 años. Conkal, Cholul, Temozón. ¿Cuánto cuesta construir una casa en Mérida? Cotiza hoy.',
   keywords:
-    'construcción de casas en Mérida, casas llave en mano Mérida, construir casa Mérida Yucatán, constructora residencial Mérida, viviendas unifamiliares Yucatán, construcción de casas Conkal Cholul Temozón, constructora Mérida México, presupuesto construcción casa Mérida',
+    'construcción de casas en Mérida, casas llave en mano Mérida, construir casa Mérida Yucatán, constructora residencial Mérida, viviendas unifamiliares Yucatán, cuánto cuesta construir una casa en Mérida 2025, presupuesto construcción casa Mérida, proyectos llave en mano Yucatán, costos por m2 construir casa Mérida, construcción desde cero Mérida, ampliación casa Mérida, Conkal Cholul Temozón Dzityá Progreso, arquitectura sostenible Mérida, casas ecológicas Yucatán, materiales construcción sustentables Mérida, eficiencia energética vivienda Mérida, plusvalía norte Mérida, constructora confiable casas Mérida, desarrollo residencial península',
+  openGraph: {
+    title: 'Construcción de Casas en Mérida | Casas Llave en Mano',
+    description: 'Casas llave en mano en Mérida, Yucatán. Presupuesto cerrado. +17 años. Constructora Conesa.',
+    url: `${SITE_URL}/construccion-de-casas-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Construcción de Casas Mérida', description: 'Casas llave en mano. Presupuesto cerrado.' },
+  alternates: { canonical: `${SITE_URL}/construccion-de-casas-merida` },
 };
 
 export default function ConstruccionCasasMeridaPage() {

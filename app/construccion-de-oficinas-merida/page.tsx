@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Construcción de Oficinas en Mérida, Yucatán | Edificios Corporativos | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Construcción de Oficinas en Mérida | Edificios Corporativos y Naves',
   description:
-    'Construcción de oficinas y edificios corporativos en Mérida, Yucatán. Empresa constructora Mérida México. Espacios comerciales, naves industriales y estructuras de acero. Constructora Estrategia Conesa S.A. +17 años.',
+    'Construcción de oficinas y edificios corporativos en Mérida, Yucatán. Naves industriales, estructuras metálicas y fachadas ventiladas. +45 empresas. Obra en plazo récord. Constructora Conesa.',
   keywords:
-    'construcción de oficinas en Mérida, edificios corporativos Mérida Yucatán, constructora comercial Mérida, oficinas Mérida México, naves industriales Yucatán, construcción comercial Mérida, edificios de oficinas Mérida, constructora industrial Yucatán',
+    'construcción de oficinas Mérida, edificios corporativos Mérida Yucatán, naves industriales Mérida, construcción bodegas Mérida, estructuras metálicas industriales Yucatán, oficinas corporativas premium Mérida, constructora comercial Mérida, parques industriales sureste, rascacielos oficinas Mérida, construcción oficinas plazo récord Mérida, fachadas ventiladas edificios Yucatán, estructura acero oficinas Mérida, nave industrial Yucatán, bodega Mérida constructora, edificio corporativo llave en mano Mérida, tecnología anticalor edificios Mérida, estándares internacionales construcción comercial Yucatán, modelo BIM proyectos residenciales comerciales',
+  openGraph: {
+    title: 'Construcción de Oficinas en Mérida | Edificios y Naves',
+    description: 'Oficinas corporativas y naves industriales. Estructura de acero. +45 empresas. Constructora Conesa.',
+    url: `${SITE_URL}/construccion-de-oficinas-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Oficinas y Naves Industriales Mérida', description: 'Edificios corporativos. Plazo récord.' },
+  alternates: { canonical: `${SITE_URL}/construccion-de-oficinas-merida` },
 };
 
 export default function ConstruccionOficinasMeridaPage() {

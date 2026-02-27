@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Obras Civiles en Mérida, Yucatán | Infraestructura | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Obras Civiles en Mérida | Infraestructura y Desarrollo Urbano',
   description:
-    'Obras civiles e infraestructura en Mérida, Yucatán. Constructora Estrategia Conesa S.A. Carreteras, urbanización, redes de servicios. Infraestructura con los más altos estándares. Desarrollo urbano sostenible. +25 obras.',
+    'Obras civiles e infraestructura en Mérida, Yucatán. Carreteras, urbanización, redes de servicios. Infraestructura con los más altos estándares. Desarrollo urbano sostenible. +25 obras. Constructora Conesa.',
   keywords:
-    'obras civiles Mérida, infraestructura Yucatán, construcción civil Mérida, desarrollo urbano Yucatán, constructora obras civiles, urbanización Mérida, obras de infraestructura Yucatán, construcción carreteras Mérida',
+    'obras civiles Mérida, infraestructura Yucatán, construcción civil Mérida, desarrollo urbano Yucatán, ingeniería civil Mérida, urbanización Mérida, obras infraestructura Yucatán, construcción carreteras Mérida, obra civil pesada sureste, Tren Maya impacto inmobiliario Mérida, expansión Puerto de Progreso, viaductos movilidad Mérida, redes agua drenaje Yucatán, pavimentación urbanización Mérida, infraestructura masiva península, desarrollo urbano sostenible Yucatán, conectividad energía construcción México',
+  openGraph: {
+    title: 'Obras Civiles en Mérida | Infraestructura',
+    description: 'Carreteras, urbanización, redes. Desarrollo urbano sostenible. +25 obras. Constructora Conesa.',
+    url: `${SITE_URL}/obras-civiles-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Obras Civiles Mérida', description: 'Infraestructura y desarrollo urbano.' },
+  alternates: { canonical: `${SITE_URL}/obras-civiles-merida` },
 };
 
 export default function ObrasCivilesMeridaPage() {

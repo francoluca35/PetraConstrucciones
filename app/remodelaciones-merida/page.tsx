@@ -1,11 +1,21 @@
+import type { Metadata } from 'next';
 import { ServicePageLayout } from '@/src/app/components/ServicePageLayout';
+import { SITE_URL } from '@/src/lib/site';
 
-export const metadata = {
-  title: 'Remodelaciones en Mérida, Yucatán | Reformas Integrales | Constructora Conesa',
+export const metadata: Metadata = {
+  title: 'Remodelación de Casas en Mérida | Reformas Integrales | Constructora Conesa',
   description:
-    'Remodelaciones y renovaciones en Mérida, Yucatán. Constructora Estrategia Conesa S.A. Reformas integrales, ampliaciones y mejoras en viviendas y locales. Presupuesto cerrado. +200 renovaciones.',
+    'Transforma tu hogar con expertos en rediseño y remodelación en Mérida. Fachadas, interiores y ampliaciones con acabados de primera. Presupuesto cerrado. +200 renovaciones. Permisos remodelar casa Yucatán.',
   keywords:
-    'remodelaciones Mérida, reformas Mérida Yucatán, renovación casas Mérida, constructora remodelaciones Yucatán, reformas integrales Mérida, ampliación casa Mérida, renovación vivienda Yucatán',
+    'remodelación de casas en Mérida, remodelaciones Mérida, reformas integrales Mérida Yucatán, empresas remodelación Mérida, rediseño interiores residencial Mérida, remodelación casas antiguas Yucatán, ampliación terrazas norte Mérida, reformas oficinas centro Mérida, qué permisos necesito para remodelar mi casa en Yucatán, trámites Ayuntamiento Mérida remodelación, remodelación de lujo Mérida, diseño interiores Mérida, reforma cocina baño Mérida, ampliación casa Mérida, renovación vivienda Yucatán, remodelación Ciudad Caucel Mérida, reformas centro histórico Mérida, arquitectura bioclimática remodelación Yucatán',
+  openGraph: {
+    title: 'Remodelación de Casas en Mérida | Reformas Integrales',
+    description: 'Rediseño, fachadas, ampliaciones. Presupuesto cerrado. +200 renovaciones. Constructora Conesa.',
+    url: `${SITE_URL}/remodelaciones-merida`,
+    locale: 'es_MX',
+  },
+  twitter: { card: 'summary_large_image', title: 'Remodelaciones Mérida', description: 'Reformas integrales. Acabados de primera.' },
+  alternates: { canonical: `${SITE_URL}/remodelaciones-merida` },
 };
 
 export default function RemodelacionesMeridaPage() {

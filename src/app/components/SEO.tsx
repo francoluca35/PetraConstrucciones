@@ -42,7 +42,7 @@
  *    - app/contacto/page.tsx: title, description, keywords
  *    - app/galeria/page.tsx: title, description, keywords
  *    - app/portfolio/page.tsx: title, description, keywords
- *    - app/portfolio/[slug]/page.tsx: generateMetadata → title "{project.label} - Petra Construcciones", description del proyecto
+ *    - app/portfolio/[slug]/page.tsx: generateMetadata → title "{project.label} | Constructora Conesa - Mérida", description del proyecto
  *    - app/construccion-de-casas-merida/page.tsx: title, description, keywords
  *    - app/construccion-de-piscinas-merida, construccion-de-oficinas-merida, remodelaciones-merida: metadata export
  *
