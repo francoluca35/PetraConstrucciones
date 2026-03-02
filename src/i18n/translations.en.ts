@@ -50,6 +50,7 @@ const translationsEn: Record<string, string> = {
     'portfolio.next': 'Next',
     'portfolio.category.residential': 'Residential',
     'portfolio.category.design': 'Design',
+    'portfolio.category.pools': 'Pools',
     'portfolio.desc.lote43': 'Single-family home with contemporary design and first-class finishes.',
     'portfolio.desc.merida': 'Modern house with defined architectural lines.',
     'portfolio.desc.5020': 'Single-family residence with pool and wide view.',
@@ -57,8 +58,8 @@ const translationsEn: Record<string, string> = {
 
     'services.title': 'Our services',
     'services.badge': 'Our Services',
-    'services.heading': 'Excellence in every',
-    'services.headingItalic': 'type of project',
+    'services.heading': 'Our',
+    'services.headingItalic': 'construction services',
     'services.lead': 'Over 17 years of experience back us. Every project is an opportunity to exceed expectations.',
     'services.subtitle': 'Comprehensive solutions in construction, planning and project management.',
     'services.seeMore': 'See more',
@@ -292,5 +293,8 @@ const translationsEn: Record<string, string> = {
     'project.edificio-one-rose.f2': 'Gym',
     'project.edificio-one-rose.f3': 'Pool',
     'project.edificio-one-rose.f4': 'Garden',
+    'project.piscinas.description': 'Some of our pools',
+    'project.piscinas.f1': 'Heated pool',
+    'project.piscinas.f2': 'Internal lights',
 };
 export default translationsEn;

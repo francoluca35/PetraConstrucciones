@@ -150,7 +150,7 @@ function ServiceCard({
           </p>
           <div className="flex items-center justify-between gap-4">
             <span className="text-[var(--petra-gold)]/90 text-xs font-medium uppercase tracking-wider">
-              {t(card.stats)}
+            
             </span>
             <span className="inline-flex items-center gap-1 text-white font-medium text-sm group-hover:text-[var(--petra-gold)] transition-colors">
               {t('services.seeMore')}

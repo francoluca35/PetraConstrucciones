@@ -10,6 +10,7 @@ const categoryToKey: Record<string, string> = {
   Residencial: 'portfolio.category.residential',
   Oficinas: 'portfolio.category.offices',
   Diseño: 'portfolio.category.design',
+  Piscinas: 'portfolio.category.pools',
 };
 
 export function PortfolioPage() {

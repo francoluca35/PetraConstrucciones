@@ -3,6 +3,7 @@ export interface Project {
   label: string;
   image: string;
   gallery?: string[];
+  video?: string;
   category?: string;
   description: string;
   location?: string;
@@ -37,9 +38,9 @@ export const projects: Project[] = [
       '/Assets/Proyecto-1/casa-moderna-merida-yucatan-frente-1.avif',
       '/Assets/Proyecto-1/casa-moderna-merida-yucatan-living-1.avif',
       '/Assets/Proyecto-1/casa-moderna-merida-yucatan-Baño-1.avif',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-exterior-terraza.avif',
+
       '/Assets/Proyecto-1/casa-moderna-merida-yucatan-2.avif',
-      '/Assets/Proyecto-1/casa-moderna-merida-yucatan-cochera-1.avif',
+
     ],
     category: 'Residencial',
     description: 'Casa moderna con líneas arquitectónicas definidas. Excelente integración entre interior y exterior.',
@@ -93,7 +94,24 @@ export const projects: Project[] = [
     year: '2024',
     features: ['Amplio terreno', 'Gimnasio', 'Piscina', 'Jardín'],
   },
- 
+  {
+    slug: 'piscinas',
+    label: 'PISCINAS',
+    image: '/Assets/Proyecto-7/patio.png',
+    video: '/Assets/Proyecto-7/video.mp4',
+    gallery: [
+
+      '/Assets/Proyecto-7/patio.png',
+      '/Assets/Proyecto-7/3.jpg',
+      '/Assets/Proyecto-7/4.jpg',
+
+    ],
+    category: 'Piscinas',
+    description: 'Algunas de nuestras piscinas',
+    location: 'Mérida, Yucatán, México',
+    year: '2024',
+    features: ['Piscina climatizada', 'Luces internas'],
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

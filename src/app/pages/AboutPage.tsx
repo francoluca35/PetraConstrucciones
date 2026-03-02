@@ -75,7 +75,7 @@ export function AboutPage() {
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--petra-navy)]/90 to-[var(--petra-navy)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--petra-navy)]/30 to-[var(--petra-navy)]" />
         </div>
         <motion.div
           className="relative z-10 max-w-3xl text-center"

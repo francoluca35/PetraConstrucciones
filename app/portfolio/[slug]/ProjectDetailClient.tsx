@@ -12,6 +12,7 @@ const categoryToKey: Record<string, string> = {
   Residencial: 'portfolio.category.residential',
   Oficinas: 'portfolio.category.offices',
   Diseño: 'portfolio.category.design',
+  Piscinas: 'portfolio.category.pools',
 };
 
 interface ProjectDetailClientProps {
@@ -105,6 +106,28 @@ export function ProjectDetailClient({ project, prevProject, nextProject }: Proje
           </motion.div>
         </div>
       </section>
+
+      {/* Video del proyecto (sin sonido) */}
+      {project.video && (
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative aspect-video overflow-hidden rounded-lg bg-gray-100"
+          >
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              aria-label={`Video del proyecto ${project.label}`}
+            />
+          </motion.div>
+        </section>
+      )}
 
       {/* Galería grande con auto-slide y lightbox al hacer clic */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">

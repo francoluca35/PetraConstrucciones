@@ -55,6 +55,7 @@ const translationsEs: Record<string, string> = {
     'portfolio.next': 'Siguiente',
     'portfolio.category.residential': 'Residencial',
     'portfolio.category.design': 'Diseño',
+    'portfolio.category.pools': 'Piscinas',
     'portfolio.desc.lote43': 'Vivienda unifamiliar de diseño contemporáneo con acabados de primera calidad.',
     'portfolio.desc.merida': 'Casa moderna con líneas arquitectónicas definidas.',
     'portfolio.desc.5020': 'Residencia unifamiliar con piscina y vista amplia.',
@@ -63,8 +64,8 @@ const translationsEs: Record<string, string> = {
     // Services preview (home)
     'services.title': 'Nuestros servicios',
     'services.badge': 'Nuestros Servicios',
-    'services.heading': 'Excelencia en cada',
-    'services.headingItalic': 'tipo de obra',
+    'services.heading': 'Nuestros servicios',
+    'services.headingItalic': 'de construcción',
     'services.lead': 'Más de 17 años de experiencia nos respaldan. Cada proyecto es una oportunidad para superar expectativas.',
     'services.subtitle': 'Soluciones integrales en construcción, planificación y gestión de proyectos.',
     'services.seeMore': 'Ver más',
@@ -304,5 +305,8 @@ const translationsEs: Record<string, string> = {
     'project.edificio-one-rose.f2': 'Gimnasio',
     'project.edificio-one-rose.f3': 'Piscina',
     'project.edificio-one-rose.f4': 'Jardín',
+    'project.piscinas.description': 'Algunas de nuestras piscinas',
+    'project.piscinas.f1': 'Piscina climatizada',
+    'project.piscinas.f2': 'Luces internas',
 };
 export default translationsEs;
