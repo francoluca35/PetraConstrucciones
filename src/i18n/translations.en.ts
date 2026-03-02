@@ -129,6 +129,7 @@ const translationsEn: Record<string, string> = {
     'contactPage.message': 'Message *',
     'contactPage.messagePlaceholder': 'Tell us about your project...',
     'contactPage.send': 'Send Message',
+    'contactPage.responseTime': 'We will respond as soon as possible.',
     'contactPage.mapTitle': 'Find us in Mérida',
 
     'aboutPage.hero': 'About Us',

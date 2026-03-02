@@ -14,11 +14,15 @@ export async function POST(req: Request) {
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
 
-    if (!host || !user || !pass) {
+    const missing: string[] = [];
+    if (!host) missing.push('SMTP_HOST');
+    if (!user) missing.push('SMTP_USER');
+    if (!pass) missing.push('SMTP_PASS');
+
+    if (missing.length > 0) {
       return NextResponse.json(
         {
-          error:
-            'Configuración SMTP incompleta. En Vercel: Project → Settings → Environment Variables → agregá SMTP_HOST, SMTP_USER, SMTP_PASS (y opcional SMTP_PORT, SMTP_SECURE, SMTP_FROM, SMTP_TO). Luego hacé un nuevo deploy.',
+          error: `Configuración SMTP incompleta. Faltan: ${missing.join(', ')}. En Vercel: Settings → Environment Variables → agregá esas variables (Production y Preview) y hacé Redeploy.`,
         },
         { status: 503 }
       );
