@@ -65,7 +65,7 @@ export function ContactPreview() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">Email</p>
-                  <p className="text-lg font-medium">cipronet@hotmail.com</p>
+                  <a href="mailto:consultas@constructoraconesa.com" className="text-lg font-medium hover:text-[var(--petra-gold)] hover:underline transition-colors">consultas@constructoraconesa.com</a>
                 </div>
               </motion.div>
 

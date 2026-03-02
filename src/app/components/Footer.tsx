@@ -55,7 +55,7 @@ export function Footer() {
               </li>
               <li className="flex items-center text-gray-300">
                 <Mail size={18} className="mr-2 text-[var(--petra-gold)]" />
-                <span className="text-sm">cipronet@hotmail.com</span>
+                <a href="mailto:consultas@constructoraconesa.com" className="text-sm hover:text-[var(--petra-gold)] hover:underline transition-colors">consultas@constructoraconesa.com</a>
               </li>
               <li className="flex items-start text-gray-300">
                 <MapPin size={18} className="mr-2 mt-1 text-[var(--petra-gold)] flex-shrink-0" />

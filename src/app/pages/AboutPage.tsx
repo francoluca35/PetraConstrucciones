@@ -28,7 +28,7 @@ const profile = {
   name: 'Ing. Carlos Iván Pimentel Rodríguez',
   cedulaNumber: '2813323',
   phone: '+52 999 994 4498',
-  email: 'cipronet@hotmail.com',
+  email: 'consultas@constructoraconesa.com',
 };
 
 const formationKeys = ['aboutPage.formation1', 'aboutPage.formation2', 'aboutPage.formation3'] as const;

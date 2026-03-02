@@ -16,11 +16,48 @@ export function ContactPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    if (loading) return;
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data?.error || 'No se pudo enviar el mensaje. Intenta nuevamente.');
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
+      setTimeout(() => setSubmitted(false), 4000);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Ocurrió un error inesperado.';
+      setError(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -101,7 +138,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-[var(--petra-navy)] mb-1 uppercase tracking-wide">{t('contactPage.email')}</h3>
-                    <p className="text-gray-600">cipronet@hotmail.com</p>
+                    <a href="mailto:consultas@constructoraconesa.com" className="text-gray-600 hover:text-[var(--petra-gold)] hover:underline transition-colors">consultas@constructoraconesa.com</a>
                   </div>
                 </motion.div>
 
@@ -155,6 +192,15 @@ export function ContactPage() {
                     className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-xl mb-6 text-sm font-medium"
                   >
                     {t('contactPage.success')}
+                  </motion.div>
+                )}
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl mb-6 text-sm font-medium"
+                  >
+                    {error}
                   </motion.div>
                 )}
 
@@ -232,9 +278,10 @@ export function ContactPage() {
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit"
-                    className="w-full px-6 py-4 bg-[var(--petra-navy)] text-white rounded-xl font-semibold hover:bg-[var(--petra-navy)]/90 shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:shadow-[0_0_24px_rgba(201,169,97,0.2)] border-2 border-transparent hover:border-[var(--petra-gold)]/30 transition-all flex items-center justify-center group"
+                    disabled={loading}
+                    className="w-full px-6 py-4 bg-[var(--petra-navy)] text-white rounded-xl font-semibold hover:bg-[var(--petra-navy)]/90 shadow-[0_8px_24px_rgba(15,15,15,0.25)] hover:shadow-[0_0_24px_rgba(201,169,97,0.2)] border-2 border-transparent hover:border-[var(--petra-gold)]/30 transition-all flex items-center justify-center group disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <span>{t('contactPage.send')}</span>
+                    <span>{loading ? 'Enviando…' : t('contactPage.send')}</span>
                     <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.button>
                 </form>
