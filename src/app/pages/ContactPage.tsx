@@ -284,6 +284,9 @@ export function ContactPage() {
                     <span>{loading ? 'Enviando…' : t('contactPage.send')}</span>
                     <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                   </motion.button>
+                  <p className="text-sm text-slate-500 mt-3 text-center">
+                    {t('contactPage.responseTime')}
+                  </p>
                 </form>
               </div>
             </motion.div>
