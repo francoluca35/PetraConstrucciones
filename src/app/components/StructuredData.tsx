@@ -14,11 +14,11 @@ export function StructuredData() {
     email: 'proyectos@conesaconstructora.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Calle 32-A por 9 y 11, Col. Maya',
+      streetAddress: 'C. 11, Maya',
       addressLocality: 'Mérida',
-      addressRegion: 'Yucatán',
+      addressRegion: 'Yuc.',
       addressCountry: 'MX',
-      postalCode: '97150',
+      postalCode: '97134',
     },
     geo: {
       '@type': 'GeoCoordinates',

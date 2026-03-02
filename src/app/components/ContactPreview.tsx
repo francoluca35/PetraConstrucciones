@@ -78,7 +78,7 @@ export function ContactPreview() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">Dirección</p>
-                  <p className="text-lg font-medium">Calle 32-A por 9 y 11, Col. Maya, Mérida, Yucatán, México</p>
+                  <p className="text-lg font-medium">C. 11, Maya, 97134 Mérida, Yuc., México</p>
                 </div>
               </motion.div>
             </div>

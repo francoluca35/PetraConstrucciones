@@ -151,8 +151,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-[var(--petra-navy)] mb-1 uppercase tracking-wide">{t('contactPage.address')}</h3>
-                    <p className="text-gray-600">Calle 32-A por 9 y 11 No. 607-A</p>
-                    <p className="text-gray-600">Col. Maya, 97134 Mérida, Yucatán, México</p>
+                    <p className="text-gray-600">C. 11, Maya, 97134 Mérida, Yuc., México</p>
                   </div>
                 </motion.div>
 

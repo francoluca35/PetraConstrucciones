@@ -42,7 +42,7 @@ const translationsEs: Record<string, string> = {
     'contact.phone': 'Teléfono',
     'contact.email': 'Email',
     'contact.address': 'Dirección',
-    'contact.addressLine': 'Calle 32-A por 9 y 11, Col. Maya, Mérida, Yucatán, México',
+    'contact.addressLine': 'C. 11, Maya, 97134 Mérida, Yuc., México',
     'contact.seeMore': 'Contáctanos',
 
     // Portfolio preview (home)

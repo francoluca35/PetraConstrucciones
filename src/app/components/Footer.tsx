@@ -59,7 +59,7 @@ export function Footer() {
               </li>
               <li className="flex items-start text-gray-300">
                 <MapPin size={18} className="mr-2 mt-1 text-[var(--petra-gold)] flex-shrink-0" />
-                <span className="text-sm">Calle 32-A por 9 y 11 No. 607-A, Col. Maya, 97134 Mérida, Yucatán, México</span>
+                <span className="text-sm">C. 11, Maya, 97134 Mérida, Yuc., México</span>
               </li>
             </ul>
           </motion.div>
@@ -74,8 +74,11 @@ export function Footer() {
             <h3 className="text-[var(--petra-gold)] mb-4">{t('footer.follow')}</h3>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61587767558603"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                aria-label="Conesa Constructora en Facebook"
               >
                 <Facebook size={20} />
               </a>
