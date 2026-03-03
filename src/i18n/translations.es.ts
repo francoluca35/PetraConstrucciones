@@ -5,6 +5,7 @@ const translationsEs: Record<string, string> = {
     'nav.portfolio': 'PORTFOLIO',
     'nav.contact': 'CONTACTO',
     'nav.closeMenu': 'Cerrar menú',
+    'nav.openMenu': 'Abrir menú',
 
     // Hero
     'hero.subtitle': 'construyendo tus sueños',
