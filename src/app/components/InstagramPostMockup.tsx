@@ -6,20 +6,23 @@ import { Heart, MessageCircle, Send, MoreHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { projects } from '@/src/data/projects';
 
+const POST_IMAGE_FRENTE = '/Assets/Proyecto-2/frente4.png';
+
 const projectImages = projects
   .slice(0, 4)
   .flatMap((p) => (p.gallery?.length ? p.gallery[0] : p.image));
 
+const images = [POST_IMAGE_FRENTE, ...(projectImages.length ? projectImages : ['/Assets/service.avif'])];
+
 export function InstagramPostMockup() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = projectImages.length ? projectImages : ['/Assets/service.avif'];
 
   useEffect(() => {
     const t = setInterval(() => {
       setCurrentIndex((i) => (i + 1) % images.length);
     }, 3000);
     return () => clearInterval(t);
-  }, [images.length]);
+  }, []);
 
   return (
     <div
@@ -53,7 +56,7 @@ export function InstagramPostMockup() {
         </button>
       </div>
 
-      {/* Área de la imagen del posteo — fotos de proyectos */}
+      {/* Área de la imagen del posteo — carrusel: frente4 + fotos de proyectos */}
       <div className="relative aspect-square w-full bg-[#1a1a1a]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
@@ -64,10 +67,12 @@ export function InstagramPostMockup() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img
+            <Image
               src={images[currentIndex]}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="320px"
+              className="object-cover"
             />
           </motion.div>
         </AnimatePresence>
