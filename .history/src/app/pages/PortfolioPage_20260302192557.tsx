@@ -61,20 +61,18 @@ export function PortfolioPage() {
               className={`group ${index % 2 === 1 ? 'lg:mt-20' : ''}`}
             >
               <Link href={`/portfolio/${project.slug}`} className="block">
-                <div className="relative overflow-visible">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[var(--petra-navy)] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)]">
-                    <Image
-                      src={project.image}
-                      alt={project.label}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--petra-gold)]/50 transition-colors duration-500" aria-hidden />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden />
-                  </div>
-                  {/* Etiqueta desktop: sobresale por abajo e izquierda (oculta en móvil) */}
-                  <div className="hidden lg:block absolute -bottom-5 left-4 z-10 w-max">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[var(--petra-navy)] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)]">
+                  <Image
+                    src={project.image}
+                    alt={project.label}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--petra-gold)]/50 transition-colors duration-500" aria-hidden />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden />
+                  {/* Etiqueta desktop: mitad fuera */}
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 lg:left-6 lg:translate-x-0 z-10 w-max">
                     <div className="px-6 py-4 bg-white/95 backdrop-blur-sm shadow-xl border-l-4 border-[var(--petra-gold)]">
                       <p className="text-xs uppercase tracking-[0.2em] text-[var(--petra-gold)] font-semibold">
                         {project.category ? t(categoryToKey[project.category] ?? 'portfolioPage.categoryProject') : t('portfolioPage.categoryProject')}
@@ -86,14 +84,14 @@ export function PortfolioPage() {
                   </div>
                 </div>
                 {/* Móvil/tablet: texto debajo */}
-                <div className="mt-5 lg:hidden">
+                {/* <div className="mt-5 lg:hidden">
                   <p className="text-xs uppercase tracking-[0.2em] text-[var(--petra-gold)] font-semibold">
                     {project.category ? t(categoryToKey[project.category] ?? 'portfolioPage.categoryProject') : t('portfolioPage.categoryProject')}
                   </p>
                   <p className="text-xl font-bold text-[var(--petra-navy)] tracking-tight mt-1">
                     {project.label}
                   </p>
-                </div>
+                </div> */}
               </Link>
             </motion.article>
           ))}

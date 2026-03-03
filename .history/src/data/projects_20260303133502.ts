@@ -53,19 +53,14 @@ export const projects: Project[] = [
     label: 'OFICINAS EN MERIDA',
     image: '/Assets/Proyecto-2/frente.png',
     gallery: [
-      '/Assets/Proyecto-2/frente.png',
-      '/Assets/Proyecto-2/frente2.png',
-      '/Assets/Proyecto-2/frente3.png',
-      '/Assets/Proyecto-2/lateral.jpeg',
-      '/Assets/Proyecto-2/laterald.jpeg',
-      '/Assets/Proyecto-2/laterali.jpeg',
-      '/Assets/Proyecto-2/fondo.jpeg',
+      '/Assets/Proyecto-2/frente.png'
+      
     ],
     category: 'Oficinas',
-    description: 'El proyecto se caracteriza por una volumetría horizontal limpia y equilibrada, donde predominan líneas rectas, planos puros y una composición arquitectónica sobria. La fachada combina muros blancos, revestimientos pétreos naturales, elementos de vidrio y detalles metálicos, generando una imagen institucional elegante y atemporal.',
+    description: 'Proyecto de construcción oficinas con estructura de acero. Obra ejecutada en plazo récord.',
     location: 'Merida, Mexico',
     year: '2024',
-    features: ['700m²', 'Fachada ventilada', 'Parking'],
+    features: ['2.500m²', 'Estructura metálica', 'Fachada ventilada', 'Parking subterráneo'],
   },
  
   {
@@ -77,7 +72,7 @@ export const projects: Project[] = [
       '/Assets/Proyecto-6/casa-moderna-mexico-merida-yucatan-trasero.avif',
     ],
     category: 'Residencial',
-    description: 'Vivienda de diseño contemporáneo desarrollada bajo conceptos minimalistas, con volúmenes definidos, grandes superficies vidriadas y terminaciones de alto nivel que priorizan la conexión entre interior y exterior.',
+    description: 'Villa de lujo con Piscina. Acabados premium y diseño exclusivo.',
     location: 'Chicxulub, Yucatán, México',
     year: '2024',
     features: ['450m²', 'Piscina infinity', 'Home cinema', 'Bodega'],
@@ -111,7 +106,7 @@ export const projects: Project[] = [
 
     ],
     category: 'Piscinas',
-    description: 'Cada una de nuestras piscinas nace de la combinación entre diseño, calidad y bienestar. Creamos espacios únicos pensados para disfrutar, relajarse y transformar cada momento en una experiencia inolvidable, donde el agua, la arquitectura y el entorno se integran en perfecta armonía.',
+    description: 'Algunas de nuestras piscinas',
     location: 'Mérida, Yucatán, México',
     year: '2024',
     features: ['Piscina climatizada', 'Luces internas'],

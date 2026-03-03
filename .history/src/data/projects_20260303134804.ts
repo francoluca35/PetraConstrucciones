@@ -77,7 +77,7 @@ export const projects: Project[] = [
       '/Assets/Proyecto-6/casa-moderna-mexico-merida-yucatan-trasero.avif',
     ],
     category: 'Residencial',
-    description: 'Vivienda de diseño contemporáneo desarrollada bajo conceptos minimalistas, con volúmenes definidos, grandes superficies vidriadas y terminaciones de alto nivel que priorizan la conexión entre interior y exterior.',
+    description: 'Villa de lujo con Piscina. Acabados premium y diseño exclusivo.',
     location: 'Chicxulub, Yucatán, México',
     year: '2024',
     features: ['450m²', 'Piscina infinity', 'Home cinema', 'Bodega'],
@@ -111,7 +111,7 @@ export const projects: Project[] = [
 
     ],
     category: 'Piscinas',
-    description: 'Cada una de nuestras piscinas nace de la combinación entre diseño, calidad y bienestar. Creamos espacios únicos pensados para disfrutar, relajarse y transformar cada momento en una experiencia inolvidable, donde el agua, la arquitectura y el entorno se integran en perfecta armonía.',
+    description: 'Algunas de nuestras piscinas',
     location: 'Mérida, Yucatán, México',
     year: '2024',
     features: ['Piscina climatizada', 'Luces internas'],
