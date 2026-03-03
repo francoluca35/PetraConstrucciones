@@ -56,6 +56,7 @@ const translationsEn: Record<string, string> = {
     'portfolio.desc.merida': 'Contemporary design residence developed under minimalist concepts, with defined volumes, large glazed surfaces and high-end finishes that prioritize the connection between interior and exterior.',
     'portfolio.desc.5020': 'Single-family residence with pool and wide view.',
     'portfolio.desc.lote101': 'The project is characterized by clean, balanced horizontal volumetry, with predominant straight lines, pure planes and a sober architectural composition. The facade combines white walls, natural stone cladding, glass elements and metallic details, creating an elegant and timeless institutional image.',
+    'portfolio.desc.piscinas': 'Each of our pools is born from the combination of design, quality and wellbeing. We create unique spaces designed to enjoy, relax and turn every moment into an unforgettable experience, where water, architecture and the environment come together in perfect harmony.',
 
     'services.title': 'Our services',
     'services.badge': 'Our Services',

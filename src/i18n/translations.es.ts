@@ -61,6 +61,7 @@ const translationsEs: Record<string, string> = {
     'portfolio.desc.merida': 'Vivienda de diseño contemporáneo desarrollada bajo conceptos minimalistas, con volúmenes definidos, grandes superficies vidriadas y terminaciones de alto nivel que priorizan la conexión entre interior y exterior.',
     'portfolio.desc.5020': 'Residencia unifamiliar con piscina y vista amplia.',
     'portfolio.desc.lote101': 'El proyecto se caracteriza por una volumetría horizontal limpia y equilibrada, donde predominan líneas rectas, planos puros y una composición arquitectónica sobria. La fachada combina muros blancos, revestimientos pétreos naturales, elementos de vidrio y detalles metálicos, generando una imagen institucional elegante y atemporal.',
+    'portfolio.desc.piscinas': 'Cada una de nuestras piscinas nace de la combinación entre diseño, calidad y bienestar. Creamos espacios únicos pensados para disfrutar, relajarse y transformar cada momento en una experiencia inolvidable, donde el agua, la arquitectura y el entorno se integran en perfecta armonía.',
 
     // Services preview (home)
     'services.title': 'Nuestros servicios',
