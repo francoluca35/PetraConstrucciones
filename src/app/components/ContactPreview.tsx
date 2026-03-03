@@ -43,18 +43,20 @@ export function ContactPreview() {
             </p>
 
             <div className="space-y-5 mb-8">
-              <motion.div
+              <motion.a
+                href="tel:+529991187418"
                 whileHover={{ x: 10 }}
-                className="flex items-center text-[var(--petra-navy)]"
+                className="flex items-center text-[var(--petra-navy)] hover:text-[var(--petra-gold)] transition-colors cursor-pointer"
+                aria-label="Llamar al +52 999 118 7418"
               >
                 <div className="w-12 h-12 border-2 border-[var(--petra-gold)] bg-white rounded-full flex items-center justify-center mr-4 text-[var(--petra-gold)] shadow-sm">
                   <Phone size={20} strokeWidth={2} />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-700 uppercase tracking-wide">Teléfono</p>
-                  <p className="text-lg font-medium">+52 999 994 4498</p>
+                  <p className="text-lg font-medium">+52 999 118 7418</p>
                 </div>
-              </motion.div>
+              </motion.a>
 
               <motion.div
                 whileHover={{ x: 10 }}

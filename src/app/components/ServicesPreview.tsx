@@ -7,9 +7,9 @@ import { ArrowUpRight, Home, Building2, Waves, Landmark, Hammer } from 'lucide-r
 import { useLanguage } from '@/src/context/LanguageContext';
 
 const SERVICE_IMAGES = {
-  viviendas: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-  oficinas: 'https://images.unsplash.com/photo-1497366216548-37526070297c',
-  piscinas: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7',
+  viviendas: '/Assets/casa-construccion2.jpg',
+  oficinas: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2',
+  piscinas: '/Assets/Proyecto-7/4.jpg',
   civiles: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd',
   municipales: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5',
   remodelaciones: 'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8',
@@ -137,7 +137,7 @@ function ServiceCard({
 
         {/* Overlay gradiente fijo abajo: todo el contenido aquí */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/95 from-40% via-black/50 to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-black/65 from-40% via-black/0 to-transparent"
           aria-hidden
         />
         <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
