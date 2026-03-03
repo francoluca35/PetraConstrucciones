@@ -283,7 +283,8 @@ export function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ type: 'tween', duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-50 flex flex-col bg-[var(--petra-navy)] md:hidden"
+            className="fixed inset-0 z-50 flex h-dvh max-h-dvh flex-col overflow-hidden bg-[var(--petra-navy)] md:hidden"
+            style={{ touchAction: 'none' }}
           >
             {/* Header: logo centrado + X derecha */}
             <div className="relative flex items-center justify-center px-6 pt-10 pb-5">
