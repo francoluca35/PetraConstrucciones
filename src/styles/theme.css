@@ -47,6 +47,8 @@
   --petra-gold-bright: #d4af37;
   --petra-gold-light: #e5c76b;
   --petra-gold-dark: #9b814a;
+  /* Gold with sufficient contrast on white (WCAG AA): use for text/links on light backgrounds */
+  --petra-gold-text-on-light: #7d6a3a;
   --petra-navy-dark: #1a252f;
   /* Luxury effects */
   --petra-glow-gold: 0 0 20px rgba(212, 175, 55, 0.25);

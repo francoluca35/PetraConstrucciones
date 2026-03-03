@@ -239,32 +239,35 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setLocale('es')}
-                className={`rounded-full w-9 h-9 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
+                className={`rounded-full min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
                   locale === 'es' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40 hover:border-white/70'
                 }`}
                 aria-label="Español (México)"
                 title="Español"
               >
-                <img src="https://flagcdn.com/w40/mx.png" alt="Bandera México" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
               </button>
               <button
                 type="button"
                 onClick={() => setLocale('en')}
-                className={`rounded-full w-9 h-9 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
+                className={`rounded-full min-w-[44px] min-h-[44px] w-10 h-10 flex items-center justify-center overflow-hidden border-2 transition-all focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-transparent ${
                   locale === 'en' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40 hover:border-white/70'
                 }`}
                 aria-label="English (USA)"
                 title="English"
               >
-                <img src="https://flagcdn.com/w40/us.png" alt="Bandera USA" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
               </button>
             </div>
           </div>
 
           {/* Mobile menu button */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label={isOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -329,22 +332,22 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => { setLocale('es'); setIsOpen(false); }}
-                className={`rounded-full w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
+                className={`rounded-full min-w-[44px] min-h-[44px] w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
                   locale === 'es' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40'
                 }`}
                 aria-label="Español (México)"
               >
-                <img src="https://flagcdn.com/w40/mx.png" alt="Bandera México" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/mx.png" alt="" className="w-full h-full object-cover" />
               </button>
               <button
                 type="button"
                 onClick={() => { setLocale('en'); setIsOpen(false); }}
-                className={`rounded-full w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
+                className={`rounded-full min-w-[44px] min-h-[44px] w-12 h-12 flex items-center justify-center overflow-hidden border-2 transition-all ${
                   locale === 'en' ? 'border-[var(--petra-gold)] ring-2 ring-[var(--petra-gold)]' : 'border-white/40'
                 }`}
                 aria-label="English (USA)"
               >
-                <img src="https://flagcdn.com/w40/us.png" alt="Bandera USA" className="w-full h-full object-cover" />
+                <img src="https://flagcdn.com/w40/us.png" alt="" className="w-full h-full object-cover" />
               </button>
             </div>
           </motion.div>

@@ -4,6 +4,7 @@ const translationsEn: Record<string, string> = {
     'nav.portfolio': 'PORTFOLIO',
     'nav.contact': 'CONTACT',
     'nav.closeMenu': 'Close menu',
+    'nav.openMenu': 'Open menu',
 
     'hero.subtitle': 'building your dreams',
     'hero.typewriter1': 'CIVIL AND COMMERCIAL CONSTRUCTION',

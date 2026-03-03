@@ -96,11 +96,13 @@ export function GalleryPage() {
                 key={category}
                 type="button"
                 onClick={() => setFilter(category)}
-                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
+                className={`rounded-full px-5 py-3 min-h-[44px] text-sm font-medium transition-all duration-300 ${
                   filter === category
                     ? 'bg-[var(--petra-gold)] text-[var(--petra-navy)]'
                     : 'text-white/70 hover:bg-white/10 hover:text-white'
                 }`}
+                aria-label={t(CATEGORY_KEYS[i])}
+                aria-pressed={filter === category}
               >
                 {t(CATEGORY_KEYS[i])}
               </button>
@@ -123,6 +125,7 @@ export function GalleryPage() {
               whileHover={{ y: -4 }}
               className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/5 text-left focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-[#0a0a0b]"
               onClick={() => setSelectedImage(filteredImages.indexOf(image))}
+              aria-label={`${t(image.titleKey)} - ${t(image.categoryKey)}`}
             >
               {image.type === 'video' ? (
                 <video

@@ -77,20 +77,22 @@ export function Footer() {
                 href="https://www.facebook.com/profile.php?id=61587767558603"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
                 aria-label="Conesa Constructora en Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                aria-label="Conesa Constructora en Instagram"
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] bg-[var(--petra-gold)] rounded-full flex items-center justify-center hover:bg-[var(--petra-gold-light)] transition-colors"
+                aria-label="Conesa Constructora en LinkedIn"
               >
                 <Linkedin size={20} />
               </a>

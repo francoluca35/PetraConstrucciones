@@ -91,21 +91,24 @@ export function GalleryPreview() {
       </AnimatePresence>
 
       {/* Indicadores de slide: estilo premium */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2.5 w-full max-w-[240px] px-4">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2.5 w-full max-w-[240px] px-4 items-center">
         {galleryImages.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setCurrentIndex(i)}
-            className="flex-1 h-[2px] bg-white/20 rounded-full overflow-hidden min-w-0 transition-colors duration-300 hover:bg-white/40"
+            className="flex-1 min-h-[44px] min-w-[44px] py-5 flex items-center rounded-full transition-colors duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-[var(--petra-navy)]"
             aria-label={`Ir a imagen ${i + 1}`}
+            aria-current={i === currentIndex ? 'true' : undefined}
           >
-            <div
-              className="h-full bg-gradient-to-r from-[var(--petra-gold-dark)] to-[var(--petra-gold)] rounded-full transition-none"
-              style={{
-                width: i < currentIndex ? '100%' : i === currentIndex ? `${progress * 100}%` : '0%',
-              }}
-            />
+            <span className="w-full h-[2px] bg-white/20 rounded-full overflow-hidden block" aria-hidden>
+              <span
+                className="h-full bg-gradient-to-r from-[var(--petra-gold-dark)] to-[var(--petra-gold)] rounded-full block transition-none"
+                style={{
+                  width: i < currentIndex ? '100%' : i === currentIndex ? `${progress * 100}%` : '0%',
+                }}
+              />
+            </span>
           </button>
         ))}
       </div>

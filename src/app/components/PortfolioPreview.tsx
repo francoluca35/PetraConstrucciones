@@ -165,17 +165,23 @@ export function PortfolioPreview() {
               >
                 <ChevronRight size={22} strokeWidth={2} />
               </button>
-              <div className="flex gap-1.5 ml-2">
+              <div className="flex gap-1.5 ml-2 items-center">
                 {portfolioItems.map((_, i) => (
                   <button
                     key={i}
                     type="button"
                     onClick={() => setCurrentIndex(i)}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      i === currentIndex ? 'w-6 bg-[var(--petra-gold)]' : 'w-1 bg-gray-300 hover:bg-gray-400'
-                    }`}
+                    className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-full transition-colors duration-300 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2"
                     aria-label={`Ir a proyecto ${i + 1}`}
-                  />
+                    aria-current={i === currentIndex ? 'true' : undefined}
+                  >
+                    <span
+                      className={`block rounded-full transition-all duration-300 ${
+                        i === currentIndex ? 'w-6 h-1 bg-[var(--petra-gold)]' : 'w-1 h-1 bg-gray-300'
+                      }`}
+                      aria-hidden
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -184,11 +190,12 @@ export function PortfolioPreview() {
             <Link
               href={`/portfolio/${item.slug}`}
               className="group inline-flex items-center gap-3 text-[var(--petra-gold)] font-semibold tracking-wide hover:gap-5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--petra-gold)] focus:ring-offset-2 focus:ring-offset-white"
+              aria-label={`${t('portfolio.viewProject')} - ${item.title}`}
             >
               <span className="border-b-2 border-current pb-0.5">
                 {t('portfolio.viewProject')}
               </span>
-              <ArrowRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
             </Link>
           </div>
         </div>
@@ -202,10 +209,11 @@ export function PortfolioPreview() {
           </p>
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-2 px-6 py-3 border-2 border-[var(--petra-navy)] text-[var(--petra-navy)] font-semibold tracking-wide hover:bg-[var(--petra-navy)] hover:text-white transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-6 py-3 min-h-[44px] border-2 border-[var(--petra-navy)] text-[var(--petra-navy)] font-semibold tracking-wide hover:bg-[var(--petra-navy)] hover:text-white transition-all duration-300"
+            aria-label={t('portfolio.seeMore')}
           >
             {t('portfolio.seeMore')}
-            <ArrowRight size={18} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white" />
+            <ArrowRight size={18} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white" aria-hidden />
           </Link>
         </div>
       </div>
