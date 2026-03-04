@@ -6,7 +6,7 @@ import { Heart, MessageCircle, Send, MoreHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { projects } from '@/src/data/projects';
 
-const POST_IMAGE_FRENTE = '/Assets/Proyecto-2/frente4.png';
+const POST_IMAGE_FRENTE = '/Assets/Proyecto-2/frente41.png';
 
 const projectImages = projects
   .slice(0, 4)

@@ -51,10 +51,10 @@ export const projects: Project[] = [
   {
     slug: 'lote-101',
     label: 'OFICINAS EN MERIDA',
-    image: '/Assets/Proyecto-2/frente4.png',
+    image: '/Assets/Proyecto-2/frente41.png',
     gallery: [
       '/Assets/Proyecto-2/frente.png',
-      '/Assets/Proyecto-2/frente4.png',
+      '/Assets/Proyecto-2/frente41.png',
       '/Assets/Proyecto-2/lateral.jpeg',
       '/Assets/Proyecto-2/laterald.jpeg',
       '/Assets/Proyecto-2/laterali.jpeg',
