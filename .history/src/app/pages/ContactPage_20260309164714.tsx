@@ -309,7 +309,7 @@ export function ContactPage() {
           </motion.div>
           <div className="w-full h-96 bg-gray-200 rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.12)] border border-gray-100">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.4741632151787!2d-89.57742711640567!3d21.018629550014786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567738ad5d265b%3A0x562b51bb789b0127!2sCONSTRUCTORA%20ESTRATEGIA%20CONESA%20S.A.!5e0!3m2!1ses!2sar!4v1773085618181!5m2!1ses!2sar"
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.4741632151787!2d-89.57742711640567!3d21.018629550014786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f567738ad5d265b%3A0x562b51bb789b0127!2sCONSTRUCTORA%20ESTRATEGIA%20CONESA%20S.A.!5e0!3m2!1ses!2sar!4v1773085618181!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -317,7 +317,7 @@ export function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Conesa constructora - Mérida, Yucatán, México"
-            />
+            ></iframe>
           </div>
         </div>
       </section>

@@ -87,9 +87,9 @@ export const projects: Project[] = [
     image: '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
     gallery: [
       '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
-      '/Assets/Proyecto-4/2.jpg',
-      '/Assets/Proyecto-4/3.jpg',
-      '/Assets/Proyecto-4/4.jpeg',
+      '/Assets/Proyecto-5/2.jpeg',
+      '/Assets/Proyecto-5/3.jpeg',
+      '/Assets/Proyecto-5/4.jpeg',
     
     ],
     category: 'Residencial',

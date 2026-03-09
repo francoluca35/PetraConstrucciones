@@ -51,7 +51,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-300">
                 <Phone size={18} className="mr-2 text-[var(--petra-gold)]" />
-                <span className="text-sm">+52 999 118 7418</span>
+                <span className="text-sm">+52 999 994 4498</span>
               </li>
               <li className="flex items-center text-gray-300">
                 <Mail size={18} className="mr-2 text-[var(--petra-gold)]" />
@@ -59,7 +59,7 @@ export function Footer() {
               </li>
               <li className="flex items-start text-gray-300">
                 <MapPin size={18} className="mr-2 mt-1 text-[var(--petra-gold)] flex-shrink-0" />
-                <span className="text-sm">Calle 11,Numero 607 Colonia Maya, 97134 Mérida, México</span>
+                <span className="text-sm">Calle 11,Numero 607 Colonia Maya, 97134 Mérida, Yuc., México</span>
               </li>
             </ul>
           </motion.div>

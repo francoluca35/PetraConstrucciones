@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'lote-43',
-    label: 'RESIDENCIALES',
+    label: 'RESIDENCIA YUCATAN',
     image: '/Assets/Proyecto-3/casa-moderna-mexico-1.avif',
     gallery: [
       '/Assets/Proyecto-3/casa-moderna-mexico-1.avif',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'ResidenciaMerida',
-    label: 'RESIDENCIALES',
+    label: 'RESIDENCIA MERIDA',
     image: '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.avif',
     gallery: [
       '/Assets/Proyecto-1/casa-moderna-merida-yucatan-1.avif',
@@ -55,9 +55,7 @@ export const projects: Project[] = [
     gallery: [
      
       '/Assets/Proyecto-2/frente41.png',
-
-      '/Assets/Proyecto-2/laterald.jpeg',
-      '/Assets/Proyecto-2/laterali.jpeg',
+      
       '/Assets/Proyecto-2/fondo.jpeg',
     ],
     category: 'Oficinas',
@@ -69,7 +67,7 @@ export const projects: Project[] = [
  
   {
     slug: 'proyecto-residencial',
-    label: 'RESIDENCIALES',
+    label: 'RESIDENCIA MX',
     image: '/Assets/Proyecto-6/casa-moderna-mexico-yucatan-merida-frente.avif',
     gallery: [
       '/Assets/Proyecto-6/casa-moderna-mexico-yucatan-merida-frente.avif',
@@ -83,13 +81,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'edificio-one-rose',
-    label: 'RESIDENCIALES',
-    image: '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
+    label: 'RESIDENCIA GUADALAJARA',
+    image: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif',
     gallery: [
-      '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
-      '/Assets/Proyecto-4/2.jpg',
-      '/Assets/Proyecto-4/3.jpg',
-      '/Assets/Proyecto-4/4.jpeg',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-2.avif',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-3.avif',
     
     ],
     category: 'Residencial',

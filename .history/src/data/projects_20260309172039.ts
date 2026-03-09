@@ -84,12 +84,11 @@ export const projects: Project[] = [
   {
     slug: 'edificio-one-rose',
     label: 'RESIDENCIALES',
-    image: '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
+    image: '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif',
     gallery: [
-      '/Assets/Proyecto-4/casa-moderna-mexico-merida-patio-trasero.avif',
-      '/Assets/Proyecto-4/2.jpg',
-      '/Assets/Proyecto-4/3.jpg',
-      '/Assets/Proyecto-4/4.jpeg',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-1.avif',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-2.avif',
+      '/Assets/Proyecto-5/casa-moderna-mexico-tijuana-3.avif',
     
     ],
     category: 'Residencial',
